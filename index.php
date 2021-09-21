@@ -1,12 +1,7 @@
 <?php 
 
-include "./class/userClass.php";
 
-if (isset($_POST['submit'])) {
-	$user = new UserClass($_POST['username'], $_POST['password']);
-	$user->login();
-	$user->getData();
-}
+
 
 
  ?>
@@ -35,26 +30,25 @@ if (isset($_POST['submit'])) {
  	</head>
  	<body>
 
- 		<div class="container">
- 			<div class="col-md-6 offset-md-3 border">
- 				<div class="col-md-12 text-center">
- 					<h1>login</h1>
- 					<hr style="min-height: 3px;">
+ 		<div class="container-fluid">
+ 			<div class="nav">
+ 				<div class="nav-item">
+ 					<h1>nav</h1>
  				</div>
- 				<form method="POST" >
- 					<div class="form-group">
- 						<small>Enter username.</small>
- 						<input type="text" name="username" class="form-control" placeholder="username">
- 					</div>
- 					<div class="form-group">
- 						<small>Enter password</small>
- 						<input type="password" name="password" class="form-control" placeholder="password">
- 					</div>
- 					<div class="form-group">
- 						<button class="btn btn-block btn-success" name="submit">login</button>
- 					</div>
- 				</form>
- 				
+ 			</div>
+ 		</div>
+
+ 		<div class="container">
+ 			<div class="row">
+ 				<div class="col-md-12 text-center">
+ 					<h1>George marina</h1>
+ 				</div>
+ 				<div class="col-md-6 text-center border" style="min-height: 60vh;">
+ 					<h1>left plane</h1>
+ 				</div>
+ 				<div class="col-md-6 text-center border" style="min-height: 60vh;">
+ 					<h1>right plane</h1>
+ 				</div>
  			</div>
  		</div>
 
