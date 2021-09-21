@@ -26,11 +26,11 @@
    		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
    		<!-- bootstrap js -->
    		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   		<!-- fontawsome -->
+   		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
  	</head>
  	<body>
-
-
 
  		<div class="container-fluid" style="border: 1px solid lightgray;">
  			<div class="nav-bar">
@@ -40,13 +40,37 @@
  			</div>
  		</div>
 
- 		<!-- <div class="reserveren" style="position: sticky; top: 10%;">
- 			<div class="col-md-2 bg-dark rounded text-white" style="min-height: 80vh;">
- 				<h1>reserveren</h1>
- 			</div>
- 		</div> -->
 
- 		<div class="reserveren bg-dark" style="position: fixed; top: 10vh; right: 0vw; min-height: 80vh; min-width: 20vw;">test</div>
+ 		<div class="reserveren bg-dark rounded">
+ 			<div class="icon">
+ 				<i class="far fa-window-close fa-2x icon2" style="padding: 7px; color: whitesmoke;" onclick="sidebar()"></i>
+ 			</div>
+ 			<div class="container-fluid text-white text-center reserverenElements">
+ 				<div class="row">
+ 					<div class="col-md-12">
+ 						<h1>Reserveren</h1>
+ 					</div>
+ 					<div class="col-md-12 text-left">
+ 						<small>Aantal personen:</small>
+ 						<select class="form-control">
+ 							<option>1</option>
+ 							<option>2</option>
+ 							<option>3</option>
+ 							<option>4</option>
+ 							<option>5</option>
+ 							<option>6</option>
+ 							<option>7</option>
+ 							<option>8</option>
+ 							<option>9</option>
+ 							<option>10</option>
+ 						</select>
+ 					</div>
+ 					<div class="col-md-12">
+ 						<h1>datum</h1>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
 
  		<div class="container-fluid" >
  			<div class="row">
@@ -69,5 +93,34 @@
 
  		<!-- link js scripts -->
  		<script src="./js/main.js"></script>
+ 		<script type="text/javascript">
+ 			$( document ).ready(function() {
+    			$(".reserveren").css("min-width", "0vw")
+ 					$(".reserveren").css("min-height", "0vw")
+ 					$(".reserveren").css("width", "3vw")
+ 					$(".reserveren").css("height", "3vw")
+ 					$(".reserverenElements").css("display", "none")
+ 					$(".icon2").attr("class", "fas fa-grip-lines fa-2x icon2")
+			});
+ 			function sidebar() {
+ 				if($(".reserveren").css("min-width") == "336px") {
+ 					$(".reserveren").css("min-width", "0vw")
+ 					$(".reserveren").css("min-height", "0vw")
+ 					$(".reserveren").css("width", "3vw")
+ 					$(".reserveren").css("height", "3vw")
+ 					$(".reserverenElements").css("display", "none")
+ 					$(".icon2").attr("class", "fas fa-grip-lines fa-2x icon2")
+ 				}else {
+ 					console.log($(".reserveren").css("min-width"))
+ 					$(".reserveren").css("min-width", "20vw")
+ 					$(".reserveren").css("width", "20vw")
+ 					$(".reserveren").css("min-height", "80vh")
+ 					$(".reserveren").css("height", "80vh")
+ 					$(".reserverenElements").css("display", "block")
+ 					$(".icon2").attr("class", "far fa-window-close fa-2x icon2")
+ 				}
+ 			
+ 			}
+ 		</script>
  	</body>
  </html>
