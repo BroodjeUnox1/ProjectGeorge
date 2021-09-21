@@ -11,7 +11,7 @@
 	<html lang="en">
  	<head>
  		<!-- Page title -->
-   		<title>George | Login page</title>
+   		<title>George | Homepage</title>
    		<!-- meta tags -->
    		<meta charset="utf-8">
    		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +19,7 @@
    		<!--  link & cdn's || bootstrap css -->
    		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
    		<!-- style.css -->
-   		<link rel="stylesheet" type="text/css" href="style.css">
+   		<link rel="stylesheet" type="text/css" href="homepage.css">
    		<!-- jQuery -->
    		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    		<!-- popper -->
@@ -92,35 +92,9 @@
  		
 
  		<!-- link js scripts -->
- 		<script src="./js/main.js"></script>
- 		<script type="text/javascript">
- 			$( document ).ready(function() {
-    			$(".reserveren").css("min-width", "0vw")
- 					$(".reserveren").css("min-height", "0vw")
- 					$(".reserveren").css("width", "3vw")
- 					$(".reserveren").css("height", "3vw")
- 					$(".reserverenElements").css("display", "none")
- 					$(".icon2").attr("class", "fas fa-grip-lines fa-2x icon2")
-			});
- 			function sidebar() {
- 				if($(".reserveren").css("min-width") == "336px") {
- 					$(".reserveren").css("min-width", "0vw")
- 					$(".reserveren").css("min-height", "0vw")
- 					$(".reserveren").css("width", "3vw")
- 					$(".reserveren").css("height", "3vw")
- 					$(".reserverenElements").css("display", "none")
- 					$(".icon2").attr("class", "fas fa-grip-lines fa-2x icon2")
- 				}else {
- 					console.log($(".reserveren").css("min-width"))
- 					$(".reserveren").css("min-width", "20vw")
- 					$(".reserveren").css("width", "20vw")
- 					$(".reserveren").css("min-height", "80vh")
- 					$(".reserveren").css("height", "80vh")
- 					$(".reserverenElements").css("display", "block")
- 					$(".icon2").attr("class", "far fa-window-close fa-2x icon2")
- 				}
+ 		<script src="main.js"></script>
+ 		<!-- <script type="text/javascript">
  			
- 			}
- 		</script>
+ 		</script> -->
  	</body>
  </html>
