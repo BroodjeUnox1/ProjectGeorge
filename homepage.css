@@ -19,3 +19,19 @@ body {
 	min-width: 20vw;
 	max-width: 20vw;
 }
+
+.border-black-bottom {
+	border-bottom: 1px solid black;
+}
+
+.border-black-top{
+	border-top: 1px solid black;
+}
+
+.border-black-left {
+	border-left: 1px solid black;
+}
+
+.border-black-right {
+	border-right: 1px solid black;
+}
