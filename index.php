@@ -1,5 +1,6 @@
-<?php 
-    ?>
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -71,9 +72,9 @@
                         MENU'S
                         <br>
                         <br>
-                        FOOD
+                        <a href="./documents/610a90208d041a26db60ceb7_Marina food.pdf" download>FOOD</a>
                         <br>
-                        DRINKS
+                        <a href="./documents/610a902eb3d85f07df110d35_Marina drinks.pdf" download>DRINKS</a>
                         <br>
                         <br>
                         <!-- rechter kant tweede gedeelte -->
