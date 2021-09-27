@@ -35,3 +35,13 @@ body {
 .border-black-right {
 	border-right: 1px solid black;
 }
+
+#food, #drinks {
+	text-decoration: none;
+	color: black;
+	transition: 300ms;
+}
+
+#food:hover, #drinks:hover{
+	opacity: 0.5;
+}
