@@ -1,8 +1,5 @@
 <?php 
 
-/**
- * 
- */
 class Bestel
 {	
 	public $data = [
@@ -35,6 +32,7 @@ class Bestel
 	{	
 		
 		// var_dump($_SESSION["mandje"]);
+
 		if (isset($_SESSION["mandje"])) {
 			$this->total();
 		}else {
@@ -80,7 +78,7 @@ class Bestel
 
 	public function total() {
 		foreach ($_SESSION['mandje'] as $key) {
-			$this->total += str_replace("$", '', $key["currency"]);
+			$this->total += (float)str_replace("$", '', $key["currency"]);
 		}
 		print('total: $'.$this->total);
 	}
