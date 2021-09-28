@@ -1,6 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@1&family=Libre+Baskerville:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@1&family=Libre+Baskerville:ital@1&family=Space+Grotesk&display=swap');
+
+
 body {
 	background-color: #FAF9F6;
 	min-height: 300vh;
+	-webkit-font-smoothing: antialiased;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
 }
 
 .border {
@@ -44,4 +53,56 @@ body {
 
 #food:hover, #drinks:hover{
 	opacity: 0.5;
+}
+.Heading_about{
+	font-family: 'Baskervville', sans-serif;
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: 40px;
+}
+
+.about_text {
+	font-family: 'Baskervville', sans-serif;
+	line-height: 1.2;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+em {
+	font-family: 'Baskervville', serif;
+	font-family: 'Libre Baskerville', serif;
+}
+
+.heading_2 {
+	font-family: 'Space Grotesk', sans-serif;
+	line-height: 1.1;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 48px;
+}
+
+small {
+	font-family: 'Baskervville', sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+/*.test {
+	color: black;
+	transition: 300ms;
+}
+
+.test:hover {
+  	-webkit-text-fill-color: white;
+  	-webkit-text-stroke-width: 1px;
+  	-webkit-text-stroke-color: black;
+}*/
+
+.blackToWhite {
+	color: black;
+	transition: 300ms;
+}
+.blackToWhite:hover {
+	color: white;
+  	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
