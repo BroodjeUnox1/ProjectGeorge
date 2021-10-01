@@ -33,4 +33,13 @@ if(isset($_POST["add"])) {
     <body>
         <?php $test->show(); ?>
     </body>
+    <script type="text/javascript">
+        function add(val1, val2){
+            $.post('./api/bestel.php', {name: val1, currency: val2}, function(response){
+                console.log(response)
+                location.reload();
+            })
+        }
+    </script>
+
 </html>
