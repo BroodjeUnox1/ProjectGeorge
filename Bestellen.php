@@ -41,10 +41,10 @@ if(isset($_POST["add"])) {
                 </button>
               </div>
               <div class="modal-body">
-                <p>gerechten hier</p>
+                
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-success">Reken af</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="toggle()">Close</button>
               </div>
             </div>
@@ -55,13 +55,28 @@ if(isset($_POST["add"])) {
     </body>
     <script type="text/javascript">
         function toggle() {
+            getData();
             $(".modal").toggle();
         }
-        
+
         function add(val1, val2){
             $.post('./api/bestel.php', {name: val1, currency: val2}, function(response){
                 console.log(response)
                 location.reload();
+            })
+        }
+
+        function getData(){
+            $.post('./api/getOrder.php', {name: "data"}, function(response){
+                let data = response;
+                const obj = JSON.parse(data);
+                let total = 0;
+                $(".modal-body").empty();
+                for (index of obj) {
+                    total += parseFloat(index.currency.replace("€",""));
+                    $(".modal-body").append('<div class="row"><div class="col-md-6">'+index.name+'</div><div class="col-md-6">'+index.currency+'</div></div>')
+                }
+                $(".modal-body").append('<div class="col-md-3 offset-md-9">Totaal: €'+total.toFixed(2)+'</div>')
             })
         }
     </script>
