@@ -1,14 +1,14 @@
 <?php 
-session_start();
-include "./class/bestelClass.php";
-$test= new Bestel();
-
-if(isset($_POST["add"])) {
-    // print($_POST['currency']);
-    // print($_POST['name']);
-    $test->add($_POST['name'], $_POST['currency']);
-}
-?>
+    session_start();
+    include "./class/bestelClass.php";
+    $test= new Bestel();
+    
+    if(isset($_POST["add"])) {
+        // print($_POST['currency']);
+        // print($_POST['name']);
+        $test->add($_POST['name'], $_POST['currency']);
+    }
+    ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -32,53 +32,66 @@ if(isset($_POST["add"])) {
     </head>
     <body>
         <div class="modal" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Bestelling</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="toggle()">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-success">Reken af</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="toggle()">Close</button>
-              </div>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Bestelling</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="toggle()">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success">Reken af</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="toggle()">Close</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <?php $test->show(); ?>
         <?php $test->total();?>
     </body>
     <script type="text/javascript">
         function toggle() {
+            //getting data and assigning it to the modal before opening
             getData();
+            //opening modal
             $(".modal").toggle();
         }
-
+        
         function add(val1, val2){
+            //api request to add to shopping basket
             $.post('./api/bestel.php', {name: val1, currency: val2}, function(response){
+                // see what response is
                 console.log(response)
+                // reloading page to update total price
                 location.reload();
             })
         }
-
+        
         function getData(){
+            // api call to get the data
             $.post('./api/getOrder.php', {name: "data"}, function(response){
+                // assigning data to the repsonse we got
                 let data = response;
+                // transfor the data in a usable array
                 const obj = JSON.parse(data);
+                // to get the total we set it to 0 and later add all prices
                 let total = 0;
+        
+                // first empty old table of data before adding new data
                 $(".modal-body").empty();
+        
+                // loop over all the data and append it
                 for (index of obj) {
+                    // add the price to total price + replacing the dollar sign with nothing
                     total += parseFloat(index.currency.replace("€",""));
                     $(".modal-body").append('<div class="row"><div class="col-md-6">'+index.name+'</div><div class="col-md-6">'+index.currency+'</div></div>')
                 }
+                // add the total price to the end
                 $(".modal-body").append('<div class="col-md-3 offset-md-9">Totaal: €'+total.toFixed(2)+'</div>')
             })
         }
     </script>
-
 </html>
