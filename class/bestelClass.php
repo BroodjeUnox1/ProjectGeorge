@@ -30,11 +30,8 @@ class Bestel
 	
 	function __construct()
 	{	
-		
-		// var_dump($_SESSION["mandje"]);
-
 		if (isset($_SESSION["mandje"])) {
-			
+			// $this->total();
 		}else {
 			$_SESSION['mandje'] = array();
 		}
@@ -45,7 +42,7 @@ class Bestel
 		$this->html .= '<div class="col-md-12 text-center border-black-top border-black-bottom pt-2 pb-2"><img src="https://uploads-ssl.webflow.com/5f3ece93689659d6e7431728/5f3ece93689659584f431736_Marina%202.svg"></div>';
 		$this->html .= '<div class="col-md-12">';
 		$this->html .= '<div class="row">';
-		$this->html .= '<div class="col-md-2 offset-md-10 mt-2"><h6 id="total"></h6></div>';
+		$this->html .= '<div class="col-md-2 offset-md-10 mt-2"><div class="row"><button class="btn btn-success" onclick="toggle()"><i class="fas fa-shopping-basket"></i></button><small id="total" class="mt-2"></small></div></div>';
 
 		foreach ($this->data as $key) {
 			$this->html .= '<div class="col-md-6">';
@@ -77,7 +74,7 @@ class Bestel
 		}
 		$this->html .= '</div>';
 		$this->html .= '</div>';
-		print($this->html);
+		print $this->html. "<br>";
 	}
 
 	public function add($name, $currency) {
@@ -88,12 +85,11 @@ class Bestel
 
 	public function total() {
 		foreach ($_SESSION['mandje'] as $key) {
-			$this->total += (float)str_replace("$", '', $key["currency"]);
+			$this->total += (float)str_replace("€", '', $key["currency"]);
 		}
-		// print('total: $' .$this->total);
-		print('<script type="text/javascript">
+		print '<script type="text/javascript">
 				document.getElementById("total").innerHTML = "Total: €'.$this->total.'"
-            </script>');
+            </script>';
 	}
 }
 
