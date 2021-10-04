@@ -32,6 +32,7 @@ if(isset($_POST["add"])) {
     </head>
     <body>
         <?php $test->show(); ?>
+        <?php $test->total();?>
     </body>
     <script type="text/javascript">
         function add(val1, val2){
