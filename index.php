@@ -99,9 +99,9 @@
                     <hr style="border-bottom: 1px solid black;">
                     <br>
                     <div class="blackToWhite">
-                        <h3><b>BOOK</b></h3>   
-                        <h3><b>MY</b></h3>
-                        <h3><b>TABLE</b></h3>
+                        <h3><b class="blackToWhite">BOOK</b></h3>   
+                        <h3><b class="blackToWhite">MY</b></h3>
+                        <h3><b class="blackToWhite">TABLE</b></h3>
                     </div>
                     
                     
