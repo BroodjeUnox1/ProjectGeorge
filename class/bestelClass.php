@@ -54,8 +54,19 @@ class Bestel
 			$this->html .= '<div class="card-body text-center"><img src="https://www.karlijnskitchen.com/wp-content/uploads/2015/09/cheese-bacon-burger-1-e1473968135128-150x150.jpg"></div>';
 			$this->html .= '<div class="card-footer">
 								<div class="row">
-									<div class="col-md-6">' . $key["currency"] . '</div>
-									<div class="col-md-6 text-right">
+									<div class="col-md-4">
+										<select class="form-control '."item".array_search($key, $this->data).'">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+											<option>6</option>
+											<option>7</option>
+										</select>
+									</div>
+									<div class="col-md-4 text-center">' . $key["currency"] . '</div>
+									<div class="col-md-4 text-right">
 										<button class="btn btn-success" name="add" onclick="add(`'.$key["name"]. '`, `'.$key["currency"].'`)">add</button>
 									</div>
 								</div>
