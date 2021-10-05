@@ -98,14 +98,15 @@
                 for (index of obj) {
                     // add the price to total price + replacing the dollar sign with nothing
                     total += parseFloat(index.currency.replace("€",""));
-                    $(".modal-body").append('<div class="row"><div class="col-md-6 line-height">'+index.name+'</div><div class="col-md-4 line-height">'+index.currency+'</div><div class="col-md-2 line-height"><i class="fas fa-times pointer" style="color: red;" onclick="test('+obj.indexOf(index)+')"></i></div></div>')
+                    $(".modal-body").append('<div class="row"><div class="col-md-6 line-height">'+index.name+'</div><div class="col-md-4 line-height">'+index.currency+'</div><div class="col-md-2 line-height"><i class="fas fa-times pointer" style="color: red;" onclick="removeFromBasket('+obj.indexOf(index)+')"></i></div></div>')
                 }
                 // add the total price to the end
                 $(".modal-body").append('<div class="col-md-3 offset-md-9">Totaal: €'+total.toFixed(2)+'</div>')
             })
         }
 
-        function test(val) {
+        // removes a dish from the basket
+        function removeFromBasket(val) {
             // make post call to delete item from shopping basket
             $.post('./api/deleteProductFrombasket.php', {index: val}, function(response){
                 // see what response is
