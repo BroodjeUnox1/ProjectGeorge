@@ -29,6 +29,17 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <!-- fontawsome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <style type="text/css">
+            
+            .line-height {
+                line-height: 30px;
+            }
+
+            .pointer:hover {
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body>
         <div class="modal" tabindex="-1" role="dialog">
@@ -72,7 +83,7 @@
         
         function getData(){
             // api call to get the data
-            $.post('./api/getOrder.php', {name: "data"}, function(response){
+            $.post('./api/getOrderData.php', {name: "data"}, function(response){
                 // assigning data to the repsonse we got
                 let data = response;
                 // transfor the data in a usable array
@@ -87,10 +98,21 @@
                 for (index of obj) {
                     // add the price to total price + replacing the dollar sign with nothing
                     total += parseFloat(index.currency.replace("€",""));
-                    $(".modal-body").append('<div class="row"><div class="col-md-6">'+index.name+'</div><div class="col-md-6">'+index.currency+'</div></div>')
+                    $(".modal-body").append('<div class="row"><div class="col-md-6 line-height">'+index.name+'</div><div class="col-md-4 line-height">'+index.currency+'</div><div class="col-md-2 line-height"><i class="fas fa-times pointer" style="color: red;" onclick="test('+obj.indexOf(index)+')"></i></div></div>')
                 }
                 // add the total price to the end
                 $(".modal-body").append('<div class="col-md-3 offset-md-9">Totaal: €'+total.toFixed(2)+'</div>')
+            })
+        }
+
+        function test(val) {
+            // make post call to delete item from shopping basket
+            $.post('./api/deleteProductFrombasket.php', {index: val}, function(response){
+                // see what response is
+                console.log(response)
+                // reloading data
+                getData();
+                
             })
         }
     </script>

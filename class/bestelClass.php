@@ -23,13 +23,21 @@ class Bestel
 		"currency" => "€10.95",
 		"name" => "Big tasty"
 	]
+	,
+	[
+		"currency" => "€69,69",
+		"name" => "sloppy toppy burger"
+	]
 ];
 	public $html;
 
 	public $total;
 	
 	function __construct()
-	{	
+
+	{
+		// var_dump($_SESSION["mandje"][0]);
+		// unset($_SESSION["mandje"][1]);	
 		if (isset($_SESSION["mandje"])) {
 			// $this->total();
 		}else {
