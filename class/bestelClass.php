@@ -73,7 +73,7 @@ class Bestel
 									</div>
 									<div class="col-md-4 text-center">' . $key["currency"] . '</div>
 									<div class="col-md-4 text-right">
-										<button class="btn btn-success" name="add" onclick="add(`'.$key["name"]. '`, `'.$key["currency"].'`)">add</button>
+										<button class="btn btn-success" name="add" onclick="add(`'.$key["name"]. '`, `'.$key["currency"].'`,`item'.array_search($key, $this->data).'`)">add</button>
 									</div>
 								</div>
 							</div>';

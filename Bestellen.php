@@ -71,9 +71,11 @@
             $(".modal").toggle();
         }
         
-        function add(val1, val2){
+        function add(val1, val2, val3){
+            let amountNumber = $(`.${val3}`).val()
+
             //api request to add to shopping basket
-            $.post('./api/bestel.php', {name: val1, currency: val2}, function(response){
+            $.post('./api/bestel.php', {name: val1, currency: val2, amount: amountNumber}, function(response){
                 // see what response is
                 console.log(response)
                 // reloading page to update total price
