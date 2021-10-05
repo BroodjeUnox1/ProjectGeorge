@@ -36,8 +36,9 @@ class Bestel
 	function __construct()
 
 	{
-		// var_dump($_SESSION["mandje"][0]);
-		// unset($_SESSION["mandje"][1]);	
+		// var_dump($_SESSION["mandje"]);
+		// unset($_SESSION["mandje"]);	
+		// var_dump(array_values($_SESSION["mandje"]));
 		if (isset($_SESSION["mandje"])) {
 			// $this->total();
 		}else {
