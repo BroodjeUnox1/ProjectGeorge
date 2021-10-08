@@ -47,15 +47,15 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Bestelling</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="toggle()">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="toggleUpdate()">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" style="max-height: 80vh; overflow-x: scroll;">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success">Reken af</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="toggle()">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="toggleUpdate()">Close</button>
                     </div>
                 </div>
             </div>
@@ -72,6 +72,10 @@
             getData();
             //opening modal
             $(".modal").toggle();
+        }
+
+        function toggleUpdate() {
+            location.reload();
         }
         
         function add(val1, val2, val3){
