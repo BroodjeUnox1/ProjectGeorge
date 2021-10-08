@@ -60,7 +60,10 @@
                 </div>
             </div>
         </div>
-        <?php $test->show(); ?>
+        <?php $test->show(); 
+            $test2 = new Userclass();
+            $test2->getData();
+        ?>
         <?php $test->total();?>
     </body>
     <script type="text/javascript">
