@@ -29,6 +29,14 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <!-- fontawsome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" type="text/css" href="menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yaldevi&display=swap" rel="stylesheet">
 
         <style type="text/css">
             
@@ -51,7 +59,7 @@
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body" style="max-height: 80vh; overflow-x: scroll;">
+                    <div class="modal-body" style="max-height: 80vh; overflow-y: scroll;">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success">Reken af</button>
@@ -60,12 +68,51 @@
                 </div>
             </div>
         </div>
-        <?php $test->show(); 
-            $test2 = new Userclass();
-            $test2->getData();
-        ?>
-        <?php $test->total();?>
-    </body>
+     <div class="container" id="menu">
+        <h1><strong>Menu</strong></h1>
+    </div>
+
+    <div class="container mt-2">
+        <nav class="navbar navbar-expand-lg navbar-light" id="menuNavbar">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container mt-2 category">
+        <h3><strong>Category A</strong></h3>
+        <div class="row">
+            <button class="btn btn-secondary" onclick="toggle()">
+                <i class="fas fa-shopping-basket"></i>
+            </button>
+            <small id="total" class="mt-2"></small>
+        </div>
+    </div>
+
+    <?php $test->show(); ?>
+    <?php $test->total();?>
+</body>
     <script type="text/javascript">
         function toggle() {
             //getting data and assigning it to the modal before opening
@@ -79,10 +126,11 @@
         }
         
         function add(val1, val2, val3){
-            let amountNumber = $(`.${val3}`).val()
+            console.log(val3);
+            // let amountNumber = $(`.${val3}`).val()
 
             //api request to add to shopping basket
-            $.post('./api/bestel.php', {name: val1, currency: val2, amount: amountNumber}, function(response){
+            $.post('./api/bestel.php', {name: val1, currency: val2}, function(response){ //amount toevoegen
                 // see what response is
                 console.log(response)
                 // reloading page to update total price
