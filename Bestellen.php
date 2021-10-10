@@ -71,7 +71,7 @@
                 <div class="modal-body" style="max-height: 80vh; overflow-y: scroll;">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success">Reken af</button>
+                    <button type="button" class="btn btn-success" onclick="afrekenen()">Reken af</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"
                         onclick="toggleUpdate()">Close</button>
                 </div>
@@ -143,6 +143,11 @@
 
     function toggleUpdate() {
         location.reload();
+    }
+
+    function afrekenen() {
+        $(".modal-body").empty()
+        $(".modal-body").append('<div class="row"><div class="col-md-6"><small>Voornaam</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Achter naam</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Telefoon</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Email</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Straatnaam</small><input type="text" class="form-control"></div><div class="col-md-6"><small>postcode</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Betaalmethode</small><select name="" id="" class="form-control"><option value="ideal"><small>Ideal</small></option><option value="paypal"><small>Paypal</small></option><option value="paysafecard"><small>PaySafeCard</small></option></select></div></div></div>')    
     }
 
     function add(val1, val2, val3) {
