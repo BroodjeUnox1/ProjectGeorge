@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/adminHome.css">
+    <link rel="stylesheet" type="text/css" href="css/adminCss.css">
     <title>Dashboard || Home</title>
 </head>
 
@@ -17,7 +17,7 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="./adminHome.php">Dashboard</a>
-        <a href="#">Menu</a>
+        <a href="./adminMenu.php">Menu</a>
         <a href="#">Bestellingen</a>
         <a href="#">Reserveringen</a>
         <a href="#">Gast gegevens</a>
