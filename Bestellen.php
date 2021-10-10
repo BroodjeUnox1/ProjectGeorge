@@ -32,11 +32,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-<<<<<<< HEAD
-    <link rel="stylesheet" type="text/css" href="menu.css">
-=======
     <link rel="stylesheet" type="text/css" href="css/menu.css">
->>>>>>> f88d5407dcec983d7b8307be9b0aa086fe580782
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +40,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yaldevi&display=swap" rel="stylesheet">
-<<<<<<< HEAD
 
     <style type="text/css">
         .line-height {
@@ -78,11 +73,6 @@
             </div>
         </div>
     </div>
-=======
-</head>
-
-<body>
->>>>>>> f88d5407dcec983d7b8307be9b0aa086fe580782
     <div class="container" id="menu">
         <h1><strong>Menu</strong></h1>
     </div>
@@ -115,7 +105,6 @@
         </nav>
     </div>
 
-<<<<<<< HEAD
     <div class="container mt-2">
         <div class="row category">
             <div class="col-10">
@@ -206,36 +195,6 @@
             // reloading data
             getData();
 
-=======
-    <div class="container mt-2 category">
-        <h3><strong>Category A</strong></h3>
-    </div>
-
-    <?php $test->show(); ?>
-</body>
-
-<script type="text/javascript">
-    function add(val1, val2) {
-        $.post('./api/bestel.php', {
-            name: val1,
-            currency: val2
-        }, function (response) {
-            console.log(response)
-            location.reload();
-        })
-    }
-</script>
-
-<script type="text/javascript">
-    let header = document.getElementById('menuNavbar');
-    let buttons = header.getElementsByClassName('nav-link')
-
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', function () {
-            let current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
->>>>>>> f88d5407dcec983d7b8307be9b0aa086fe580782
         })
     }
 </script>
