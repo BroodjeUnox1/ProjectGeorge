@@ -26,9 +26,16 @@ function sidebar() {
  			
 };
 
-function next() {
+function next1() {
 	$(".page_1").css("display", "none")
 	$(".page_1").attr("class", "page_1 col-md-12")
 	$(".page_2").css("display", "block")
 	$(".page_2").attr("class", "page_2 col-md-12")
+};
+
+function next2() {
+	$(".page_2").css("display", "none")
+	$(".page_2").attr("class", "page_2 col-md-12")
+	$(".page_3").css("display", "block")
+	$(".page_3").attr("class", "page_3 col-md-12")
 };

@@ -149,7 +149,7 @@
                             </select>
                         </div>
                         <div class="col-md-12 text-left d-flex flex-row-reverse mt-3">
-                            <button type="button" class="btn btn-light" onclick="next()">Volgende</button>
+                            <button type="button" class="btn btn-light" onclick="next1()">Volgende</button>
                         </div>
                     </div>
 
@@ -167,7 +167,14 @@
                             <input type="tel" class="form-control">
                         </div>
                         <div class="col-md-12 text-left d-flex flex-row-reverse mt-3">
-                            <button type="button" class="btn btn-light">Volgende</button>
+                            <button type="button" class="btn btn-light"  onclick="next2()">Volgende</button>
+                        </div>
+                    </div>
+
+                    <div class="page_3 col-md-12 d-none">
+                        <div class="col-md-12 text-center">
+                            <small>Uw reservering is geslaagd!</small>
+                            <p>We hebben u een bevestigingsmail gestuurd.</p>
                         </div>
                     </div>
                     
