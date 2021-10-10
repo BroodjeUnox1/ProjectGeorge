@@ -68,3 +68,21 @@
   border-color: black;
   border-radius: 10px;
 }
+
+.dashboardCard {
+  /* width: 100%; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  /* height: 400px; */
+}
+
+.btn {
+  background-color: #111;
+  color: #cecece;
+}
+
+.btn:hover{
+  color: white;
+}

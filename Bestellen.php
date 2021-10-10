@@ -1,13 +1,13 @@
 <?php 
-session_start();
-include "./class/bestelClass.php";
-$test= new Bestel();
-
-if(isset($_POST["add"])) {
-    // print($_POST['currency']);
-    // print($_POST['name']);
-    $test->add($_POST['name'], $_POST['currency']);
-}
+    session_start();
+    include "./class/bestelClass.php";
+    $test= new Bestel();
+    
+    if(isset($_POST["add"])) {
+        // print($_POST['currency']);
+        // print($_POST['name']);
+        $test->add($_POST['name'], $_POST['currency']);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,9 +40,39 @@ if(isset($_POST["add"])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yaldevi&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        .line-height {
+            line-height: 30px;
+        }
+
+        .pointer:hover {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Bestelling</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        onclick="toggleUpdate()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="max-height: 80vh; overflow-y: scroll;">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="afrekenen()">Reken af</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        onclick="toggleUpdate()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container" id="menu">
         <h1><strong>Menu</strong></h1>
     </div>
@@ -75,34 +105,96 @@ if(isset($_POST["add"])) {
         </nav>
     </div>
 
-    <div class="container mt-2 category">
-        <h3><strong>Category A</strong></h3>
+    <div class="container mt-2">
+        <div class="row category">
+            <div class="col-10">
+                <h3 class=""><strong>Category A</strong></h3>
+            </div>
+            <div class="col-2 basketButton">
+                <small id="total" class="mt-2"></small>
+                <button class="btn btn-secondary ml-2" onclick="toggle()">
+                    <i class="fas fa-shopping-basket"></i>
+                </button>
+            </div>
+        </div>
     </div>
 
     <?php $test->show(); ?>
+    <?php $test->total();?>
 </body>
-
 <script type="text/javascript">
-    function add(val1, val2) {
+    function toggle() {
+        //getting data and assigning it to the modal before opening
+        getData();
+        //opening modal
+        $(".modal").toggle();
+    }
+
+    function toggleUpdate() {
+        location.reload();
+    }
+
+    function afrekenen() {
+        $(".modal-body").empty()
+        $(".modal-body").append('<div class="row"><div class="col-md-6"><small>Voornaam</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Achter naam</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Telefoon</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Email</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Straatnaam</small><input type="text" class="form-control"></div><div class="col-md-6"><small>postcode</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Betaalmethode</small><select name="" id="" class="form-control"><option value="ideal"><small>Ideal</small></option><option value="paypal"><small>Paypal</small></option><option value="paysafecard"><small>PaySafeCard</small></option></select></div></div></div>')    
+    }
+
+    function add(val1, val2, val3) {
+        console.log(val3);
+        // let amountNumber = $(`.${val3}`).val()
+
+        //api request to add to shopping basket
         $.post('./api/bestel.php', {
             name: val1,
             currency: val2
-        }, function (response) {
+        }, function (response) { //amount toevoegen
+            // see what response is
             console.log(response)
+            // reloading page to update total price
             location.reload();
         })
     }
-</script>
 
-<script type="text/javascript">
-    let header = document.getElementById('menuNavbar');
-    let buttons = header.getElementsByClassName('nav-link')
+    function getData() {
+        // api call to get the data
+        $.post('./api/getOrderData.php', {
+            name: "data"
+        }, function (response) {
+            // assigning data to the repsonse we got
+            let data = response;
+            // transfor the data in a usable array
+            const obj = JSON.parse(data);
+            // to get the total we set it to 0 and later add all prices
+            let total = 0;
 
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', function () {
-            let current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
+            // first empty old table of data before adding new data
+            $(".modal-body").empty();
+
+            // loop over all the data and append it
+            for (index of obj) {
+                // add the price to total price + replacing the dollar sign with nothing
+                total += parseFloat(index.currency.replace("€", ""));
+                $(".modal-body").append('<div class="row"><div class="col-md-6 line-height">' + index.name +
+                    '</div><div class="col-md-4 line-height">' + index.currency +
+                    '</div><div class="col-md-2 line-height"><i class="fas fa-times pointer" style="color: red;" onclick="removeFromBasket(' +
+                    obj.indexOf(index) + ')"></i></div></div>')
+            }
+            // add the total price to the end
+            $(".modal-body").append('<div class="col-md-3 offset-md-9">Totaal: €' + total.toFixed(2) + '</div>')
+        })
+    }
+
+    // removes a dish from the basket
+    function removeFromBasket(val) {
+        // make post call to delete item from shopping basket
+        $.post('./api/deleteProductFrombasket.php', {
+            index: val
+        }, function (response) {
+            // see what response is
+            console.log(response)
+            // reloading data
+            getData();
+
         })
     }
 </script>
