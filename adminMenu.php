@@ -1,7 +1,3 @@
-<?php
-    include './class/adminMenuLijstClass.php';
-    $menuLijst = new MenuLijst();
-?>
 <!doctype html>
 <html lang="en">
 
@@ -40,7 +36,6 @@
                 <h1>Menu lijsten</h1>
             </div>
             <button type="button" class="btn mt-3 btn-dark" style="font-size:25px;">Nieuwe lijst toevoegen +</button>
-            <?php $menuLijst->show() ?>
         </div>
     </div>
 
