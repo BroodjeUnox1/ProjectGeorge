@@ -24,4 +24,11 @@ function sidebar() {
  	$(".icon2").attr("class", "far fa-window-close fa-2x icon2")
  }
  			
-}
+};
+
+function next() {
+	$(".page_1").css("display", "none")
+	$(".page_1").attr("class", "page_1 col-md-12")
+	$(".page_2").css("display", "block")
+	$(".page_2").attr("class", "page_2 col-md-12")
+};
