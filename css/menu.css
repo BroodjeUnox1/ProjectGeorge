@@ -1,0 +1,138 @@
+#menu {
+    border-top: 1px solid;
+    /* border-bottom: 1px solid; */
+    padding: 10px;
+    border-color: black;
+    text-align: center;
+    font-family: 'Yaldevi', sans-serif;
+}
+
+#menuNavbar {
+    /* background-color: black; */
+    color: white;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-item {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.nav-link {
+    /* background-color: black; */
+    color: white;
+}
+
+.nav-item {
+    /* background-color: black; */
+    color: white;
+    transition: 0.3s;
+}
+
+.menuImage {
+    float: left;
+}
+
+.category {
+    border-bottom: 1px solid;
+    border-color: rgba(0, 0, 0, 0.392);
+    font-family: 'Yaldevi', sans-serif;
+    /* opacity: 0.5; */
+}
+
+.active,
+.nav-item:hover {
+    background-color: rgb(194, 194, 194);
+    border-radius: 5px;
+    color: rgb(138, 0, 0);
+}
+
+.menuCard {
+    border: 3px solid;
+    border-color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    /* border-bottom: rgba(0, 0, 0, 0.7); */
+}
+
+#testimage {
+    float: left;
+}
+
+.button {
+    margin-left: auto;
+    margin-top: -50px;
+}
+
+.basketButton {
+    float: right;
+    /* margin-left: 20px; */
+    /* margin-left: auto; */
+    /* text-align: right; */
+    /* justify-content: flex-end; */
+}
+
+@media only screen and (max-width: 575px) {
+    .menuCard {
+        margin: 10px;
+    }
+
+}
+
+@media only screen and (max-width: 450px) {
+    .nameOmschrijving {
+        margin-left: 5px;
+    }
+
+    .button {
+        margin-top: 20px;
+        /* margin-left: -10px; */
+    }
+
+    .nameOmschrijving h3 {
+        font-size: 23px;
+    }
+
+    .testImage {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* @media only screen and (max-width: 992px) {
+    .navbar-header {
+        float: none;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+
+    .navbar-nav {
+        float: none !important;
+        margin: 7.5px -15px;
+    }
+
+    .navbar-nav>li {
+        float: none;
+    }
+
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+} */

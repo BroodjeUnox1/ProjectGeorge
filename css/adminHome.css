@@ -7,9 +7,11 @@
   margin-top: -10px;
 }
 
-.welcomeDash h1 {
+.dashboard h1 {
   text-align: center;
-  color: #dadada;
+  color: #0a0a0a;
+  margin-top: 70px;
+  margin-bottom: 70px;
 }
 
 .sidenav {
