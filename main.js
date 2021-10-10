@@ -8,7 +8,7 @@ $( document ).ready(function() {
 });
 
 function sidebar() {
- if($(".reserveren").css("min-width") == "336px") {
+ if($(".reserverenElements").css("display") == "block") {
  	$(".reserveren").css("min-width", "0vw")
  	$(".reserveren").css("min-height", "0vw")
  	$(".reserveren").css("width", "3vw")
