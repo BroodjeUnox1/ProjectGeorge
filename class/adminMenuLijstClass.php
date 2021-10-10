@@ -33,7 +33,7 @@
                 $this->html .= '<div class="col-12 lijstWijzig">';
                 $this->html .= '<h3 style="float: left;">' .$key["name"] .'</h3>';
                 $this->html .= '<div class="btn-group float-end" role="group" aria-label="Third group">
-                                    <a href="./adminMenuViewLijst.php">
+                                    <a href="./adminMenuLijstView.php">
                                         <button type="button" class="btn btn-dark">Bekijk</button>
                                     </a>
                                     <a href="./adminMenuEditLijst.php">

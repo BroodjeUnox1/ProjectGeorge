@@ -115,3 +115,7 @@
 .editForm button {
   margin-bottom: 10px;
 }
+
+.bi-pencil-square, .bi-x-lg {
+  color: black;
+}
