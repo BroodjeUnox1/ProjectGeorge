@@ -104,3 +104,14 @@
   padding: 20px;
   border-width: 100%;
 }
+
+.editForm {
+  border: 1px solid;
+  border-color: black;
+  border-radius: 5px;
+  padding: 70px;
+}
+
+.editForm button {
+  margin-bottom: 10px;
+}

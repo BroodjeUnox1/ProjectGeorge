@@ -1,6 +1,5 @@
 <?php
-    include './class/adminMenuLijstClass.php';
-    $menuLijst = new MenuLijst();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -37,14 +36,20 @@
     <div class="container" id="main">
         <div class="row">
             <div class="col-12 headLijst" style="text-align:center">
-                <h1>Menu lijsten</h1>
+                <h1>Edit menu lijst</h1>
             </div>
-            <button type="button" class="btn mt-3 btn-dark" style="font-size:25px;">Nieuwe lijst toevoegen +</button>
-            <?php $menuLijst->show() ?>
+            <form>
+                <div class="mb-3 mt-3 editForm">
+                    <label for="exampleInputLijst" class="form-label">Naam Lijst</label>
+                    <input type="text" class="form-control" id="exampleInputLijst" aria-describedby="lijstHelp">
+                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                    <a href="./adminMenu.php">
+                        <button type="submit" class="btn mt-3 float-end">Submit</button>
+                    </a>
+                </div>
+            </form>
         </div>
-        
     </div>
-
 
     <!-- Optional JavaScript; choose one of the two! -->
     <script type="text/javascript">
