@@ -46,6 +46,9 @@
                     <a href="./adminMenu.php">
                         <button type="submit" class="btn mt-3 float-end">Submit</button>
                     </a>
+                    <a href="adminMenuLijstView.php">
+                        <button type="cancel" class="btn mt-3 float-end">Annuleren</button>
+                    </a>
                 </div>
             </form>
         </div>
