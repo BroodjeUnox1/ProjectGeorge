@@ -57,7 +57,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Bestelling</h5>
+                    <h5 class="modal-title">Order</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"
                         onclick="toggleUpdate()">
                         <span aria-hidden="true">&times;</span>
@@ -66,7 +66,7 @@
                 <div class="modal-body" style="max-height: 80vh; overflow-y: scroll;">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="afrekenen()">Reken af</button>
+                    <button type="button" class="btn btn-success" onclick="afrekenen()">Checkout</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"
                         onclick="toggleUpdate()">Close</button>
                 </div>
@@ -180,7 +180,7 @@
                     obj.indexOf(index) + ')"></i></div></div>')
             }
             // add the total price to the end
-            $(".modal-body").append('<div class="col-md-3 offset-md-9">Totaal: €' + total.toFixed(2) + '</div>')
+            $(".modal-body").append('<div class="col-md-3 offset-md-9">Total: €' + total.toFixed(2) + '</div>')
         })
     }
 

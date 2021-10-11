@@ -9,28 +9,28 @@
 		[
 			"currency" => "€46.61",
 			"name" => "Burger",
-			"omschrijving" => "allerlekkerste burger"
+			"omschrijving" => "A nice standard burger"
 		],
 		[
 			"currency" => "€4.89",
 			"name" => "Cheesebruger",
-			"omschrijving" => "allerlekkerste cheeseburger"
+			"omschrijving" => "Standard burger with cheddar cheese"
 
 		],
 		[
 			"currency" => "€77.06",
-			"name" => "counter pounter",
-			"omschrijving" => "allerlekkerste counter pounter"
+			"name" => "Quater pounder",
+			"omschrijving" => "Double layer burger with cheese"
 		],
 		[
 			"currency" => "€45.67",
-			"name" => "Big mac",
-			"omschrijving" => "allerlekkerste big mac"
+			"name" => "Tripple burger",
+			"omschrijving" => "Tripple layer burger"
 		],
 		[
 			"currency" => "€10.95",
 			"name" => "Big tasty",
-			"omschrijving" => "allerlekkerste big tasty"
+			"omschrijving" => "Taste explosion with unions"
 		]
 	];
 		public $html;

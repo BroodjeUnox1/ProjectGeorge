@@ -106,7 +106,7 @@
                     <hr style="border-bottom: 1px solid black;">
                     <div>
                         <a href="./Bestellen.php">
-                            <h3 id="bestellen">BESTELLEN</h3>
+                            <h3 id="bestellen">ORDER</h3>
                         </a>
                     </div>
                 </div>
