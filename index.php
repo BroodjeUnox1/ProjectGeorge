@@ -103,8 +103,12 @@
                         <h3><b class="blackToWhite">MY</b></h3>
                         <h3><b class="blackToWhite">TABLE</b></h3>
                     </div>
-                    
-                    
+                    <hr style="border-bottom: 1px solid black;">
+                    <div>
+                        <a href="./Bestellen.php">
+                            <h3 id="bestellen">BESTELLEN</h3>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

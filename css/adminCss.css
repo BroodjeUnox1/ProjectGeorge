@@ -68,3 +68,54 @@
   border-color: black;
   border-radius: 10px;
 }
+
+.dashboardCard {
+  /* width: 100%; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  /* height: 400px; */
+}
+
+.btn {
+  background-color: #111;
+  color: #cecece;
+}
+
+.btn:hover{
+  color: white;
+}
+
+.headLijst {
+  border: 3px solid;
+  border-color: black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.btn-group {
+  align-items: right;
+}
+
+.lijstWijzig {
+  border: 3px solid;
+  border-color: black;
+  padding: 20px;
+  border-width: 100%;
+}
+
+.editForm {
+  border: 1px solid;
+  border-color: black;
+  border-radius: 5px;
+  padding: 70px;
+}
+
+.editForm button {
+  margin-bottom: 10px;
+}
+
+.bi-pencil-square, .bi-x-lg {
+  color: black;
+}

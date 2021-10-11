@@ -8,7 +8,7 @@
         // print($_POST['name']);
         $test->add($_POST['name'], $_POST['currency']);
     }
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 

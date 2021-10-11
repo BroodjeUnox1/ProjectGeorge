@@ -52,6 +52,7 @@ html {
 }
 
 #food:hover, #drinks:hover{
+	text-decoration: none;
 	opacity: 0.5;
 }
 .Heading_about{
@@ -107,3 +108,12 @@ small {
   	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
+#bestellen {
+	color: black;
+	transition: 300ms;
+}
+
+#bestellen:hover {
+	opacity: 0.5;
+	text-decoration: none !important;
+}

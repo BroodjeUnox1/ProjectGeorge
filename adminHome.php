@@ -9,15 +9,15 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/adminHome.css">
+    <link rel="stylesheet" type="text/css" href="css/adminCss.css">
     <title>Dashboard || Home</title>
 </head>
 
 <body>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">Dashboard</a>
-        <a href="#">Menu</a>
+        <a href="./adminHome.php">Dashboard</a>
+        <a href="./adminMenu.php">Menu</a>
         <a href="#">Bestellingen</a>
         <a href="#">Reserveringen</a>
         <a href="#">Gast gegevens</a>
@@ -35,51 +35,47 @@
             <div class="col-12 card border-dark">
                 <h1>Welcome back {{ username }}!</h1>
             </div>
-            <div class="col-6">
-                <div class="card">
-                    <img src="https://www.karlijnskitchen.com/wp-content/uploads/2015/09/cheese-bacon-burger-1-e1473968135128-150x150.jpg"
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+                <div class="card dashboardCard">
+                    <img src="https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/Happy-Test-Screen-01-825x510.png"
                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-body" style="align-self: flex-end;">
+                        <h5 class="card-title">Menu</h5>
+                        <p class="card-text">Klik hier om het menu aan te passen</p>
+                        <a href="./adminMenu.php" class="btn">Menu</a>
                     </div>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="card">
-                    <img src="https://www.karlijnskitchen.com/wp-content/uploads/2015/09/cheese-bacon-burger-1-e1473968135128-150x150.jpg"
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+                <div class="card dashboardCard">
+                    <img src="https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/Happy-Test-Screen-01-825x510.png"
                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-body" style="align-self: flex-end;">
+                        <h5 class="card-title">Bestellingen</h5>
+                        <p class="card-text">Klik hier om de bestellingen te zien.</p>
+                        <a href="#" class="btn">Bestellingen</a>
                     </div>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="card">
-                    <img src="https://www.karlijnskitchen.com/wp-content/uploads/2015/09/cheese-bacon-burger-1-e1473968135128-150x150.jpg"
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+                <div class="card dashboardCard" style="margin-bottom: 30px;">
+                    <img src="https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/Happy-Test-Screen-01-825x510.png"
                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-body" style="align-self: flex-end;">
+                        <h5 class="card-title">Reserveringen</h5>
+                        <p class="card-text">Klik hier om de reserveringen te zien</p>
+                        <a href="#" class="btn">Reserveringen</a>
                     </div>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="card">
-                    <img src="https://www.karlijnskitchen.com/wp-content/uploads/2015/09/cheese-bacon-burger-1-e1473968135128-150x150.jpg"
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+                <div class="card dashboardCard" style="margin-bottom: 30px;">
+                    <img src="https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/Happy-Test-Screen-01-825x510.png"
                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-body" style="align-self: flex-end;">
+                        <h5 class="card-title">Gast gegevens</h5>
+                        <p class="card-text">klik hier om de gast gegevens te zien.</p>
+                        <a href="#" class="btn">Gast gegevens</a>
                     </div>
                 </div>
             </div>
