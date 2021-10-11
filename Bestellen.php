@@ -108,7 +108,7 @@
     <div class="container mt-2">
         <div class="row category">
             <div class="col-10">
-                <h3 class=""><strong>Category A</strong></h3>
+                <h3 class=""><strong>Gerechten</strong></h3>
             </div>
             <div class="col-2 basketButton">
                 <small id="total" class="mt-2"></small>
