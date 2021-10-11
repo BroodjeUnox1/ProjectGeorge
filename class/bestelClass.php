@@ -66,6 +66,12 @@
 									</div>';
 					$this->html .= '<div class="col-4 col-xs-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 col-xxl-1 button">
 										<p><strong>'. $key["currency"] .'</strong></p>
+										<select class="form-control" id="item'.array_search($key, $this->data).'">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										</select>
 										<button class="btn btn-secondary btn-block" name="add" onclick="add(`'.$key["name"]. '`, `'.$key["currency"].'`,`item'.array_search($key, $this->data).'`)">+</button>
 									</div>';
 									// $this->html .= '<div class="" style="float: right;">' . $key["name"]. '</div>';
@@ -78,8 +84,8 @@
 		}
 		
 
-		public function add($name, $currency) {
-			$data = ["name" => $name,"currency" => $currency];
+		public function add($name, $currency, $amount) {
+			$data = ["name" => $name,"currency" => $currency, "amount" => $amount];
 			array_push($_SESSION['mandje'], $data);	
 		}
 		
