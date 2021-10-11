@@ -4,10 +4,6 @@
         public $data = [
             [
                 "id" => "001",
-                "name" => "Category",
-            ],
-            [
-                "id" => "001",
                 "name" => "Gerechten",
             ],
             [
