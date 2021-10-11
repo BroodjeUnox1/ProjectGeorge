@@ -22,11 +22,12 @@ html {
 	position: fixed;
 	z-index: 2;
 	animation-duration: 3s;
-	top: 10vh; 
+	bottom: 5vh; 
 	right: 0vw; 
 	min-height: 80vh; 
 	min-width: 20vw;
 	max-width: 20vw;
+	transition: 0.3s;
 }
 
 .border-black-bottom {

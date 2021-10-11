@@ -110,14 +110,15 @@
         </div>
         <!-- reserveren -->
         <div class="reserveren bg-dark rounded">
-            <div class="icon">
+            <div class="icon d-flex">
                 <i class="far fa-window-close fa-2x icon2" style="padding: 7px; color: whitesmoke;" onclick="sidebar()"></i>
+                <!-- <small style="padding: 7px; color: whitesmoke;" >Reserveren</small> -->
+                <div style="padding: 7px; color: whitesmoke;">
+                    <h5>Reserveren</h5>
+                </div>
             </div>
             <div class="container-fluid text-white text-center reserverenElements">
                 <div class="row">
-                    <div class="col-md-12">
-                        <h1>Reserveren</h1>
-                    </div>
                     <div class="page_1 col-md-12">
                         <div class="col-md-12 text-left">
                             <small>Datum:</small>
