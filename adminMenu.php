@@ -39,7 +39,8 @@
             <div class="col-12 headLijst" style="text-align:center">
                 <h1>Menu lijsten</h1>
             </div>
-            <button type="button" class="btn mt-3 btn-dark" style="font-size:25px;">Nieuwe lijst toevoegen +</button>
+            <a href=""></a>
+            <button type="button" href="./adminMenueEditLijst.php" class="btn mt-3 btn-dark" style="font-size:25px;">Nieuwe lijst toevoegen +</button>
             <?php $menuLijst->show() ?>
         </div>
         

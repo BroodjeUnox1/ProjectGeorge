@@ -42,7 +42,7 @@
                     <div class="card-body" style="align-self: flex-end;">
                         <h5 class="card-title">Menu</h5>
                         <p class="card-text">Klik hier om het menu aan te passen</p>
-                        <a href="#" class="btn">Menu</a>
+                        <a href="./adminMenu.php" class="btn">Menu</a>
                     </div>
                 </div>
             </div>
