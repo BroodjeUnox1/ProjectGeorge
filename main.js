@@ -15,6 +15,11 @@ function sidebar() {
  	$(".reserveren").css("height", "3vw")
  	$(".reserverenElements").css("display", "none")
  	$(".icon2").attr("class", "fas fa-grip-lines fa-2x icon2")
+
+	$(".page_3").css("display", "none")
+	$(".page_3").attr("class", "page_3 col-md-12")
+	$(".page_1").css("display", "block")
+	$(".page_1").attr("class", "page_1 col-md-12")
  }else {
  	$(".reserveren").css("min-width", "20vw")
  	$(".reserveren").css("width", "20vw")
