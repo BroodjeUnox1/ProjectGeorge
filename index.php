@@ -122,24 +122,66 @@
                     <div class="col-md-12">
                         <h1>Reserveren</h1>
                     </div>
-                    <div class="col-md-12 text-left">
-                        <small>Aantal personen:</small>
-                        <select class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                        </select>
+                    <div class="page_1 col-md-12">
+                        <div class="col-md-12 text-left">
+                            <small>Datum:</small>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-md-12 text-left">
+                            <small>Tijdvak:</small>
+                            <select class="form-control">
+                                <option>14:00</option>
+                                <option>14:30</option>
+                                <option>15:00</option>
+                                <option>15:30</option>
+                                <option>16:00</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 text-left">
+                            <small>Aantal personen:</small>
+                            <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 text-left d-flex flex-row-reverse mt-3">
+                            <button type="button" class="btn btn-light" onclick="next1()">Volgende</button>
+                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <h1>datum</h1>
+
+                    <div class="page_2 col-md-12 d-none">
+                        <div class="col-md-12 text-left">
+                            <small>Naam:</small>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-md-12 text-left">
+                            <small>Email:</small>
+                            <input type="email" class="form-control">
+                        </div>
+                        <div class="col-md-12 text-left">
+                            <small>Telefoonnummer:</small>
+                            <input type="tel" class="form-control">
+                        </div>
+                        <div class="col-md-12 text-left d-flex flex-row-reverse mt-3">
+                            <button type="button" class="btn btn-light"  onclick="next2()">Volgende</button>
+                        </div>
                     </div>
+
+                    <div class="page_3 col-md-12 d-none">
+                        <div class="col-md-12 text-center">
+                            <small>Uw reservering is geslaagd!</small>
+                            <p>We hebben u een bevestigingsmail gestuurd.</p>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
