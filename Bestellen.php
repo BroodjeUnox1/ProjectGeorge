@@ -8,7 +8,7 @@
         // print($_POST['name']);
         $test->add($_POST['name'], $_POST['currency']);
     }
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +57,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Bestelling</h5>
+                    <h5 class="modal-title">Order</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"
                         onclick="toggleUpdate()">
                         <span aria-hidden="true">&times;</span>
@@ -66,7 +66,7 @@
                 <div class="modal-body" style="max-height: 80vh; overflow-y: scroll;">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="afrekenen()">Reken af</button>
+                    <button type="button" class="btn btn-success" onclick="afrekenen()">Checkout</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"
                         onclick="toggleUpdate()">Close</button>
                 </div>
@@ -108,7 +108,7 @@
     <div class="container mt-2">
         <div class="row category">
             <div class="col-10">
-                <h3 class=""><strong>Category A</strong></h3>
+                <h3 class=""><strong>Gerechten</strong></h3>
             </div>
             <div class="col-2 basketButton">
                 <small id="total" class="mt-2"></small>
@@ -140,13 +140,13 @@
     }
 
     function add(val1, val2, val3) {
-        console.log(val3);
-        // let amountNumber = $(`.${val3}`).val()
-
-        //api request to add to shopping basket
+        let amountNumber = $(`#${val3}`).val()
+        console.log(amountNumber)
+       // api request to add to shopping basket
         $.post('./api/bestel.php', {
             name: val1,
-            currency: val2
+            currency: val2,
+            amount: amountNumber
         }, function (response) { //amount toevoegen
             // see what response is
             console.log(response)
@@ -164,6 +164,7 @@
             let data = response;
             // transfor the data in a usable array
             const obj = JSON.parse(data);
+            console.log(obj)
             // to get the total we set it to 0 and later add all prices
             let total = 0;
 
@@ -174,13 +175,12 @@
             for (index of obj) {
                 // add the price to total price + replacing the dollar sign with nothing
                 total += parseFloat(index.currency.replace("€", ""));
-                $(".modal-body").append('<div class="row"><div class="col-md-6 line-height">' + index.name +
-                    '</div><div class="col-md-4 line-height">' + index.currency +
-                    '</div><div class="col-md-2 line-height"><i class="fas fa-times pointer" style="color: red;" onclick="removeFromBasket(' +
-                    obj.indexOf(index) + ')"></i></div></div>')
+                $(".modal-body").append('<div class="row"><div class="col-md-8 line-height"><small>' + index.name + '(' + index.amount + ')</small></div><div class="col-md-2 line-height"><small>' + index.currency +
+                    '</small></div><div class="col-md-2 line-height"><i class="fas fa-times pointer" style="color: red;" onclick="removeFromBasket(' +
+                    obj.indexOf(index) + ')"></i></div></div><hr>')
             }
             // add the total price to the end
-            $(".modal-body").append('<div class="col-md-3 offset-md-9">Totaal: €' + total.toFixed(2) + '</div>')
+            $(".modal-body").append('<div class="col-md-3 offset-md-9"><small>Total: €' + total.toFixed(2) + '</small></div>')
         })
     }
 

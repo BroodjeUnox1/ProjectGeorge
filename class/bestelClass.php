@@ -9,28 +9,28 @@
 		[
 			"currency" => "€46.61",
 			"name" => "Burger",
-			"omschrijving" => "allerlekkerste burger"
+			"omschrijving" => "A nice standard burger"
 		],
 		[
 			"currency" => "€4.89",
 			"name" => "Cheesebruger",
-			"omschrijving" => "allerlekkerste cheeseburger"
+			"omschrijving" => "Standard burger with cheddar cheese"
 
 		],
 		[
 			"currency" => "€77.06",
-			"name" => "counter pounter",
-			"omschrijving" => "allerlekkerste counter pounter"
+			"name" => "Quater pounder",
+			"omschrijving" => "Double layer burger with cheese"
 		],
 		[
 			"currency" => "€45.67",
-			"name" => "Big mac",
-			"omschrijving" => "allerlekkerste big mac"
+			"name" => "Tripple burger",
+			"omschrijving" => "Tripple layer burger"
 		],
 		[
 			"currency" => "€10.95",
 			"name" => "Big tasty",
-			"omschrijving" => "allerlekkerste big tasty"
+			"omschrijving" => "Taste explosion with unions"
 		]
 	];
 		public $html;
@@ -66,6 +66,12 @@
 									</div>';
 					$this->html .= '<div class="col-4 col-xs-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 col-xxl-1 button">
 										<p><strong>'. $key["currency"] .'</strong></p>
+										<select class="form-control" id="item'.array_search($key, $this->data).'">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										</select>
 										<button class="btn btn-secondary btn-block" name="add" onclick="add(`'.$key["name"]. '`, `'.$key["currency"].'`,`item'.array_search($key, $this->data).'`)">+</button>
 									</div>';
 									// $this->html .= '<div class="" style="float: right;">' . $key["name"]. '</div>';
@@ -78,8 +84,8 @@
 		}
 		
 
-		public function add($name, $currency) {
-			$data = ["name" => $name,"currency" => $currency];
+		public function add($name, $currency, $amount) {
+			$data = ["name" => $name,"currency" => $currency, "amount" => $amount];
 			array_push($_SESSION['mandje'], $data);	
 		}
 		
