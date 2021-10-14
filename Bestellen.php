@@ -174,7 +174,7 @@
             // loop over all the data and append it
             for (index of obj) {
                 // add the price to total price + replacing the dollar sign with nothing
-                total += parseFloat(index.currency.replace("€", ""));
+                total += parseFloat(index.currency.replace("€", "") * index.amount);
                 $(".modal-body").append('<div class="row"><div class="col-md-8 line-height"><small>' + index.name + '(' + index.amount + ')</small></div><div class="col-md-2 line-height"><small>' + index.currency +
                     '</small></div><div class="col-md-2 line-height"><i class="fas fa-times pointer" style="color: red;" onclick="removeFromBasket(' +
                     obj.indexOf(index) + ')"></i></div></div><hr>')
