@@ -136,3 +136,17 @@
         padding-bottom: 10px;
     }
 } */
+
+
+.col-md-6 > small, .col-md-12>small {
+    font-family: 'Space Grotesk';
+}
+
+.border-gray {
+    border: 2px solid gray;
+    padding: 1rem 0rem;
+}
+
+select > option{
+    color:  green;
+}
