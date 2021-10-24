@@ -99,9 +99,9 @@
                     <hr style="border-bottom: 1px solid black;">
                     <br>
                     <div class="blackToWhite">
-                        <h3><b class="blackToWhite">BOOK</b></h3>   
-                        <h3><b class="blackToWhite">MY</b></h3>
-                        <h3><b class="blackToWhite">TABLE</b></h3>
+                        <h3><b class="blackToWhite" onclick="sidebar()">BOOK</b></h3>   
+                        <h3><b class="blackToWhite" onclick="sidebar()">MY</b></h3>
+                        <h3><b class="blackToWhite" onclick="sidebar()">TABLE</b></h3>
                     </div>
                     <hr style="border-bottom: 1px solid black;">
                     <div>
@@ -115,7 +115,7 @@
         <!-- reserveren -->
         <div class="reserveren bg-dark rounded">
             <div class="icon d-flex">
-                <i class="far fa-window-close fa-2x icon2" style="padding: 7px; color: whitesmoke;" onclick="sidebar()"></i>
+                <i class="far fa-window-close fa-2x icon2" style="padding: 7px; color: whitesmoke;" onclick="active()"></i>
                 <!-- <small style="padding: 7px; color: whitesmoke;" >Reserveren</small> -->
                 <div style="padding: 7px; color: whitesmoke;">
                     <h5>Reserveren</h5>

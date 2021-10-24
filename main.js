@@ -1,11 +1,16 @@
-$( document ).ready(function() {
-    $(".reserveren").css("min-width", "0vw")
- 		$(".reserveren").css("min-height", "0vw")
- 		$(".reserveren").css("width", "20vw")
- 		$(".reserveren").css("height", "3vw")
- 		$(".reserverenElements").css("display", "none")
- 		$(".icon2").attr("class", "fas fa-grip-lines fa-2x icon2")
-});
+// $( document ).ready(function() {
+//     $(".reserveren").css("min-width", "0vw")
+//  		$(".reserveren").css("min-height", "0vw")
+//  		$(".reserveren").css("width", "20vw")
+//  		$(".reserveren").css("height", "3vw")
+//  		$(".reserverenElements").css("display", "none")
+//  		$(".icon2").attr("class", "fas fa-grip-lines fa-2x icon2")
+// });
+
+function active() {
+	$('.reserveren').toggleClass('active');
+	$('.reserverenElements').toggleClass('show');
+};
 
 function sidebar() {
  if($(".reserverenElements").css("display") == "block") {
