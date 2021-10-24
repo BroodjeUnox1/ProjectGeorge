@@ -3,45 +3,45 @@
 class FoodMenu {
     public $data = [
         [
-            "category" => "eggs",
-            "description" => "poached eggs on brioche"
+            "category" => "Eggs",
+            "description" => "Poached eggs on brioche"
         ],
         [
-            "category" => "toast",
-            "description" => "sourdough bread"
+            "category" => "Toast",
+            "description" => "Sourdough bread"
         ],
         [
-            "category" => "clubs",
-            "description" => "w/ french fries"
+            "category" => "Clubs",
+            "description" => "W/ french fries"
         ],
         [
-            "category" => "salads",
+            "category" => "Salads",
             "description" => ""
         ],
         [
-            "category" => "starters",
+            "category" => "Starters",
             "description" => ""
         ],
         [
-            "category" => "oysters & clams",
+            "category" => "Oysters & clams",
             "description" => "served w/ lemon & red wine -shallot vinaigrette"
         ],
     ];
 
     public $data2 = [
         [
-            "name" => "florentine w/ spinach & hollandaise sauce",
-            "price" => "$13",
+            "name" => "Florentine w/ spinach & hollandaise sauce",
+            "price" => "13",
             "description" => ""
         ],
         [
-            "name" => "norwegian w/ smoked salmon & hollandaise sauce",
-            "price" => "$16",
+            "name" => "Norwegian w/ smoked salmon & hollandaise sauce",
+            "price" => "16",
             "description" => ""
         ],
         [
-            "name" => "benedict w/ ham & hollandaise sauce",
-            "price" => "$14",
+            "name" => "Benedict w/ ham & hollandaise sauce",
+            "price" => "14",
             "description" => ""
         ],
     ];
@@ -57,13 +57,15 @@ class FoodMenu {
         $this->html = '<div class="row mt-3">';
 
         foreach ($this->data as $key) {
-            $this->html .= '<div class=""><h2>'. $key["category"] .'</h2></div>';
-            $this->html .= '<div class=""><h4>'. $key["description"] .'</h4></div>';
-            
+            $this->html .= '<div class="">';
+            $this->html .= '<h2>'. $key["category"] .'</h2>';
+            $this->html .= '<h4>'. $key["description"] .'</h4>';
+            $this->html .= '</div';
+
             foreach ($this->data2 as $key2){
                 $this->html .= '<div>';
-                $this->html .= '<h5>'. $key2["name"].'</h3>';
-                $this->html .= '<p>'. $key2["price"] .'</p>';
+                $this->html .= '<h6>'. $key2["name"].'</h6>';
+                $this->html .= '<p class="price">€'. $key2["price"] .',-</p>';
                 $this->html .= '<p>'. $key2["description"] .'</p>';
             }
             $this->html .= '</div>';

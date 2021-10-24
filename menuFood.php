@@ -14,17 +14,22 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/menuFood.css">
+  <link rel="stylesheet" type="text/css" href="css/menuFood.css">
 
-  <title>Hello, world!</title>
+  <title>Food || George</title>
 </head>
 
 <body>
   <main class="container">
     <div class="mt-5">
-      <img class="mx-auto d-block mb-3" src="https://uploads-ssl.webflow.com/5f3ece93689659d6e7431728/5f3ece93689659584f431736_Marina%202.svg">
+      <img class="mx-auto d-block mb-3"
+        src="https://uploads-ssl.webflow.com/5f3ece93689659d6e7431728/5f3ece93689659584f431736_Marina%202.svg">
     </div>
-
+    
+    <form>
+      <input type="button" value="Print or Save this page" onClick="window.print()">
+    </form>
+    
     <div>
       <?php $menuFood->show() ?>
     </div>
