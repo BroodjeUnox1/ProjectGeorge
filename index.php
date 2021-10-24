@@ -1,5 +1,6 @@
 <?php
-
+    include "./class/reserveren.php";
+    $testObj = new reserveren();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,9 +100,9 @@
                     <hr style="border-bottom: 1px solid black;">
                     <br>
                     <div class="blackToWhite">
-                        <h3><b class="blackToWhite" onclick="sidebar()">BOOK</b></h3>   
-                        <h3><b class="blackToWhite" onclick="sidebar()">MY</b></h3>
-                        <h3><b class="blackToWhite" onclick="sidebar()">TABLE</b></h3>
+                        <h3><b class="blackToWhite" onclick="toggleActive()">BOOK</b></h3>   
+                        <h3><b class="blackToWhite" onclick="toggleActive()">MY</b></h3>
+                        <h3><b class="blackToWhite" onclick="toggleActive()">TABLE</b></h3>
                     </div>
                     <hr style="border-bottom: 1px solid black;">
                     <div>
@@ -113,35 +114,31 @@
             </div>
         </div>
         <!-- reserveren -->
-        <div class="reserveren bg-dark rounded">
+        <div id="reserveren" class="reserveren bg-dark rounded">
             <div class="icon d-flex">
-                <i class="far fa-window-close fa-2x icon2" style="padding: 7px; color: whitesmoke;" onclick="active()"></i>
+                <i class="far fa-window-close fa-2x icon2" style="color: whitesmoke;" onclick="toggleActive()"></i>
                 <!-- <small style="padding: 7px; color: whitesmoke;" >Reserveren</small> -->
-                <div style="padding: 7px; color: whitesmoke;">
-                    <h5>Reserveren</h5>
+                <div style="color: whitesmoke;">
+                    <h5>Book a table</h5>
                 </div>
             </div>
             <div class="container-fluid text-white text-center reserverenElements">
                 <div class="row">
                     <div class="page_1 col-md-12">
                         <div class="col-md-12 text-left">
-                            <small>Datum:</small>
+                            <small>Date:</small>
                             <input type="date" class="form-control">
                         </div>
                         <div class="col-md-12 text-left">
-                            <small>Tijdvak:</small>
-                            <select class="form-control">
-                                <option>14:00</option>
-                                <option>14:30</option>
-                                <option>15:00</option>
-                                <option>15:30</option>
-                                <option>16:00</option>
+                            <small>Time:</small>
+                            <select id="time" class="form-control">
+                                <?php $testObj->timeList(); ?>
                             </select>
                         </div>
                         <div class="col-md-12 text-left">
-                            <small>Aantal personen:</small>
-                            <select class="form-control">
-                                <option>1</option>
+                            <small>People:</small>
+                            <select id="people" class="form-control">
+                                <!-- <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
                                 <option>4</option>
@@ -150,17 +147,17 @@
                                 <option>7</option>
                                 <option>8</option>
                                 <option>9</option>
-                                <option>10</option>
+                                <option>10</option> -->
                             </select>
                         </div>
                         <div class="col-md-12 text-left d-flex flex-row-reverse mt-3">
-                            <button type="button" class="btn btn-light" onclick="next1()">Volgende</button>
+                            <button type="button" class="btn btn-light" onclick="next1()">Next</button>
                         </div>
                     </div>
 
                     <div class="page_2 col-md-12 d-none">
                         <div class="col-md-12 text-left">
-                            <small>Naam:</small>
+                            <small>Name:</small>
                             <input type="text" class="form-control">
                         </div>
                         <div class="col-md-12 text-left">
@@ -168,18 +165,18 @@
                             <input type="email" class="form-control">
                         </div>
                         <div class="col-md-12 text-left">
-                            <small>Telefoonnummer:</small>
+                            <small>Phone:</small>
                             <input type="tel" class="form-control">
                         </div>
                         <div class="col-md-12 text-left d-flex flex-row-reverse mt-3">
-                            <button type="button" class="btn btn-light"  onclick="next2()">Volgende</button>
+                            <button type="button" class="btn btn-light"  onclick="next2()">Next</button>
                         </div>
                     </div>
 
                     <div class="page_3 col-md-12 d-none">
                         <div class="col-md-12 text-center">
-                            <small>Uw reservering is geslaagd!</small>
-                            <p>We hebben u een bevestigingsmail gestuurd.</p>
+                            <small>Your reservation has been succesfully made!</small>
+                            <p>We send you a confirmation email.</p>
                         </div>
                     </div>
                     
@@ -189,6 +186,7 @@
 
         <!-- link js scripts -->
         <script src="main.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- <script type="text/javascript">
             </script> -->
     </body>
