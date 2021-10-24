@@ -85,14 +85,29 @@
 		
 
 		public function add($name, $currency, $amount) {
+			// data from POST
 			$data = ["name" => $name,"currency" => $currency, "amount" => $amount];
-			array_push($_SESSION['mandje'], $data);	
+			// check if item doesnt exist already
+			foreach ($_SESSION["mandje"] as $key => $value) {
+				// if its exist update amount values
+				if ($value["name"] == $data["name"]) {
+					$data["amount"] += $value["amount"];
+					$_SESSION["mandje"][$key] = $data;
+					// calculate total
+					$this->total();
+					// stop the loop other wise it wil push the item 
+					exit();
+				}
+			}
+			array_push($_SESSION["mandje"], $data);
+
+
 		}
 		
 
 		public function total() {
 			foreach ($_SESSION['mandje'] as $key) {
-				$this->total += (float)str_replace("€", '', $key["currency"]);
+				$this->total += (float)str_replace("€", '', $key["currency"]) * $key["amount"];
 			}
 
 			print '<script type="text/javascript">
