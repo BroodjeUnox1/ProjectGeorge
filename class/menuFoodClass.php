@@ -47,8 +47,7 @@ class FoodMenu {
     ];
 
     public $html; 
-    public $total;
-
+    
     function __construct(){
         $this->getHtml();
     }

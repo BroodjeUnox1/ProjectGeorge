@@ -89,9 +89,9 @@
                         MENU'S
                         <br>
                         <br>
-                        <a id="food" href="./documents/610a90208d041a26db60ceb7_Marina food.pdf" download>FOOD</a>
+                        <a id="food" href="./menuFood">FOOD</a>
                         <br>
-                        <a id="drinks" href="./documents/610a902eb3d85f07df110d35_Marina drinks.pdf" download>DRINKS</a>
+                        <a id="drinks" href="./menuDrinks">DRINKS</a>
                         <br>
                         <br>
                     </h3>
