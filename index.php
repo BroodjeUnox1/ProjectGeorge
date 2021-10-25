@@ -1,5 +1,9 @@
 <?php
+    session_start();
 
+    include "./class/reserveren.php";
+    include "./dbcontest.php";
+    $testObj = new reserveren();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,9 +103,9 @@
                     <hr style="border-bottom: 1px solid black;">
                     <br>
                     <div class="blackToWhite">
-                        <h3><b class="blackToWhite">BOOK</b></h3>   
-                        <h3><b class="blackToWhite">MY</b></h3>
-                        <h3><b class="blackToWhite">TABLE</b></h3>
+                        <h3><b class="blackToWhite" onclick="toggleActive()">BOOK</b></h3>   
+                        <h3><b class="blackToWhite" onclick="toggleActive()">MY</b></h3>
+                        <h3><b class="blackToWhite" onclick="toggleActive()">TABLE</b></h3>
                     </div>
                     <hr style="border-bottom: 1px solid black;">
                     <div>
@@ -113,72 +117,95 @@
             </div>
         </div>
         <!-- reserveren -->
-        <div class="reserveren bg-dark rounded">
-            <div class="icon">
-                <i class="far fa-window-close fa-2x icon2" style="padding: 7px; color: whitesmoke;" onclick="sidebar()"></i>
+        <div id="reserveren" class="reserveren bg-dark rounded">
+            <div class="icon d-flex">
+                <i class="far fa-window-close fa-2x icon2" style="color: whitesmoke;" onclick="toggleActive()"></i>
+                <!-- <small style="padding: 7px; color: whitesmoke;" >Reserveren</small> -->
+                <div style="color: whitesmoke;">
+                    <h5>Book a table</h5>
+                </div>
             </div>
             <div class="container-fluid text-white text-center reserverenElements">
                 <div class="row">
-                    <div class="col-md-12">
-                        <h1>Reserveren</h1>
-                    </div>
-                    <div class="page_1 col-md-12">
+                    <form class="page_1 col-md-12 bestform">
                         <div class="col-md-12 text-left">
-                            <small>Datum:</small>
-                            <input type="date" class="form-control">
+                            <small>Date:</small>
+                            <input id="date" type="date" class="form-control">
                         </div>
                         <div class="col-md-12 text-left">
-                            <small>Tijdvak:</small>
-                            <select class="form-control">
-                                <option>14:00</option>
-                                <option>14:30</option>
-                                <option>15:00</option>
-                                <option>15:30</option>
-                                <option>16:00</option>
+                            <small>Time:</small>
+                            <select id="time" class="form-control">
+                                <?php
+                                    $x = $_SESSION['x'];
+
+                                    $sql = "SELECT * FROM reservation WHERE date = '$x'";
+                                    $result = mysqli_query($conn, $sql);
+                            
+                                    if (mysqli_num_rows($result) > 0 ) {
+                                        if (mysqli_num_rows($result) < 10) {
+                                            $color = 'green';
+                                        }
+                                        else {
+                                            $color = 'red';
+                                        }
+                                    }
+                                    $testObj->timeList($color); 
+                                ?>
                             </select>
                         </div>
                         <div class="col-md-12 text-left">
-                            <small>Aantal personen:</small>
-                            <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
+                            <small>People:</small>
+                            <select id="people" class="form-control">
+                                <!-- Options are generated in backend -->
                             </select>
                         </div>
                         <div class="col-md-12 text-left d-flex flex-row-reverse mt-3">
-                            <button type="button" class="btn btn-light" onclick="next1()">Volgende</button>
+                            <input type="submit" class="btn btn-light" onclick="next1()" value="Next">
                         </div>
-                    </div>
+                    </form>
 
-                    <div class="page_2 col-md-12 d-none">
+                    <form class="page_2 col-md-12 d-none bestform">
                         <div class="col-md-12 text-left">
-                            <small>Naam:</small>
-                            <input type="text" class="form-control">
+                            <small>Name:</small>
+                            <input type="text" id="name" class="form-control">
                         </div>
                         <div class="col-md-12 text-left">
                             <small>Email:</small>
-                            <input type="email" class="form-control">
+                            <input type="email" id="email" class="form-control">
                         </div>
                         <div class="col-md-12 text-left">
-                            <small>Telefoonnummer:</small>
-                            <input type="tel" class="form-control">
+                            <small>Phone:</small>
+                            <input type="tel" id="phone" class="form-control">
                         </div>
                         <div class="col-md-12 text-left d-flex flex-row-reverse mt-3">
-                            <button type="button" class="btn btn-light"  onclick="next2()">Volgende</button>
+                            <input type="submit" class="btn btn-light" onclick="next2()" value="Next">
                         </div>
-                    </div>
+                    </form>
 
                     <div class="page_3 col-md-12 d-none">
                         <div class="col-md-12 text-center">
-                            <small>Uw reservering is geslaagd!</small>
-                            <p>We hebben u een bevestigingsmail gestuurd.</p>
+                            <small>Your reservation has been succesfully made!</small>
+                            <p>We send you a confirmation email.</p>
+                        </div>
+                        <div class="test">
+                            <?php
+                                $date = $_SESSION['date'];
+                                $time = $_SESSION['time'];
+                                $people = $_SESSION['people'];
+                                $name = $_SESSION['name'];
+                                $email = $_SESSION['email'];
+                                $phone = $_SESSION['phone'];
+
+                              
+                                $sql = "INSERT INTO reservation (date, timeslot, people, name, email, phone)
+                                VALUES ('$date', '$time', '$people', '$name', '$email', '$phone')";
+
+                                if (mysqli_query($conn, $sql)) {
+                                    echo "New record created successfully";
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                }
+                            ?>
                         </div>
                     </div>
                     
@@ -188,6 +215,7 @@
 
         <!-- link js scripts -->
         <script src="main.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- <script type="text/javascript">
             </script> -->
     </body>

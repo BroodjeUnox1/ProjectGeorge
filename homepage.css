@@ -18,15 +18,38 @@ html {
 	padding: 2rem 2rem;
 }
 
+.icon {
+	height: 5vh;
+	padding-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.icon i {
+	cursor: pointer;
+}
+
+.icon h5 {
+	margin: 0;
+	font-weight: 700;
+}
+
 .reserveren {
 	position: fixed;
 	z-index: 2;
-	animation-duration: 3s;
-	top: 10vh; 
+	padding: 5px 10px;
+	bottom: 5vh; 
 	right: 0vw; 
-	min-height: 80vh; 
+	height: 5vh; 
 	min-width: 20vw;
 	max-width: 20vw;
+	transition: 1s;
+	overflow-y: hidden;
+}
+
+.toggleActive {
+	height: 80vh; 
 }
 
 .border-black-bottom {
@@ -88,17 +111,6 @@ small {
 	font-weight: 700;
 }
 
-/*.test {
-	color: black;
-	transition: 300ms;
-}
-
-.test:hover {
-  	-webkit-text-fill-color: white;
-  	-webkit-text-stroke-width: 1px;
-  	-webkit-text-stroke-color: black;
-}*/
-
 .blackToWhite {
 	color: black;
 	transition: 300ms;
@@ -106,6 +118,7 @@ small {
 .blackToWhite:hover {
 	color: white;
   	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+	cursor: pointer;
 }
 
 #bestellen {
