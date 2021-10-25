@@ -60,35 +60,44 @@
 				$this->html = '<div class="container mt-5">';
 			
 				foreach ($this->data as $key) {
-					$this->html .= '<div class="menuCard row">';
-					$this->html .= '<div class="col-5 col-xs-7 col-sm-4 col-md-3 col-lg-3 col-xl-2 col-xxl-2">';
-					// $this->html .= '<form method="POST">';
-					$this->html .= '<img class="" id="testImage" src="'.$key["placeholder"].'" alt="...">';
-					$this->html .= '</div>';
-					$this->html .= '<div class="col-7 col-xs-5 col-sm-8 col-md-9 col-lg-9 col-xl-10 col-xxl-10 nameOmschrijving">
-										<h3>'. $key["name"] .'</h3>
-										<p>'. $key["omschrijving"] .'</p>
-									</div>';
-					$this->html .= '<div class="col-4 col-xs-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 col-xxl-1 button">
-										<p><strong>'. $key["currency"] .'</strong></p>
-										<select class="form-control" id="item'.array_search($key, $this->data).'">
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										</select>
-										<button class="btn btn-secondary btn-block" name="add" onclick="add(`'.$key["name"]. '`, `'.$key["currency"].'`,`item'.array_search($key, $this->data).'`)">+</button>
-									</div>';
-									// $this->html .= '<div class="" style="float: right;">' . $key["name"]. '</div>';
-									// </form>
-					$this->html .= '</div>';
-				}
-				
-				$this->html .= '</div> <br>'; 
+					$this->html .= '<div class="row">
+					<div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="" id="testImage" src="'.$key["placeholder"].'" alt="...">
+                    </div>
+                    <div class="col-md-9 ">
+                        <div class="row my-auto">
+                            <div class="col-md-12"><small>'. $key["name"] .'</small></div>
+                            <div class="col-md-12"><h6 class="about_text">'. $key["omschrijving"] .'</h6></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-auto">
+                <div class="row">
+                    <div class="col-md-4"><p>'. $key["currency"] .',-</p></div>
+                    <div class="col-md-4">
+                        <select class="form-control" id="item'.array_search($key, $this->data).'">
+                            <optgroup label="Amount">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <button style="border-radius: 7px; padding: 0.3rem 1rem; background-color: transparent;" name="add" onclick="add(`'.$key["name"]. '`, `'.$key["currency"].'`,`item'.array_search($key, $this->data).'`)">+</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <hr>';}
+
 				print($this->html);
 		}
 		
-
 		public function add($name, $currency, $amount) {
 			// data from POST
 			$data = ["name" => $name,"currency" => $currency, "amount" => $amount];

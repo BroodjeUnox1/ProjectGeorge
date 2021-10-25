@@ -44,60 +44,42 @@
 </head>
 
 <body>
-	<button onclick="toggle()">Open</button>
-    <div class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Order</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                        onclick="toggleUpdate()">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" style="max-height: 80vh; overflow-y: scroll;">
-                	<div class="row">
-                		<div class="col-md-8 line-height"><small>name+amount</small></div>
-                		<div class="col-md-2 line-height"><small>price</small></div>
-                		<div class="col-md-2 line-height"><i class="fas fa-times pointer" style="color: red;" onclick="removeFromBasket(' + obj.indexOf(index) + ')"></i></div>
-                	</div>
-                	<hr>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="afrekenen()">Checkout</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                        onclick="toggleUpdate()">Close</button>
+	<div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="" id="testImage" src="https://www.indeomgeving.nl/wp-content/uploads/2016/02/MG_4575-150x150.jpg" alt="...">
+                    </div>
+                    <div class="col-md-9 ">
+                        <div class="row my-auto">
+                            <div class="col-md-12"><small>Burger</small></div>
+                            <div class="col-md-12"><h6 class="about_text">A nice standard burger</h6></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="col-md-4 mt-auto">
+                <div class="row">
+                    <div class="col-md-4"><p>€9.89,-</p></div>
+                    <div class="col-md-4">
+                        <select name="" id="" class="form-control">
+                            <optgroup label="Amount">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <button style="border-radius: 7px; padding: 0.3rem 1rem; background-color: transparent;">+</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <hr>  
     </div>
 </body>
-<script type="text/javascript">
-
-// 	const ages = [32, 33, 16, 40];
-
-// ages.filter(checkAdult)    // Returns [32, 33, 40]
-
-// function checkAdult(age) {
-//   return age >= 18;
-// }
-	let testArray = [{Name: "burger", Currency: "1"},{Name: "burger", Currency: "1"},{Name: "burger", Currency: "1"}]
-	makeAmountArray(testArray)
-    function toggle() {
-        //getting data and assigning it to the modal before opening
-        //opening modal
-        $(".modal").toggle();
-    }
-
-    function toggleUpdate() {
-        location.reload();
-    }
-
-    function afrekenen() {
-        $(".modal-body").empty()
-        $(".modal-body").append('<div class="row"><div class="col-md-6"><small>Voornaam</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Achter naam</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Telefoon</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Email</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Straatnaam</small><input type="text" class="form-control"></div><div class="col-md-6"><small>postcode</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Betaalmethode</small><select name="" id="" class="form-control"><option value="ideal"><small>Ideal</small></option><option value="paypal"><small>Paypal</small></option><option value="paysafecard"><small>PaySafeCard</small></option></select></div></div></div>')    
-    }
-
-</script>
 
 </html>
