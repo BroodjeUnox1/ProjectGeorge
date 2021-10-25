@@ -7,30 +7,35 @@
 	{	
 		public $data = [
 		[
-			"currency" => "€46.61",
+			"currency" => "€9.89",
 			"name" => "Burger",
-			"omschrijving" => "A nice standard burger"
+			"omschrijving" => "A nice standard burger",
+			"placeholder" => "https://www.indeomgeving.nl/wp-content/uploads/2016/02/MG_4575-150x150.jpg"
 		],
 		[
-			"currency" => "€4.89",
-			"name" => "Cheesebruger",
-			"omschrijving" => "Standard burger with cheddar cheese"
+			"currency" => "€12.30",
+			"name" => "Salmon deluxe",
+			"omschrijving" => "Salmon with some delicous vegies",
+			"placeholder" => "https://www.timetomomo.com/wp-content/uploads/2020/03/BeeldVoorBlogArnhem-150x150.jpg"
 
 		],
 		[
-			"currency" => "€77.06",
-			"name" => "Quater pounder",
-			"omschrijving" => "Double layer burger with cheese"
+			"currency" => "€15.00",
+			"name" => "Macaroni",
+			"omschrijving" => "Macarone with special made tomato sauce",
+			"placeholder" => "https://www.foodiesmagazine.nl/app/uploads/2019/10/RIGATONI_OLIVE_18041720142-150x150.jpg"
 		],
 		[
-			"currency" => "€45.67",
-			"name" => "Tripple burger",
-			"omschrijving" => "Tripple layer burger"
+			"currency" => "€18.95",
+			"name" => "Premium salad",
+			"omschrijving" => "Salad with all kinds of vegies and cheese"
+,			"placeholder" => "https://www.orthica.nl/wp/wp-content/uploads/2018/01/werkprestaties-gezond-eten-1-150x150.jpg"
 		],
 		[
 			"currency" => "€10.95",
 			"name" => "Big tasty",
-			"omschrijving" => "Taste explosion with unions"
+			"omschrijving" => "Taste explosion with unions",
+			"placeholder" => "https://usercontent.one/wp/www.etenvanplien.nl/wp-content/uploads/2020/05/DSC_2471-2-150x150.jpg"
 		]
 	];
 		public $html;
@@ -58,7 +63,7 @@
 					$this->html .= '<div class="menuCard row">';
 					$this->html .= '<div class="col-5 col-xs-7 col-sm-4 col-md-3 col-lg-3 col-xl-2 col-xxl-2">';
 					// $this->html .= '<form method="POST">';
-					$this->html .= '<img class="" id="testImage" src="https://www.karlijnskitchen.com/wp-content/uploads/2015/09/cheese-bacon-burger-1-e1473968135128-150x150.jpg" alt="...">';
+					$this->html .= '<img class="" id="testImage" src="'.$key["placeholder"].'" alt="...">';
 					$this->html .= '</div>';
 					$this->html .= '<div class="col-7 col-xs-5 col-sm-8 col-md-9 col-lg-9 col-xl-10 col-xxl-10 nameOmschrijving">
 										<h3>'. $key["name"] .'</h3>

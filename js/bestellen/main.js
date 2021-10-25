@@ -10,9 +10,15 @@ function toggle() {
     }
 
     function afrekenen() {
-        $(".modal-body").empty()
-        $(".modal-body").append('<div class="row"><div class="col-md-6"><small>First name</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Last name</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Phone number</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Email</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Street name</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Postal code</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Betaalmethode</small><select name="" id="" class="form-control" style="font-family: Baskervville"><optgroup style="font-family: Baskervville" label="Methods"><option value="ideal">Ideal</option><option value="paypal">Paypal</option><option value="paysafecard">PaySafeCard</option></optgroup></select></div><div class="col-md-6" id="service"><small>Service</small><select name="" id="" class="form-control" style="font-family: Baskervville"><optgroup style="font-family: Baskervville" label="Services"><option value="Ing">Ing</option><option value="Rabobank">Rabobank</option><option value="Bunq">Bunq</option></optgroup></select></div><div class="col-md-12"><small>Time</small><select class="form-control time"></select></div></div>')
+        $(".modal-body").empty();
+        $(".modal-body").append('<div class="row"><div class="col-md-6"><small>First name</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Last name</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Phone number</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Email</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Street name</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Postal code</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Betaalmethode</small><select name="" id="service" class="form-control" style="font-family: Baskervville"><optgroup style="font-family: Baskervville" label="Methods"><option value="ideal">Ideal</option><option value="paypal">Paypal</option><option value="paysafecard">PaySafeCard</option></optgroup></select></div><div class="col-md-6" id="service"><small>Service</small><select name="" id="" class="form-control" style="font-family: Baskervville"><optgroup style="font-family: Baskervville" label="Services"><option value="Ing">Ing</option><option value="Rabobank">Rabobank</option><option value="Bunq">Bunq</option></optgroup></select></div><div class="col-md-12"><small>Time</small><select class="form-control time"></select></div></div>')
+        $("#pay").html("Pay");
+        $("#pay").attr("onclick", "pay()");
         makeTimeTable()    
+    }
+
+    function pay() {
+        alert(`Paying screen from ${$("#service").val()} and mail send(not made yet)`)
     }
 
     function add(val1, val2, val3) {

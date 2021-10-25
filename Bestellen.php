@@ -67,7 +67,7 @@
                 <div class="modal-body" style="max-height: 80vh; overflow-y: scroll;">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="afrekenen()">Checkout</button>
+                    <button type="button" class="btn btn-success" id="pay" onclick="afrekenen()">Checkout</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"
                         onclick="toggleUpdate()">Close</button>
                 </div>
@@ -123,10 +123,6 @@
     <?php $test->show(); ?>
     <?php $test->total();?>
 
-<!--         <div class="row">
-            <div class="col-md-2 time"></div>
-        </div>
-     -->
 </body>
 <script src="./js/bestellen/main.js"></script>
 <script src="./js/bestellen/timePicker.js"></script>
