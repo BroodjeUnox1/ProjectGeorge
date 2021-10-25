@@ -1,5 +1,8 @@
 <?php
+    session_start();
+
     include "./class/reserveren.php";
+    include "./dbcontest.php";
     $testObj = new reserveren();
 ?>
 <!DOCTYPE html>
@@ -124,59 +127,85 @@
             </div>
             <div class="container-fluid text-white text-center reserverenElements">
                 <div class="row">
-                    <div class="page_1 col-md-12">
+                    <form class="page_1 col-md-12 bestform">
                         <div class="col-md-12 text-left">
                             <small>Date:</small>
-                            <input type="date" class="form-control">
+                            <input id="date" type="date" class="form-control">
                         </div>
                         <div class="col-md-12 text-left">
                             <small>Time:</small>
                             <select id="time" class="form-control">
-                                <?php $testObj->timeList(); ?>
+                                <?php
+                                    $x = $_SESSION['x'];
+
+                                    $sql = "SELECT * FROM reservation WHERE date = '$x'";
+                                    $result = mysqli_query($conn, $sql);
+                            
+                                    if (mysqli_num_rows($result) > 0 ) {
+                                        if (mysqli_num_rows($result) < 10) {
+                                            $color = 'green';
+                                        }
+                                        else {
+                                            $color = 'red';
+                                        }
+                                    }
+                                    $testObj->timeList($color); 
+                                ?>
                             </select>
                         </div>
                         <div class="col-md-12 text-left">
                             <small>People:</small>
                             <select id="people" class="form-control">
-                                <!-- <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option> -->
+                                <!-- Options are generated in backend -->
                             </select>
                         </div>
                         <div class="col-md-12 text-left d-flex flex-row-reverse mt-3">
-                            <button type="button" class="btn btn-light" onclick="next1()">Next</button>
+                            <input type="submit" class="btn btn-light" onclick="next1()" value="Next">
                         </div>
-                    </div>
+                    </form>
 
-                    <div class="page_2 col-md-12 d-none">
+                    <form class="page_2 col-md-12 d-none bestform">
                         <div class="col-md-12 text-left">
                             <small>Name:</small>
-                            <input type="text" class="form-control">
+                            <input type="text" id="name" class="form-control">
                         </div>
                         <div class="col-md-12 text-left">
                             <small>Email:</small>
-                            <input type="email" class="form-control">
+                            <input type="email" id="email" class="form-control">
                         </div>
                         <div class="col-md-12 text-left">
                             <small>Phone:</small>
-                            <input type="tel" class="form-control">
+                            <input type="tel" id="phone" class="form-control">
                         </div>
                         <div class="col-md-12 text-left d-flex flex-row-reverse mt-3">
-                            <button type="button" class="btn btn-light"  onclick="next2()">Next</button>
+                            <input type="submit" class="btn btn-light" onclick="next2()" value="Next">
                         </div>
-                    </div>
+                    </form>
 
                     <div class="page_3 col-md-12 d-none">
                         <div class="col-md-12 text-center">
                             <small>Your reservation has been succesfully made!</small>
                             <p>We send you a confirmation email.</p>
+                        </div>
+                        <div class="test">
+                            <?php
+                                $date = $_SESSION['date'];
+                                $time = $_SESSION['time'];
+                                $people = $_SESSION['people'];
+                                $name = $_SESSION['name'];
+                                $email = $_SESSION['email'];
+                                $phone = $_SESSION['phone'];
+
+                              
+                                $sql = "INSERT INTO reservation (date, timeslot, people, name, email, phone)
+                                VALUES ('$date', '$time', '$people', '$name', '$email', '$phone')";
+
+                                if (mysqli_query($conn, $sql)) {
+                                    echo "New record created successfully";
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                }
+                            ?>
                         </div>
                     </div>
                     

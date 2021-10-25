@@ -3,28 +3,36 @@
 class reserveren {
     
     public $html;
+    public $x;
 
-    public function timeList() {
+    public function timeList($color) {
         $startTime = "12:00";
         $endTime = "14:00";
 
         $timeSlot = $startTime;
 
-        while ($timeSlot <= $endTime) { 
-            // checkReservations($timeSlot);
+        // $this->x = $_SESSION['x'];
 
-            $this->html .= '<option style="color: green;">'. $timeSlot .'</option>';
+        // $sql = "SELECT * FROM reservation WHERE date = '$x'";
+        // $result = mysqli_query($conn, $sql);
+
+        // if (mysqli_num_rows($result) > 0 ) {
+        //     if (mysqli_num_rows($result) < 10) {
+        //         $color = 'green';
+        //     }
+        //     else {
+        //         $color = 'red';
+        //     }
+        //     $color = 'green';
+        // }
+
+
+        while ($timeSlot <= $endTime) { 
+            $this->html .= '<option style="color: '. $color .' ;">'. $timeSlot .'</option>';
             $timeSlot = strtotime($timeSlot);
             $timeSlot = date("H:i", strtotime('+30 minutes', $timeSlot));
         }
 
         print($this->html);
     }
-
-    // public function peopleList() {
-    //    // List automatically generated based on space avalable in selected timeslot
-
-    // }
-
-
 }

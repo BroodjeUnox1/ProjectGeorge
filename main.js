@@ -1,12 +1,3 @@
-// $( document ).ready(function() {
-//     $(".reserveren").css("min-width", "0vw")
-//  		$(".reserveren").css("min-height", "0vw")
-//  		$(".reserveren").css("width", "20vw")
-//  		$(".reserveren").css("height", "3vw")
-//  		$(".reserverenElements").css("display", "none")
-//  		$(".icon2").attr("class", "fas fa-grip-lines fa-2x icon2")
-// });
-
 function toggleActive() {
 	$('#reserveren').toggleClass('toggleActive');
 };
@@ -35,31 +26,41 @@ $( document ).ready(function() {
 	}
 	)
 
+	$('.bestform').submit(function(event){
+		// console.log('test')
+		event.preventDefault();
+		var	date = $('#date').val();
+		var	time = $('#time').val();
+		var	people = $('#people').val();
+		var	name = $('#name').val();
+		var	email = $('#email').val();
+		var	phone = $('#phone').val();
+		$.post("./testAjax.php",{
+			date:date,
+			time:time,
+			people:people,
+			name:name,
+			email:email,
+			phone:phone
+		},
+			function(response) {
+				
+			});
+
+	});
+
+	$('#date').change(function(event){
+		event.preventDefault();
+		var	x = $('#date').val();
+		$.post("./newtest.php",{
+			x:x
+		},
+			function(response) {
+				
+			});
+	});
+	
 });
-
-// function sidebar() {
-//  if($(".reserverenElements").css("display") == "block") {
-//  	$(".reserveren").css("min-width", "0vw")
-//  	$(".reserveren").css("min-height", "0vw")
-//  	$(".reserveren").css("width", "20vw")
-//  	$(".reserveren").css("height", "3vw")
-//  	$(".reserverenElements").css("display", "none")
-//  	$(".icon2").attr("class", "fas fa-grip-lines fa-2x icon2")
-
-// 	$(".page_3").css("display", "none")
-// 	$(".page_3").attr("class", "page_3 col-md-12")
-// 	$(".page_1").css("display", "block")
-// 	$(".page_1").attr("class", "page_1 col-md-12")
-//  }else {
-//  	$(".reserveren").css("min-width", "20vw")
-//  	$(".reserveren").css("width", "20vw")
-//  	$(".reserveren").css("min-height", "80vh")
-//  	$(".reserveren").css("height", "80vh")
-//  	$(".reserverenElements").css("display", "block")
-//  	$(".icon2").attr("class", "far fa-window-close fa-2x icon2")
-//  }
- 			
-// };
 
 function next1() {
 	$(".page_1").css("display", "none")

@@ -111,17 +111,6 @@ small {
 	font-weight: 700;
 }
 
-/*.test {
-	color: black;
-	transition: 300ms;
-}
-
-.test:hover {
-  	-webkit-text-fill-color: white;
-  	-webkit-text-stroke-width: 1px;
-  	-webkit-text-stroke-color: black;
-}*/
-
 .blackToWhite {
 	color: black;
 	transition: 300ms;
