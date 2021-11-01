@@ -135,22 +135,6 @@
                         <div class="col-md-12 text-left">
                             <small>Time:</small>
                             <select id="time" class="form-control">
-                                <?php
-                                    $x = $_SESSION['x'];
-
-                                    $sql = "SELECT * FROM reservation WHERE date = '$x'";
-                                    $result = mysqli_query($conn, $sql);
-
-                                    if (mysqli_num_rows($result) > 0 ) {
-                                        if (mysqli_num_rows($result) < 10) {
-                                            $color = 'green';
-                                        }
-                                        else {
-                                            $color = 'red';
-                                        }
-                                    }
-                                    $testObj->timeList($color);
-                                ?>
                             </select>
                         </div>
                         <div class="col-md-12 text-left">
@@ -186,26 +170,6 @@
                         <div class="col-md-12 text-center">
                             <small>Your reservation has been succesfully made!</small>
                             <p>We send you a confirmation email.</p>
-                        </div>
-                        <div class="test">
-                            <?php
-                                $date = $_SESSION['date'];
-                                $time = $_SESSION['time'];
-                                $people = $_SESSION['people'];
-                                $name = $_SESSION['name'];
-                                $email = $_SESSION['email'];
-                                $phone = $_SESSION['phone'];
-
-
-                                $sql = "INSERT INTO reservation (date, timeslot, people, name, email, phone)
-                                VALUES ('$date', '$time', '$people', '$name', '$email', '$phone')";
-
-                                if (mysqli_query($conn, $sql)) {
-                                    echo "New record created successfully";
-                                } else {
-                                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                                }
-                            ?>
                         </div>
                     </div>
 

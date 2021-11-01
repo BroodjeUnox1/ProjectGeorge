@@ -45,40 +45,7 @@
 
 <body>
 	<div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img class="" id="testImage" src="https://www.indeomgeving.nl/wp-content/uploads/2016/02/MG_4575-150x150.jpg" alt="...">
-                    </div>
-                    <div class="col-md-9 ">
-                        <div class="row my-auto">
-                            <div class="col-md-12"><small>Burger</small></div>
-                            <div class="col-md-12"><h6 class="about_text">A nice standard burger</h6></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mt-auto">
-                <div class="row">
-                    <div class="col-md-4"><p>€9.89,-</p></div>
-                    <div class="col-md-4">
-                        <select name="" id="" class="form-control">
-                            <optgroup label="Amount">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <button style="border-radius: 7px; padding: 0.3rem 1rem; background-color: transparent;">+</button>
-                    </div>
-                </div>
-            </div>
-        </div> 
-        <hr>  
+        s 
     </div>
 </body>
 
