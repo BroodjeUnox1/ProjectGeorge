@@ -52,7 +52,7 @@
                         OPEN DAILY FROM<br>
                         11A.M. TILL LATE<br><br>
                     </h6>
-                    
+
                     <small>We'll rock your boat at George Marina</small><br><br>
                     <small>On sunny days we have valet parking for a fee of <u>€12,50</u> during lunch and <u>€15</u> during dinner</small>
                     <!-- linker kant 2 de gedeele -->
@@ -62,11 +62,11 @@
                         MAPS<br>
                         E-MAIL<br>
                         PHONE
-                    
+
                 </div>
                 <!-- midden stuk -->
                 <div class="col-md-6 text-center border-black-left border-black-right">
-                    
+
                         <h6 class="Heading_about">
                                 THIS IS US
                         </h6>
@@ -80,12 +80,12 @@
                         </h6>
                         <br>
                         <h6 class="about_text">
-                            Despite our restaurants' modern allure, our large, sunny terrace has more of a Côte d'Azur feel – especially in the summer when guests coming from the canals dock their boats in the marina, and enjoy a drink while watching the sunset. No matter what season and what time of the day though, George Marina is a great place to escape hectic, daily life – if only for one day.   
+                            Despite our restaurants' modern allure, our large, sunny terrace has more of a Côte d'Azur feel – especially in the summer when guests coming from the canals dock their boats in the marina, and enjoy a drink while watching the sunset. No matter what season and what time of the day though, George Marina is a great place to escape hectic, daily life – if only for one day.
                         </h6>
                         <em>
                             <b>- fin -</b>
                         </em>
-                            
+
                 </div>
                 <!-- Rechter kant eerste gedeelte -->
                 <div class="col-md-3 text-center">
@@ -93,9 +93,9 @@
                         MENU'S
                         <br>
                         <br>
-                        <a id="food" href="./menuFood">FOOD</a>
+                        <a id="food" href="./menuFood.php">FOOD</a>
                         <br>
-                        <a id="drinks" href="./menuDrinks">DRINKS</a>
+                        <a id="drinks" href="./menuDrinks.php">DRINKS</a>
                         <br>
                         <br>
                     </h3>
@@ -103,7 +103,7 @@
                     <hr style="border-bottom: 1px solid black;">
                     <br>
                     <div class="blackToWhite">
-                        <h3><b class="blackToWhite" onclick="toggleActive()">BOOK</b></h3>   
+                        <h3><b class="blackToWhite" onclick="toggleActive()">BOOK</b></h3>
                         <h3><b class="blackToWhite" onclick="toggleActive()">MY</b></h3>
                         <h3><b class="blackToWhite" onclick="toggleActive()">TABLE</b></h3>
                     </div>
@@ -140,7 +140,7 @@
 
                                     $sql = "SELECT * FROM reservation WHERE date = '$x'";
                                     $result = mysqli_query($conn, $sql);
-                            
+
                                     if (mysqli_num_rows($result) > 0 ) {
                                         if (mysqli_num_rows($result) < 10) {
                                             $color = 'green';
@@ -149,7 +149,7 @@
                                             $color = 'red';
                                         }
                                     }
-                                    $testObj->timeList($color); 
+                                    $testObj->timeList($color);
                                 ?>
                             </select>
                         </div>
@@ -196,7 +196,7 @@
                                 $email = $_SESSION['email'];
                                 $phone = $_SESSION['phone'];
 
-                              
+
                                 $sql = "INSERT INTO reservation (date, timeslot, people, name, email, phone)
                                 VALUES ('$date', '$time', '$people', '$name', '$email', '$phone')";
 
@@ -208,7 +208,7 @@
                             ?>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
