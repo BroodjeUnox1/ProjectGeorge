@@ -136,20 +136,20 @@
                             <small>Time:</small>
                             <select id="time" class="form-control">
                                 <?php
-                                    $x = $_SESSION['x'];
+                                    // $x = $_SESSION['x'];
 
-                                    $sql = "SELECT * FROM reservation WHERE date = '$x'";
-                                    $result = mysqli_query($conn, $sql);
+                                    // $sql = "SELECT * FROM reservation WHERE date = '$x'";
+                                    // $result = mysqli_query($conn, $sql);
                             
-                                    if (mysqli_num_rows($result) > 0 ) {
-                                        if (mysqli_num_rows($result) < 10) {
-                                            $color = 'green';
-                                        }
-                                        else {
-                                            $color = 'red';
-                                        }
-                                    }
-                                    $testObj->timeList($color); 
+                                    // if (mysqli_num_rows($result) > 0 ) {
+                                    //     if (mysqli_num_rows($result) < 10) {
+                                    //         $color = 'green';
+                                    //     }
+                                    //     else {
+                                    //         $color = 'red';
+                                    //     }
+                                    // }
+                                    // $testObj->timeList($color); 
                                 ?>
                             </select>
                         </div>

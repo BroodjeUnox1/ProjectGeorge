@@ -61,12 +61,12 @@
 			
 				foreach ($this->data as $key) {
 					$this->html .= '<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-8 col-sm-8 col-sm-12">
                 <div class="row">
-                    <div class="col-md-3">
-                        <img class="" id="testImage" src="'.$key["placeholder"].'" alt="...">
+                    <div class="col-md-4 col-lg-3 col-sm-4 col-4">
+                        <img class="" id="testImage" src="'.$key["placeholder"].'" alt="..." >
                     </div>
-                    <div class="col-md-9 ">
+                    <div class="col-md-8 col-lg-3 col-sm-8 col-8">
                         <div class="row my-auto">
                             <div class="col-md-12"><small>'. $key["name"] .'</small></div>
                             <div class="col-md-12"><h6 class="about_text">'. $key["omschrijving"] .'</h6></div>
@@ -74,10 +74,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mt-auto">
-                <div class="row">
-                    <div class="col-md-4"><p>'. $key["currency"] .',-</p></div>
-                    <div class="col-md-4">
+            <div class="col-md-4 mt-md-auto col-sm-12">
+                <div class="row mt-sm-3">
+                    <div class="col-md-4 col-sm-2 col-2"><p>'. $key["currency"] .',-</p></div>
+                    <div class="col-md-4 col-sm-4 col-4">
                         <select class="form-control" id="item'.array_search($key, $this->data).'">
                             <optgroup label="Amount">
                                 <option value="1">1</option>
@@ -87,7 +87,7 @@
                             </optgroup>
                         </select>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4 col-4">
                         <button style="border-radius: 7px; padding: 0.3rem 1rem; background-color: transparent;" name="add" onclick="add(`'.$key["name"]. '`, `'.$key["currency"].'`,`item'.array_search($key, $this->data).'`)">+</button>
                     </div>
                 </div>
