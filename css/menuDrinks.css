@@ -1,0 +1,44 @@
+body,
+html {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+}
+
+main>div {
+    border-bottom: 1px solid;
+    border-color: black;
+    border-width: 2px;
+    margin-top: 10px;
+}
+
+main div>h2 {
+    border-bottom: 1px solid black;
+    width: 15%;
+    padding-bottom: 5px;
+}
+
+.price {
+    float: right;
+    margin-top: -30px
+}
+
+main div>h4 {
+    margin-bottom: 30px;
+}
+
+input {
+    float: right;
+    margin-top: 20px;
+}
+
+@page {
+    size: auto;
+    margin: 0mm;
+}
+
+@media print {
+    input,
+    title {
+        display: none;
+    }
+}

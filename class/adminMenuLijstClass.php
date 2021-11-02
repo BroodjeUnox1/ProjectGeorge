@@ -1,9 +1,9 @@
-<?php 
+<?php
 
     class MenuLijst {
         public $data = [
             [
-                "id" => "001",
+                "id" => "000",
                 "name" => "Gerechten",
             ],
             [
@@ -11,13 +11,17 @@
                 "name" => "Nagerechten",
             ],
             [
-                "id" => "001",
+                "id" => "002",
                 "name" => "Dranken",
             ],
+            [
+                'id' => '003',
+                'name' => 'pasta'
+            ]
         ];
 
         public $html;
-        
+
         public function __construct(){
             $this->getHtml();
         }
@@ -27,12 +31,12 @@
 
             foreach ($this->data as $key) {
                 $this->html .= '<div class="col-12 lijstWijzig">';
-                $this->html .= '<h3 style="float: left;">' .$key["name"] .'</h3>';
+                $this->html .= '<h3 style="float: left;">' . $key["name"] .'</h3>';
                 $this->html .= '<div class="btn-group float-end" role="group" aria-label="Third group">
                                     <a href="./adminMenuLijstView.php">
                                         <button type="button" class="btn btn-dark">Bekijk</button>
                                     </a>
-                                    <a href="./adminMenuEditLijst.php">
+                                    <a href="./adminMenuEditLijst.php?id='. $key["id"] .'">
                                         <button type="button" class="btn btn-dark">Edit</button>
                                     </a>
                                     <a href="">
