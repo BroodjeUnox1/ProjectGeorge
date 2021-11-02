@@ -24,7 +24,8 @@ function toggle() {
     function add(val1, val2, val3) {
         let amountNumber = $(`#${val3}`).val()
         console.log(amountNumber)
-       // api request to add to shopping basket
+        console.log(`${val1}, ${val2}, ${val3}`)
+      //api request to add to shopping basket
         $.post('./api/bestel.php', {
             name: val1,
             currency: val2,
