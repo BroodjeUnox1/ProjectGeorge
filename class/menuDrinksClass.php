@@ -257,26 +257,32 @@ class DrinksMenu {
 
         $formatArray = array();
 
-        foreach($this->categories as $id => $category) {
+        // foreach($this->categories as $id => $category) {
 
-            print_r('<h2>'. $category .'</h2>');
-        }
-            foreach($this->drinks as $id => $drink) {
-                $formatArray[$drink['category']][] = $drink;
-            }
-
-
-        // foreach ($this->categories as $key =>) {
-        //     $this->html .= '<h2>'. $key["category"] .'</h2>';
-
-        //     foreach ($this->drinks as $key2){
-        //         $this->html .= '<div>';
-        //         $this->html .= '<h6>'. $key2["name"].'</h6>';
-        //         $this->html .= '<p class="price">€'. $key2["price"] .',-</p>';
-        //         $this->html .= '<p>'. $key2["description"] .'</p>';
-        //     }
-        //     $this->html .= '</div><br />';
+        //     print_r('<h2>'. $category .'</h2>');
         // }
+        foreach($this->drinks as $id => $drink) {
+            $formatArray[$drink['category']][] = $drink;
+        }
+
+
+        $this->html = '<div class="row mt-3">';
+
+        foreach ($this->data as $key) {
+            $this->html .= '<div class="">';
+            $this->html .= '<h2>'. $key["category"] .'</h2>';
+            // $this->html .= '<h4>'. $key["description"] .'</h4>';
+            $this->html .= '</div';
+
+            foreach ($this->data2 as $key2){
+                $this->html .= '<div>';
+                $this->html .= '<h6>'. $key2["name"].'</h6>';
+                $this->html .= '<p class="price">€'. $key2["price"] .',-</p>';
+                $this->html .= '<p>'. $key2["description"] .'</p>';
+            }
+            $this->html .= '</div>';
+            $this->html .= '</div><br>';
+        }
     }
 
     public function show() {
