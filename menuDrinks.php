@@ -31,11 +31,7 @@
     </form>
 
     <div>
-      <div class="row">
-        <div class="col-6">
-          <?php $menuDrinks->show() ?>
-        </div>
-      </div>
+      <?php $menuDrinks->show() ?>
     </div>
   </main>
   <!-- Optional JavaScript; choose one of the two! -->
