@@ -130,3 +130,14 @@ small {
 	opacity: 0.5;
 	text-decoration: none !important;
 }
+
+.dash {
+	width: 100vw;
+	display: flex;
+	padding: 100px;
+}
+
+#dashData {
+	width: 100%;
+	margin-left: 50px;
+}
