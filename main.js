@@ -4,27 +4,38 @@ function toggleActive() {
 
 $( document ).ready(function() {
 
-	$('#time').change(function () {
-		var val = $(this).val();
-		if (val == '13:30') {
-			$('#people').html("<option>1</option>");
-		}
-		else {
-			$('#people').html(`
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-				<option>6</option>
-				<option>7</option>
-				<option>8</option>
-				<option>9</option>
-				<option>10</option>
-			`);
-		}
-	}
-	)
+	$("#date").change(function() {
+        var value = this.value;
+        $.post("./reserveren/reserveren.php", {
+            date: value
+        }
+        , function(data){
+            $("#test").html(data);
+
+            // $('#time option:not(:first)').remove();
+            $('#time option:gt(0)').remove();
+
+            $("#timeSelect").after(data);
+        });
+    })
+
+	$("#time").change(function() {
+        var value = this.value;
+        //do your work here
+        $.post("./reserveren/function.php",
+        {
+            time: value
+        }
+        , function(data){
+            // $("#test").html(data);
+
+            // $('#time option:not(:first)').remove();
+            $('#people option:gt(0)').remove();
+
+            $("#peopleSelect").after(data);
+        });
+    })
+
 
 	$('.bestform').submit(function(event){
 		// console.log('test')
@@ -49,16 +60,25 @@ $( document ).ready(function() {
 
 	});
 
-	$('#date').change(function(event){
-		event.preventDefault();
-		var	x = $('#date').val();
-		$.post("./newtest.php",{
-			x:x
-		},
-			function(response) {
-				
-			});
-	});
+	$( "#datepicker" ).datepicker({
+        dateFormat: 'yy-mm-dd'
+    });
+
+	$( "#datepicker" ).change(function(){
+        // var currentDate = $( "#datepicker" ).datepicker( "getDate" );
+        var currentDate = $( "#datepicker" ).datepicker().val();
+
+        // alert(currentDate);
+
+        $.post("./reserveren/dash.php",
+        {
+            currentDate: currentDate
+        }
+        , function(data){
+            $("#tableData").html(data);
+        });
+
+    });
 	
 });
 
