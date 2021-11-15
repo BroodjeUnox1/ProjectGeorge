@@ -255,34 +255,46 @@ class DrinksMenu {
 
     public $html;
     function __construct() {
+        $this->getCategories();
+        $this->getProducts();
         $this->getHtml();
     }
 
+    private function getCategories() {
+
+    }
+
+    private function getProducts() {
+
+    }
 
     public function getHtml() {
 
-        // $formatArray = array();
+        $formatArray = array();
+
 
 
         $this->html = '<div class="row mt-3">';
-
         foreach($this->categories as $id => $category) {
 
-            $this->html .='<h2>'. $category .'</h2>';
+            $this->html .='<h2>'. $category['name'] .'</h2>';
 
             foreach($this->drinks as $id => $drink) {
                 array_push($this->categories[$drink["category"]], $drink);
+                $this->html .= '<div>';
 
                 $this->html .= '<h6>'. $drink["name"] .'</h6>';
                 $this->html .= '<p class="price">€'. $drink["price"] .',-</p>';
                 $this->html .= '<p>'. $drink["description"] .'</p>';
 
-                // $formatArray[$drink['category']][] = $drink;
+                $formatArray[$drink['category']][] = $drink;
                 // print($drink['name']);
                 // var_dump($drink);
             }
-            $this->html .= '</div><br>';
+            $this->html .= '</div>';
+            $this->html .= '<br>';
         }
+        // $this->html .= '</div>';
 
 
         // var_dump($this->categories);
