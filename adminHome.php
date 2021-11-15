@@ -19,7 +19,7 @@
         <a href="./adminHome.php">Dashboard</a>
         <a href="./adminMenu.php">Menu</a>
         <a href="#">Bestellingen</a>
-        <a href="#">Reserveringen</a>
+        <a href="./adminReserveren.php">Reserveringen</a>
         <a href="#">Gast gegevens</a>
     </div>
     <!-- <span onclick="openNav()">open</span> -->
@@ -64,7 +64,7 @@
                     <div class="card-body" style="align-self: flex-end;">
                         <h5 class="card-title">Reserveringen</h5>
                         <p class="card-text">Klik hier om de reserveringen te zien</p>
-                        <a href="#" class="btn">Reserveringen</a>
+                        <a href="./adminReserveren.php" class="btn">Reserveringen</a>
                     </div>
                 </div>
             </div>
