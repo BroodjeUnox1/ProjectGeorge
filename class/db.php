@@ -7,7 +7,7 @@ class db {
     protected $query_closed = TRUE;
 	public $query_count = 0;
 
-	public function __construct($dbhost = 'localhost', $dbuser = 'GeorgeUser', $dbpass = 'George123', $dbname = 'GeorgeMboUtrecht', $charset = 'utf8') {
+	public function __construct($dbhost = 'localhost', $dbuser = 'root', $dbpass = '', $dbname = 'george', $charset = 'utf8') {
 		$this->connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 		if ($this->connection->connect_error) {
 			$this->error('Failed to connect to MySQL - ' . $this->connection->connect_error);
@@ -126,6 +126,8 @@ class db {
 	    if (is_int($var)) return 'i';
 	    return 'b';
 	}
+
+
 
 }
 ?>
