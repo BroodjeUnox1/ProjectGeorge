@@ -1,99 +1,77 @@
 <?php
 
-class DrinksMenu {
-    public $data = [
-        ["category" => "White Wine"],
-        ["category" => "Red Wine"],
-        ["category" => "Rose Wine"],
-        ["category" => "Gin & Tonics"],
-        ["category" => "Sparkling Wine"],
-        ["category" => "Cocktails"],
-        ["category" => "Aperitif"],
-        ["category" => "Non-alcoholic Cocktails"],
-        ["category" => "Beers"],
-        ["category" => "Liqour"],
-        ["category" => "Juices"],
-        ["category" => "Sodas"],
-        ["category" => "Tequila"],
-        ["category" => "Rum"],
-        ["category" => "Water"],
-        ["category" => "Vodka"],
-        ["category" => "Coffee & Tea"],
-        ["category" => "Whiskey"],
-        ["category" => "Digestives"],
-        ["category" => "Dutch Jenever"],
-    ];
+    class DrinksMenu {
 
-    public $data2 = [
-        [
-            "name" => "Hennesy",
-            "price" => "9,50",
-            "description" => "de cognac"
-        ],
-        [
-            "name" => "Van Wees",
-            "price" => "5",
-            "description" => "young jenever"
-        ],
-        [
-            "name" => "Espresso",
-            "price" => "3",
-            "description" => ""
-        ],
-        [
-            "name" => "Jameson",
-            "price" => "5,50",
-            "description" => "Irish"
-        ],
-        [
-            "name" => "Grey Goose",
-            "price" => "9",
-            "description" => ""
-        ],
-        [
-            "name" => "Bacardi",
-            "price" => "6",
-            "description" => "superior"
-        ],
-        [
-            "name" => "Marie-Stella-Maris",
-            "price" => "3.25",
-            "description" => "still/sparkling 0,25l"
-        ],
-        [
-            "name" => "Coca Cola",
-            "price" => "3,50",
-            "description" => "regular/zero"
-        ],
+        public $html;
 
-    ];
+        private $dbObj;
 
-    public $html;
-    function __construct() {
-        $this->getHtml();
-    }
+        public $categories;
+        public $drinks;
+        public $categoryDrinks;
 
-    public function getHtml() {
-        $this->html = '<div class="row mt-3">';
+        function __construct() {
+            include 'db.php';
+            $this->dbObj = new db($dbhost = 'localhost', $dbuser = 'root', $dbpass = '', $dbname = 'george');
+            $this->getCategories();
+            $this->getProducts();
 
-        foreach ($this->data as $key) {
-            $this->html .= '<div class="">';
-            $this->html .= '<h2>'. $key["category"] .'</h2>';
-            // $this->html .= '<h4>'. $key["description"] .'</h4>';
-            $this->html .= '</div';
+            $this->formatArray();
 
-            foreach ($this->data2 as $key2){
-                $this->html .= '<div>';
-                $this->html .= '<h6>'. $key2["name"].'</h6>';
-                $this->html .= '<p class="price">€'. $key2["price"] .',-</p>';
-                $this->html .= '<p>'. $key2["description"] .'</p>';
+            $this->getHtml();
+        }
+
+        private function getCategories() {
+            $this->dbObj->query('SELECT * FROM categoriesDrinks');
+            $this->categories = $this->dbObj->fetchAll();
+        }
+
+        private function getProducts() {
+            $this->dbObj->query('SELECT * FROM drinks');
+            $this->drinks = $this->dbObj->fetchAll();
+        }
+
+        private function formatArray() {
+            $formatArray = array();
+            foreach($this->categories as $category) {
+                $formatArray[$category['id']] = array(
+                    'name' => $category['name'],
+                    'drinks' => array()
+                );
             }
-            $this->html .= '</div>';
-            $this->html .= '</div><br>';
+
+            foreach($this->drinks as $drink) {
+                $formatArray[$drink['category_id']]['drinks'][$drink['id']] = array(
+                    'name' => $drink['name'],
+                    'description' => $drink['description'],
+                    'price' => $drink['price']
+                );
+            }
+            $this->categoryDrinks = $formatArray;
+        }
+
+        public function getHtml() {
+            $html = '<div id="drink_overview">';
+
+            foreach ($this->categoryDrinks as $id => $category) {
+                if (!empty($category['drinks'])) {
+                    $html .= '<h2 id="'.$id.'">'.$category['name'].'</h2>';
+
+                    foreach($category['drinks'] as $drink) {
+                        $html .= '<div class="drink">';
+                        $html .= '<h4>'.$drink['name'].'</h4>';
+                        $html .= '<span class="price"> €'.$drink['price'].',-</span>';
+                        $html .= '<span class="description">'.$drink['description'].'</span>';
+                        $html .= '</div>';
+                        $html .= '<br>';
+                    }
+                }
+            }
+
+            $this->html = $html;
+        }
+
+        public function show() {
+            echo $this->html;
         }
     }
-
-    public function show() {
-        echo $this->html;
-    }
-}

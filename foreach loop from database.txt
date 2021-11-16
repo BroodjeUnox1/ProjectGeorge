@@ -1,0 +1,20 @@
+categories
+	id INT(2)
+	name VARCHAR(30)
+	parent_id INT(2)
+
+products
+	id INT(3)
+	name VARCHAR(255)
+	price DECIMAL
+	category_id INT(2)
+
+
+SELECT * FROM categories
+SELECT * FROM products
+
+$formatArray = array();
+
+foreach $products as $id => $product {
+	$formatArray[$product['category_id']][] = $product;
+}

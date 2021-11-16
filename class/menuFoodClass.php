@@ -1,75 +1,77 @@
 <?php
 
 class FoodMenu {
-    public $data = [
-        [
-            "category" => "Eggs",
-            "description" => "Poached eggs on brioche"
-        ],
-        [
-            "category" => "Toast",
-            "description" => "Sourdough bread"
-        ],
-        [
-            "category" => "Clubs",
-            "description" => "W/ french fries"
-        ],
-        [
-            "category" => "Salads",
-            "description" => ""
-        ],
-        [
-            "category" => "Starters",
-            "description" => ""
-        ],
-        [
-            "category" => "Oysters & clams",
-            "description" => "served w/ lemon & red wine -shallot vinaigrette"
-        ],
-    ];
 
-    public $data2 = [
-        [
-            "name" => "Florentine w/ spinach & hollandaise sauce",
-            "price" => "13",
-            "description" => ""
-        ],
-        [
-            "name" => "Norwegian w/ smoked salmon & hollandaise sauce",
-            "price" => "16",
-            "description" => ""
-        ],
-        [
-            "name" => "Benedict w/ ham & hollandaise sauce",
-            "price" => "14",
-            "description" => ""
-        ],
-    ];
+    public $html;
 
-    public $html; 
-    
+    private $dbObj;
+
+    public $categoriesFood;
+    public $foods;
+    public $categories;
+
     function __construct(){
+        include 'db.php';
+        $this->dbObj = new db($dbhost ='localhost', $dbuser = 'root', $dbpass ='', $dbname ='george');
+        $this->getCategoriesFood();
+        $this->getFood();
+        $this->formatArray();
         $this->getHtml();
     }
 
-    public function getHtml(){
-        $this->html = '<div class="row mt-3">';
+    private function GetcategoriesFood(){
+        $this->dbObj->query("SELECT * FROM categories_food");
+        $this->categories = $this->dbObj->fetchAll();
+    }
 
-        foreach ($this->data as $key) {
-            $this->html .= '<div class="">';
-            $this->html .= '<h2>'. $key["category"] .'</h2>';
-            $this->html .= '<h4>'. $key["description"] .'</h4>';
-            $this->html .= '</div';
+    private function GetFood(){
+        $this->dbObj->query("SELECT * FROM food");
+        $this->foods = $this->dbObj->fetchAll();
+    }
 
-            foreach ($this->data2 as $key2){
-                $this->html .= '<div>';
-                $this->html .= '<h6>'. $key2["name"].'</h6>';
-                $this->html .= '<p class="price">€'. $key2["price"] .',-</p>';
-                $this->html .= '<p>'. $key2["description"] .'</p>';
-            }
-            $this->html .= '</div>';
-            $this->html .= '</div><br>';
+    private function formatArray(){
+        $formatArray = array();
+        foreach($this->categories as $category) {
+            $formatArray[$category['id']] = array(
+                'name' => $category['name'],
+                'food' => array()
+            );
         }
+
+        foreach($this->foods as $food) {
+            $formatArray[$food['category_id']]['food'][$food['id']] = array(
+                'name' => $food['name'],
+                'description' => $food['description'],
+                'price' => $food['price'],
+                'vegitarian?' => $food['vegitarian?'],
+                'nuts?' => $food['nuts?'],
+            );
+        }
+        $this->categoriesFood = $formatArray;
+    }
+
+    public function getHtml(){
+        $html = '<div id="food_overview">';
+
+        foreach ($this->categoriesFood as $id => $category) {
+            if(!empty($category['food'])){
+                $html .= '<h2 id="'.$id.'">'. $category['name'] .'</h2>';
+
+                foreach($category['food'] as $food) {
+                    $html .= '<div class="food">';
+                    $html .= '<h4>'. $food["name"].'</h4>';
+                    $html .= '<span>'. $food["description"].'</span><br>';
+                    $html .= '<span>'. $food["vegitarian?"].'</span><br>';
+                    $html .= '<span>'. $food["nuts?"].'</span>';
+                    $html .= '<p class="price">€'. $food["price"] .',-</p>';
+                    $html .= '</div>';
+                    $html .= '<br>';
+
+                }
+            }
+        }
+
+        $this->html = $html;
     }
 
     public function show() {

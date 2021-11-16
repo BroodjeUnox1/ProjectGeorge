@@ -1,4 +1,4 @@
-<?php 
+<?php
   include './class/menuDrinksClass.php';
   $menuDrinks = new DrinksMenu();
 
@@ -25,12 +25,12 @@
       <img class="mx-auto d-block mb-3"
         src="https://uploads-ssl.webflow.com/5f3ece93689659d6e7431728/5f3ece93689659584f431736_Marina%202.svg">
     </div>
-    
+
     <form>
       <input type="button" value="Print or Save this page" onClick="window.print()">
     </form>
-    
-    <div>
+
+    <div class="row">
       <?php $menuDrinks->show() ?>
     </div>
   </main>
