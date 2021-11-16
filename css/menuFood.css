@@ -23,8 +23,9 @@ main div>h2 {
 }
 
 main div>h4 {
-    margin-bottom: 30px;
+    margin-bottom: 5px;
 }
+
 input {
     float: right;
     margin-top: 20px;

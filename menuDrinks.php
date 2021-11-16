@@ -30,7 +30,7 @@
       <input type="button" value="Print or Save this page" onClick="window.print()">
     </form>
 
-    <div>
+    <div class="row">
       <?php $menuDrinks->show() ?>
     </div>
   </main>
