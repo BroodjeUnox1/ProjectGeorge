@@ -11,14 +11,31 @@ function toggle() {
 
     function afrekenen() {
         $(".modal-body").empty();
-        $(".modal-body").append('<div class="row"><div class="col-md-6"><small>First name</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Last name</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Phone number</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Email</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Street name</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Postal code</small><input type="text" class="form-control"></div><div class="col-md-6"><small>Betaalmethode</small><select name="" id="service" class="form-control" style="font-family: Baskervville"><optgroup style="font-family: Baskervville" label="Methods"><option value="ideal">Ideal</option><option value="paypal">Paypal</option><option value="paysafecard">PaySafeCard</option></optgroup></select></div><div class="col-md-6" id="service"><small>Service</small><select name="" id="" class="form-control" style="font-family: Baskervville"><optgroup style="font-family: Baskervville" label="Services"><option value="Ing">Ing</option><option value="Rabobank">Rabobank</option><option value="Bunq">Bunq</option></optgroup></select></div><div class="col-md-12"><small>Time</small><select class="form-control time"></select></div></div>')
+        $(".modal-body").append('<div class="row"><div class="col-md-6"><small>First name</small><input type="text" class="form-control firstname"></div><div class="col-md-6"><small>Last name</small><input type="text" class="form-control lastname"></div><div class="col-md-6"><small>Phone number</small><input type="text" class="form-control phone"></div><div class="col-md-6"><small>Email</small><input type="text" class="form-control email"></div><div class="col-md-6"><small>Street name</small><input type="text" class="form-control street"></div><div class="col-md-6"><small>Postal code</small><input type="text" class="form-control postal"></div><div class="col-md-6"><small>Betaalmethode</small><select name="" id="service" class="form-control" style="font-family: Baskervville"><optgroup style="font-family: Baskervville" label="Methods"><option value="ideal">Ideal</option><option value="paypal">Paypal</option><option value="paysafecard">PaySafeCard</option></optgroup></select></div><div class="col-md-6" id="service"><small>Service</small><select name="" id="" class="form-control" style="font-family: Baskervville"><optgroup style="font-family: Baskervville" label="Services"><option value="Ing">Ing</option><option value="Rabobank">Rabobank</option><option value="Bunq">Bunq</option></optgroup></select></div><div class="col-md-12"><small>Time</small><select class="form-control time"></select></div></div>')
         $("#pay").html("Pay");
-        $("#pay").attr("onclick", "pay()");
+        $("#pay").attr("onclick", `pay()`);
         makeTimeTable()    
     }
 
     function pay() {
-        alert(`Paying screen from ${$("#service").val()} and mail send(not made yet)`)
+        // confirm that you are paying
+        Notiflix.Report.success('Order', 'Order has been placed succesfully', 'okay', ()=> {location.reload()});
+        // make post call to db
+        $.post('./class/payClass.php', {
+            firstname: checkEmpty($(".firstname").val(), "firstname"),
+            lastname: checkEmpty($(".lastname").val(), "lastname"),
+            phone: checkEmpty($(".phone").val(), "phone"),
+            email: checkEmpty($(".email").val(), "email"),
+            street: checkEmpty($(".street").val(), "street"),
+            postal: checkEmpty($(".postal").val(), "postal"),
+            time: checkEmpty($(".time").val(), "time")
+         }, function (response) { // check for the response if it is success 
+             console.log(response)
+            if(response == " Success") {
+
+            }
+        })
+
     }
 
     function add(val1, val2, val3) {
@@ -79,4 +96,13 @@ function toggle() {
             getData();
 
         })
+    }
+
+    function checkEmpty(val, classname) {
+        if(val == "" || val == ' ' || val == null) {
+            $(`.${classname}`).css("border", "1px solid red")
+            return
+        }else {
+            return val
+        }
     }

@@ -1,6 +1,3 @@
-
-
-
  <?php 
 
  include "db.php";
@@ -14,6 +11,10 @@
 		public $database;
 
 		public $dataFromDB;
+
+		public $basket;
+
+		public $dataForDB;
 		
 		function __construct()
 		{	
@@ -64,7 +65,7 @@
                         </select>
                     </div>
                     <div class="col-md-4 col-sm-4 col-4">
-                        <button style="border-radius: 7px; padding: 0.3rem 1rem; background-color: transparent;" name="add" onclick="add(`'.$key["name"]. '`, `'.$key["price"].'`,`item'.array_search($key, $this->dataFromDB).'`)">+</button>
+                        <button class="hoverButton" style="border-radius: 7px; padding: 0.3rem 1rem; background-color: transparent;" name="add" onclick="add(`'.$key["name"]. '`, `'.$key["price"].'`,`item'.array_search($key, $this->dataFromDB).'`)">+</button>
                     </div>
                 </div>
             </div>
@@ -93,7 +94,6 @@
 			array_push($_SESSION["mandje"], $data);
 
 		}
-		
 
 		public function total() {
 			foreach ($_SESSION['mandje'] as $key) {
@@ -104,7 +104,28 @@
 				document.getElementById("total").innerHTML = "Total: €'.number_format($this->total, 2).'"
             </script>';
 		}
+
+		public function pay($firstname, $lastname, $phone, $email, $street, $postal, $time){
+			// make the total
+			foreach ($_SESSION['mandje'] as $key) {
+				$this->total += (float)str_replace("€", '', $key["currency"]) * $key["amount"];
+			}
+			// transfers the session data into json
+			$this->basket = json_encode($_SESSION["mandje"]);
+			// make new db
+			$this->database = new db();
+			// insert into orders with all data
+			$this->dataForDB = $this->database->query('INSERT INTO orders (firstname,lastname,phone,email,street,postal,timedeliver,itemlist,total) values(?,?,?,?,?,?,?,?,?)', $firstname, $lastname, (int)$phone, $email, $street, $postal, $time, $this->basket, $this->total);
+			// unset session so he cant pay twice for the same meal
+			unset($_SESSION["mandje"]);
+			//print success so the page reloads
+			print("Success");
+		}
+
+
 	}
+
+		
 	
 
 ?>

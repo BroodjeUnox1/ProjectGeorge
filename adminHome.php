@@ -53,7 +53,7 @@
                     <div class="card-body" style="align-self: flex-end;">
                         <h5 class="card-title">Bestellingen</h5>
                         <p class="card-text">Klik hier om de bestellingen te zien.</p>
-                        <a href="#" class="btn">Bestellingen</a>
+                        <a href="adminbestellen.php" class="btn">Bestellingen</a>
                     </div>
                 </div>
             </div>
