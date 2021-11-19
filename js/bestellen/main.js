@@ -5,23 +5,32 @@ function toggle() {
         $(".modal").toggle();
     }
 
+    // updates the page so the total refreshes
     function toggleUpdate() {
         location.reload();
     }
 
+    //lets the people pay
     function afrekenen() {
+        //check if the amount is 0.00  if so throw alert and cancel the rest
+        if($(".total").html() == "Total: €0.00") {
+            Notiflix.Report.failure('Empty', "Can't pay for nothing", "okay");
+            return
+        }
+
+        // empty modal and append new html
         $(".modal-body").empty();
         $(".modal-body").append('<div class="row"><div class="col-md-6"><small>First name</small><input type="text" class="form-control firstname"></div><div class="col-md-6"><small>Last name</small><input type="text" class="form-control lastname"></div><div class="col-md-6"><small>Phone number</small><input type="text" class="form-control phone"></div><div class="col-md-6"><small>Email</small><input type="text" class="form-control email"></div><div class="col-md-6"><small>Street name</small><input type="text" class="form-control street"></div><div class="col-md-6"><small>Postal code</small><input type="text" class="form-control postal"></div><div class="col-md-6"><small>Betaalmethode</small><select name="" id="service" class="form-control" style="font-family: Baskervville"><optgroup style="font-family: Baskervville" label="Methods"><option value="ideal">Ideal</option><option value="paypal">Paypal</option><option value="paysafecard">PaySafeCard</option></optgroup></select></div><div class="col-md-6" id="service"><small>Service</small><select name="" id="" class="form-control" style="font-family: Baskervville"><optgroup style="font-family: Baskervville" label="Services"><option value="Ing">Ing</option><option value="Rabobank">Rabobank</option><option value="Bunq">Bunq</option></optgroup></select></div><div class="col-md-12"><small>Time</small><select class="form-control time"></select></div></div>')
         $("#pay").html("Pay");
         $("#pay").attr("onclick", `pay()`);
+        // makes the time table from now on
         makeTimeTable()    
     }
 
     function pay() {
-        // confirm that you are paying
-        Notiflix.Report.success('Order', 'Order has been placed succesfully', 'okay', ()=> {location.reload()});
         // make post call to db
         $.post('./class/payClass.php', {
+            //checks for empty if so make them red 
             firstname: checkEmpty($(".firstname").val(), "firstname"),
             lastname: checkEmpty($(".lastname").val(), "lastname"),
             phone: checkEmpty($(".phone").val(), "phone"),
@@ -30,9 +39,14 @@ function toggle() {
             postal: checkEmpty($(".postal").val(), "postal"),
             time: checkEmpty($(".time").val(), "time")
          }, function (response) { // check for the response if it is success 
+             //log response if it trows a error easy to see
              console.log(response)
             if(response == " Success") {
-
+                //if respone is succes give a green alert
+                Notiflix.Report.success('Order', 'Order has been placed succesfully', 'okay', ()=> {location.reload()});
+            }else {
+                // if they leave something empty console will trow error
+                Notiflix.Report.failure('Order declined', "Please don't leave something empty", "okay");
             }
         })
 
@@ -80,7 +94,7 @@ function toggle() {
                     obj.indexOf(index) + ')"></i></div></div><hr>')
             }
             // add the total price to the end
-            $(".modal-body").append('<div class="col-md-3 offset-md-9"><small>Total: €' + total.toFixed(2) + '</small></div>')
+            $(".modal-body").append('<div class="col-md-3 offset-md-9"><small class="total">Total: €' + total.toFixed(2) + '</small></div>')
         })
     }
 
@@ -101,7 +115,7 @@ function toggle() {
     function checkEmpty(val, classname) {
         if(val == "" || val == ' ' || val == null) {
             $(`.${classname}`).css("border", "1px solid red")
-            return
+            return ""
         }else {
             return val
         }

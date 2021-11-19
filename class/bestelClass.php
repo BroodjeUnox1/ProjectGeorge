@@ -114,12 +114,21 @@
 			$this->basket = json_encode($_SESSION["mandje"]);
 			// make new db
 			$this->database = new db();
-			// insert into orders with all data
-			$this->dataForDB = $this->database->query('INSERT INTO orders (firstname,lastname,phone,email,street,postal,timedeliver,itemlist,total) values(?,?,?,?,?,?,?,?,?)', $firstname, $lastname, (int)$phone, $email, $street, $postal, $time, $this->basket, $this->total);
-			// unset session so he cant pay twice for the same meal
-			unset($_SESSION["mandje"]);
-			//print success so the page reloads
-			print("Success");
+			foreach($_POST as $value){
+				if(empty($value)){
+					print("Failed something empty");
+					exit;
+				}else {
+					$this->confirm = true;
+				}
+			}
+			if($this->confirm){
+				// insert into orders with all data
+				$this->dataForDB = $this->database->query('INSERT INTO orders (firstname,lastname,phone,email,street,postal,timedeliver,itemlist,total)values(?,?,?,?,?,?,?,?,?)', $firstname, $lastname, (int)$phone, $email, $street, $postal, $time, $this->basket, $this->total);
+				// unset session so he cant pay twice for the same meal
+				unset($_SESSION["mandje"]);
+				print("Success");
+			}
 		}
 
 
