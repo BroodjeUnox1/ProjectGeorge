@@ -20,7 +20,7 @@ class adminDatabase
         }
 
         // Insert data into drinks table
-        public function insertData($post)
+        public function insertDataDrinks($post)
         {
             $name = $this->conn->real_escape_string($_POST['name']);
             $description = $this->conn->real_escape_string($_POST['description']);
@@ -29,44 +29,57 @@ class adminDatabase
             $query="INSERT INTO drinks(name, description, price, category_id) VALUES('$name','$description','$price', '$category')";
             $sql = $this->conn->query($query);
             if ($sql==true) {
-                header("Location:adminMenuViewLijst.php");
+                header("Location:adminMenu.php");
             }else{
+                var_dump($query, $sql);
                 echo "Registration failed try again!";
             }
         }
         //insert data into categories table
-        public function insertDataCategories($post)
+        public function insertDataCategoriesDrinks($post)
         {
             $name = $this->conn->real_escape_string($_POST['name']);
-            $query="INSERT INTO categories(name) VALUES('$name')";
+            $query="INSERT INTO categoriesdrinks(name) VALUES('$name')";
             $sql = $this->conn->query($query);
             if ($sql==true) {
-                header("Location: adminMenu.php");
+                header("Location: message.php?alert=insert_category_succes");
             }else{
-                echo "Registration failed try again!";
+                header("Location: message.php?alert=insert_category_error");
             }
         }
 
         // Fetch drinks records for show listing
-        public function displayData()
+        public function displayDataDrinks()
         {
+            var_dump($_GET);
+            $id = $this->conn->real_escape_string($_GET['id']);
             $query = "SELECT * FROM drinks";
+            // $id = "SELECT * FROM categoriesdrinks where 'id' = $id";
             $result = $this->conn->query($query);
-        if ($result->num_rows > 0) {
-            $data = array();
-            while ($row = $result->fetch_assoc()) {
-                   $data[] = $row;
-            }
-             return $data;
-            }else{
-             echo "No found records";
+            if($result){
+                if ($result->num_rows > 0) {
+                    $data = array();
+                    while ($row = $result->fetch_assoc()) {
+                        // if($row['category_id'] == $id) {
+
+                            $data[] = $row;
+                            // var_dump($data);
+                        // }
+                    }
+                    return $data;
+                }else{
+                        var_dump($query); exit;
+                    echo "No found records";
+                    }
+            }else {
+                echo "error in ".$query."<br>".$this->conn->error;
             }
         }
 
         // Fetch categories records for show listing
-        public function displayDataCategories()
+        public function displayDataCategoriesDrinks()
         {
-            $query = "SELECT * FROM categories";
+            $query = "SELECT * FROM categoriesdrinks";
             $result = $this->conn->query($query);
         if ($result->num_rows > 0) {
             $data = array();
@@ -80,7 +93,7 @@ class adminDatabase
         }
 
         // Fetch single data for edit from drinks table
-        public function displyaRecordById($id)
+        public function displyaRecordByIdDrinks($id)
         {
             $query = "SELECT * FROM drinks WHERE id = '$id'";
             $result = $this->conn->query($query);
@@ -93,9 +106,9 @@ class adminDatabase
         }
 
         //Fetch single data for edit from categories table
-        public function displyaRecordByIdCategories($id)
+        public function displyaRecordByIdCategoriesDrinks($id)
         {
-            $query = "SELECT * FROM categories WHERE id = '$id'";
+            $query = "SELECT * FROM categoriesdrinks WHERE id = '$id'";
             $result = $this->conn->query($query);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
@@ -106,14 +119,14 @@ class adminDatabase
         }
 
         // Update drinks data into drinks table
-        public function updateRecord($postData)
+        public function updateRecordDrinks($postData)
         {
             $name = $this->conn->real_escape_string($_POST['uname']);
             $description = $this->conn->real_escape_string($_POST['udescription']);
             $price = $this->conn->real_escape_string($_POST['uprice']);
             $id = $this->conn->real_escape_string($_POST['id']);
         if (!empty($id) && !empty($postData)) {
-            $query = "UPDATE customers SET name = '$name', description = '$description', price = '$price' WHERE id = '$id'";
+            $query = "UPDATE drinks SET name = '$name', description = '$description', price = '$price' WHERE id = '$id'";
             $sql = $this->conn->query($query);
             if ($sql==true) {
                 header("Location:index.php?msg2=update");
@@ -125,12 +138,12 @@ class adminDatabase
         }
 
         // Update drinks data into drinks table
-        public function updateRecordCategories($postData)
+        public function updateRecordCategoriesDrinks($postData)
         {
             $name = $this->conn->real_escape_string($_POST['uname']);
             $id = $this->conn->real_escape_string($_POST['id']);
         if (!empty($id) && !empty($postData)) {
-            $query = "UPDATE customers SET name = '$name' WHERE id = '$id'";
+            $query = "UPDATE categoriesdrinks SET name = '$name' WHERE id = '$id'";
             $sql = $this->conn->query($query);
             if ($sql==true) {
                 header("Location:index.php?msg2=update");
@@ -156,7 +169,7 @@ class adminDatabase
         // Delete drinks data from categories table
         public function deleteRecordCategoies($id)
         {
-            $query = "DELETE FROM categories WHERE id = '$id'";
+            $query = "DELETE FROM categoriesdrinks WHERE id = '$id'";
             $sql = $this->conn->query($query);
         if ($sql==true) {
             header("Location:index.php?msg3=delete");

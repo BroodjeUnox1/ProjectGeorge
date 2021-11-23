@@ -66,8 +66,9 @@
                 </thead>
                 <tbody>
                     <?php
-                    $drinks = $drinksObj->displayData();
-                    foreach ($drinks as $drink) {
+                    $drinks = $drinksObj->displayDataDrinks();
+                    if(is_array($drinks) || is_object($drinks)){
+                        foreach ($drinks as $id => $drink) {
                 ?>
                     <tr>
                         <td><?php echo $drink['id'] ?></td>
@@ -93,7 +94,7 @@
                             </a>
                         </td>
                     </tr>
-                    <?php }?>
+                    <?php }}?>
                 </tbody>
             </table>
         </div>

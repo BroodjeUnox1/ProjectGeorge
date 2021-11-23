@@ -3,11 +3,11 @@
   include 'class/adminDatabase.php';
 
   $drinksObj = new adminDatabase();
-  $categoryObj = new adminDatabase();
+  // $categoryObj = new adminDatabase();
 
   // Insert Record in drinks table
   if(isset($_POST['submit'])) {
-    $drinksObj->insertData($_POST);
+    $drinksObj->insertDataDrinks($_POST);
   }
 
 ?>
@@ -70,15 +70,15 @@
                 <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
             </div>
 
-            <select class="form-select" aria-label="Default select example">
+            <!-- <select class="form-select" aria-label="Default select example">
                 <option selected>Open this select menu</option>
                 <?php
-                    $category = $categoryObj->displayDataCategories();
-                    foreach ($category as $category) {
+                    //$category = $categoryObj->displayDataCategoriesDrinks();
+                    //foreach ($category as $category) {
                 ?>
-                <option name="category" value="category"><?php echo $category['name'] ?></option>
-                <?php } ?>
-            </select>
+                <option name="category" value="category"><?php //echo $category['name'] ?></option>
+                <?php //} ?>
+            </select> -->
 
             <button type="submit" name="submit" class="btn mt-3 float-end" value="submit">Submit</button>
             <a href="adminMenuLijstView.php">

@@ -5,7 +5,7 @@
 
   // Insert Record in drinks table
   if(isset($_POST['submit'])) {
-    $categoriesObj->insertDataCategories($_POST);
+    $categoriesObj->insertDataCategoriesDrinks($_POST);
   }
 ?>
 <!doctype html>
@@ -43,21 +43,21 @@
     <div class="container" id="main">
         <div class="row">
             <div class="col-12 headLijst" style="text-align:center">
-                <h1>Edit gerecht</h1>
+                <h1>Insert category</h1>
             </div>
 
-            <form action="adminMenuLijstInsertGerecht.php" method="POST" class="editForm mb-3 mt-3">
+            <form action="adminMenuInsertLijst.php" method="POST" class="editForm mb-3 mt-3">
                 <div class=" ">
-                    <label for="name" class="form-label">Naam gerecht</label>
+                    <label for="name" class="form-label">Category name:</label>
                     <input type="text" name="name" class="form-control" id="exampleInputLijst"
                         aria-describedby="lijstHelp">
                     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                 </div>
 
-                <button type="submit" name="submit" class="btn mt-3 float-end" value="submit">Submit</button>
+                <button type="submit" name="submit" class="btn mt-3 float-end" value="submit">Save</button>
 
                 <a href="adminMenuLijstView.php">
-                    <button type="cancel" class="btn mt-3 float-end">Annuleren</button>
+                    <button type="cancel" class="btn mt-3 float-end">Cancel</button>
                 </a>
             </form>
         </div>
