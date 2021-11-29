@@ -49,26 +49,20 @@ class adminDatabase
         }
 
         // Fetch drinks records for show listing
-        public function displayDataDrinks($id)
+        public function displayDataDrinks()
         {
-            var_dump($_GET);
-            // $id = $this->conn->real_escape_string($_GET['id']);
-            $query = "SELECT * FROM drinks WHERE category_id = $id";
-            // $id = "SELECT * FROM categoriesdrinks where 'id' = $id";
+            $query = "SELECT * FROM drinks WHERE category_id = ".$_GET['catId'];
             $result = $this->conn->query($query);
+            // echo $query;
             if($result){
                 if ($result->num_rows > 0) {
                     $data = array();
                     while ($row = $result->fetch_assoc()) {
-                        // if($row['category_id'] == $id) {
 
                             $data[] = $row;
-                            // var_dump($data);
-                        // }
                     }
                     return $data;
                 }else{
-                        var_dump($query); exit;
                     echo "No found records";
                     }
             }else {
@@ -160,10 +154,10 @@ class adminDatabase
             $query = "DELETE FROM drinks WHERE id = '$id'";
             $sql = $this->conn->query($query);
         if ($sql==true) {
-            header("Location:index.php?msg3=delete");
+            header("Location: message.php?alert=delete_drink_succes");
         }else{
-            echo "Record does not delete try again";
-            }
+            header("Location: message.php?alert=delete_drink_error");
+        }
         }
 
         // Delete drinks data from categories table

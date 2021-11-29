@@ -49,36 +49,36 @@
         <h1>Insert gerecht</h1>
       </div>
 
-      <form action="adminMenuLijstInsertGerecht.php" method="POST" class="editForm mb-3 mt-3">
+      <form action="adminMenuInsertDrinks.php" method="POST" class="editForm mb-3 mt-3">
       <div class="container">
         <form action="test2.php" method="POST" class="editForm mb-3 mt-3">
             <div class=" ">
-                <label for="name" class="form-label">Naam gerecht</label>
+                <label for="name" class="form-label">Name</label>
                 <input type="text" name="name" class="form-control" id="exampleInputLijst" aria-describedby="lijstHelp">
                 <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
             </div>
             <div class="mt-3">
-                <label for="description" class="form-label">Omschrijving</label>
+                <label for="description" class="form-label">Description</label>
                 <input type="text" name="description" class="form-control" id="exampleInputLijst"
                     aria-describedby="lijstHelp">
                 <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
             </div>
             <div class="mt-3">
-                <label for="price" class="form-label">Prijs</label>
+                <label for="price" class="form-label">Price</label>
                 <input type="text" name="price" class="form-control" id="exampleInputLijst"
                     aria-describedby="lijstHelp">
                 <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
             </div>
 
-            <!-- <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example">
                 <option selected>Open this select menu</option>
                 <?php
                     $category = $categoryObj->displayDataCategoriesDrinks();
                     foreach ($category as $category) {
                 ?>
-                <option name="category" value="category"><?php echo $category['name'] ?></option>
+                <option name="category" value="category"><?php echo $category['id']?></option>
                 <?php } ?>
-            </select> -->
+            </select>
 
             <button type="submit" name="submit" class="btn mt-3 float-end" value="submit">Submit</button>
             <a href="adminMenuLijstView.php">

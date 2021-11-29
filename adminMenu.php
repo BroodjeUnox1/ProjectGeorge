@@ -43,18 +43,17 @@
     <div class="container" id="main">
         <div class="row">
             <div class="col-12 headLijst" style="text-align:center">
-                <h1>Categorieen</h1>
+                <h1>Categories</h1>
             </div>
             <a href="./adminMenuInsertLijst.php">
-                <button type="button" class="btn mt-3 btn-dark" style="font-size:25px;">Nieuwe category toevoegen
-                    +</button>
+                <button type="button" class="btn mt-3 btn-dark" style="font-size:25px;">Add new category +</button>
             </a>
 
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">Category</th>
-                        <th scope="col">View</th>
+                        <th scope="col">View drinks</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
                     </tr>

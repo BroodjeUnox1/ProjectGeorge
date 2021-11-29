@@ -2,44 +2,6 @@
         require_once 'class/adminDatabase.php';
 
     class ViewLijst {
-        public $data = [
-            [
-                "id" => "001",
-                "currency" => "$46.61",
-                "name" => "Burger",
-                "img" => "https://www.karlijnskitchen.com/wp-content/uploads/2015/09/cheese-bacon-burger-1-e1473968135128-150x150.jpg",
-                "omschrijving" => "allerlekkerste burger"
-            ],
-            [
-                "id" => "002",
-                "currency" => "$4.89",
-                "name" => "Cheesebruger",
-                "img" => "https://www.karlijnskitchen.com/wp-content/uploads/2015/09/cheese-bacon-burger-1-e1473968135128-150x150.jpg",
-                "omschrijving" => "allerlekkerste cheeseburger"
-
-            ],
-            [
-                "id" => "003",
-                "currency" => "$77.06",
-                "name" => "counter pounter",
-                "img" => "https://www.karlijnskitchen.com/wp-content/uploads/2015/09/cheese-bacon-burger-1-e1473968135128-150x150.jpg",
-                "omschrijving" => "allerlekkerste counter pounter"
-            ],
-            [
-                "id" => "004",
-                "currency" => "$45.67",
-                "name" => "Big mac",
-                "img" => "https://www.karlijnskitchen.com/wp-content/uploads/2015/09/cheese-bacon-burger-1-e1473968135128-150x150.jpg",
-                "omschrijving" => "allerlekkerste big mac"
-            ],
-            [
-                "id" => "005",
-                "currency" => "$10.95",
-                "name" => "Big tasty",
-                "img" => "https://www.karlijnskitchen.com/wp-content/uploads/2015/09/cheese-bacon-burger-1-e1473968135128-150x150.jpg",
-                "omschrijving" => "allerlekkerste big tasty"
-            ]
-        ];
 
         public $html;
 
