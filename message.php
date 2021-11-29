@@ -29,4 +29,16 @@
                   </div>';
             header("Refresh: 3.5; ./adminMenu.php");
         break;
+        case "delete_category_succes":
+            echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
+                    Deletion of the category has been done succesfully.
+                  </div>';
+            header("Refresh: 3.5; ./adminMenu.php");
+        break;
+        case "delete_category_error":
+            echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
+                    Deletion of the category has been done unsuccesfully. Contact admin for more information.
+                  </div>';
+            header("Refresh: 3.5; ./adminMenu.php");
+        break;
     }

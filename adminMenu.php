@@ -2,9 +2,9 @@
     include './class/adminDatabase.php';
     $categoriesObj = new adminDatabase();
 
-    if(isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
-        $deleteId = $_GET['deleteId'];
-        $categoriesObj->deleteRecord($deleteId);
+    if(isset($_GET['deleteCategory']) && !empty($_GET['deleteCategory'])) {
+        $deleteCategory = $_GET['deleteCategory'];
+        $categoriesObj->deleteRecordCategoies($deleteCategory);
     }
     // $menuLijst = new MenuLijst();
 ?>
@@ -91,7 +91,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="index.php?deleteId=<?php echo $category['id'] ?>">
+                            <a href="adminMenu.php?deleteCategory=<?php echo $category['id'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-trash" viewBox="0 0 16 16">
                                     <path

@@ -172,9 +172,10 @@ class adminDatabase
             $query = "DELETE FROM categoriesdrinks WHERE id = '$id'";
             $sql = $this->conn->query($query);
         if ($sql==true) {
-            header("Location:index.php?msg3=delete");
+            // var_dump($sql);exit;
+            header("Location: message.php?alert=delete_category_succes");
         }else{
-            echo "Record does not delete try again";
+            header("Location: message.php?alert=delete_category_error");
             }
         }
 
