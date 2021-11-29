@@ -17,4 +17,16 @@
                   </div>';
             header("Refresh: 3.5; ./adminMenu.php");
         break;
+        case "update_category_succes":
+            echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
+                    Update of the category has been done succesfully.
+                  </div>';
+            header("Refresh: 3.5; ./adminMenu.php");
+        break;
+        case "update_category_error":
+            echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
+                   Update was unsuccesfully. Contact the admin for more information.
+                  </div>';
+            header("Refresh: 3.5; ./adminMenu.php");
+        break;
     }

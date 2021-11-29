@@ -1,5 +1,20 @@
 <?php
+    include './class/adminDatabase.php';
 
+
+    $categoryObj = new adminDatabase();
+
+    //edit record
+    if(isset($_GET['editCategory']) && !empty($_GET['editCategory'])) {
+        $editCategory = $_GET['editCategory'];
+        $category = $categoryObj->displyaRecordByIdCategoriesDrinks($editCategory);
+    }
+
+
+    //update record
+    if(isset($_POST['update'])){
+        $categoryObj->updateRecordCategoriesDrinks($_POST);
+    }
 ?>
 <!doctype html>
 <html lang="en">
@@ -38,13 +53,14 @@
             <div class="col-12 headLijst" style="text-align:center">
                 <h1>Edit menu lijst</h1>
             </div>
-            <form>
+            <form action="adminMenuEditLijst.php" method="POST">
                 <div class="mb-3 mt-3 editForm">
                     <label for="exampleInputLijst" class="form-label">Naam Lijst</label>
-                    <input type="text" class="form-control" id="exampleInputLijst" aria-describedby="lijstHelp">
+                    <input type="text" class="form-control" name="uname" value="<?php echo $category['name'];?>" required>
                     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     <a href="./adminMenu.php">
-                        <button type="submit" class="btn mt-3 float-end">Submit</button>
+                        <input type="hidden" name="id" value="<?php echo $category["id"];?>">
+                        <button type="submit" name="update" value="update" class="btn mt-3 float-end">Update</button>
                     </a>
                     <a href="adminMenuLijstView.php">
                         <button type="cancel" class="btn mt-3 float-end">Annuleren</button>

@@ -49,11 +49,11 @@ class adminDatabase
         }
 
         // Fetch drinks records for show listing
-        public function displayDataDrinks()
+        public function displayDataDrinks($id)
         {
             var_dump($_GET);
-            $id = $this->conn->real_escape_string($_GET['id']);
-            $query = "SELECT * FROM drinks";
+            // $id = $this->conn->real_escape_string($_GET['id']);
+            $query = "SELECT * FROM drinks WHERE category_id = $id";
             // $id = "SELECT * FROM categoriesdrinks where 'id' = $id";
             $result = $this->conn->query($query);
             if($result){
@@ -146,7 +146,7 @@ class adminDatabase
             $query = "UPDATE categoriesdrinks SET name = '$name' WHERE id = '$id'";
             $sql = $this->conn->query($query);
             if ($sql==true) {
-                header("Location:index.php?msg2=update");
+                header("Location: message.php?alert=update_category_succes");
             }else{
                 echo "Registration updated failed try again!";
             }

@@ -61,13 +61,13 @@
                 </thead>
                 <tbody>
                     <?php
-                        $categories = $categoriesObj->displayDataCategoriesDrinks();
-                        foreach ($categories as $id => $category) {
+                        $categorydrinks = $categoriesObj->displayDataCategoriesDrinks();
+                        foreach ($categorydrinks as $id => $category) {
                     ?>
                     <tr>
                         <td><strong><?php echo $category['name']; ?></strong></td>
                         <td>
-                            <a href="adminMenuLijstView.php?catId=<?php echo $id ?>">
+                            <a href="adminMenuLijstView.php?catId=<?php echo $category['id'] ?>">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-eye" viewBox="0 0 16 16">
@@ -80,7 +80,7 @@
                         </td>
                         <td>
 
-                            <a href="adminMenuEditLijst.php?editId=<?php echo $id ?>">
+                            <a href="adminMenuEditLijst.php?editCategory=<?php echo $category['id'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path
@@ -91,7 +91,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="index.php?deleteId=<?php echo $id ?>">
+                            <a href="index.php?deleteId=<?php echo $category['id'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-trash" viewBox="0 0 16 16">
                                     <path

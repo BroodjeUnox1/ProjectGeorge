@@ -3,7 +3,7 @@
   include 'class/adminDatabase.php';
 
   $drinksObj = new adminDatabase();
-  // $categoryObj = new adminDatabase();
+  $categoryObj = new adminDatabase();
 
   // Insert Record in drinks table
   if(isset($_POST['submit'])) {
@@ -73,11 +73,11 @@
             <!-- <select class="form-select" aria-label="Default select example">
                 <option selected>Open this select menu</option>
                 <?php
-                    //$category = $categoryObj->displayDataCategoriesDrinks();
-                    //foreach ($category as $category) {
+                    $category = $categoryObj->displayDataCategoriesDrinks();
+                    foreach ($category as $category) {
                 ?>
-                <option name="category" value="category"><?php //echo $category['name'] ?></option>
-                <?php //} ?>
+                <option name="category" value="category"><?php echo $category['name'] ?></option>
+                <?php } ?>
             </select> -->
 
             <button type="submit" name="submit" class="btn mt-3 float-end" value="submit">Submit</button>
