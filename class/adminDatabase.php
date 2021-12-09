@@ -26,7 +26,7 @@ class adminDatabase
             $description = $this->conn->real_escape_string($_POST['description']);
             $price = $this->conn->real_escape_string($_POST['price']);
             $category = $this->conn->real_escape_string($_POST['category_id']);
-            $query="INSERT INTO drinks(name, description, price, category_id) VALUES('$name','$description','$price', '$category')";
+            $query="INSERT INTO drinks(name, description, price, category_id) VALUES('$name','$description','$price', $category)";
             $sql = $this->conn->query($query);
             if ($sql==true) {
                 header("Location:adminMenu.php");

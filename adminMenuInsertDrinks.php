@@ -76,7 +76,7 @@
                     $category = $categoryObj->displayDataCategoriesDrinks();
                     foreach ($category as $category) {
                 ?>
-                <option name="category" value="category"><?php echo $category['id']?></option>
+                <option name="category" value="<?php echo $category['name']?>"><?php echo $category['name']?></option>
                 <?php } ?>
             </select>
 

@@ -8,7 +8,7 @@
   // Delete record from table
   if(isset($_GET['deleteDrink']) && !empty($_GET['deleteDrink'])) {
       $deleteDrink = $_GET['deleteDrink'];
-      $customerObj->deleteRecord($deleteDrink);
+      $drinksObj->deleteRecord($deleteDrink);
 
     }
     // require_once 'adminMenuEditLijst.php';
@@ -77,7 +77,7 @@
                         <td><?php echo $drink['description'] ?></td>
                         <td><?php echo '€'; echo $drink['price']; echo ',- ' ?></td>
                         <td>
-                            <a href="edit.php?editId=<?php echo $drink['id'] ?>">
+                            <a href="adminMenuEditDrink.php?editId=<?php echo $drink['id'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path
@@ -88,7 +88,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="index.php?deleteDrink=<?php echo $drink['id'] ?>">
+                            <a href="adminMenuLijstView.php?deleteDrink=<?php echo $drink['id'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-x-lg" viewBox="0 0 16 16">
                                     <path
