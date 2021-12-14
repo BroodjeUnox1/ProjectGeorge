@@ -1,4 +1,6 @@
 <?php
+
+//var_dump($_GET); exit;
     // Include database file
   include 'class/adminDatabase.php';
 
@@ -7,9 +9,14 @@
 
   // Delete record from table
   if(isset($_GET['deleteDrink']) && !empty($_GET['deleteDrink'])) {
-      $deleteDrink = $_GET['deleteDrink'];
-      $drinksObj->deleteRecord($deleteDrink);
-
+      var_dump($_GET);
+      $drinkId = (int)$_GET['deleteDrink'];
+        if ($drinksObj->deleteRecord($drinkId, 'drinks')) {
+            header("Location: message.php?alert=delete_drink_succes");
+        }else{
+            header("Location: message.php?alert=delete_drink_error");
+        }
+        exit;
     }
     // require_once 'adminMenuEditLijst.php';
 ?>
@@ -57,7 +64,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <!-- <th scope="col">ID</th> -->
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
                         <th scope="col">Price</th>
@@ -72,12 +79,12 @@
                         foreach ($drinks as $id => $drink) {
                 ?>
                     <tr>
-                        <td><?php echo $drink['id'] ?></td>
+                        <!-- <td><?php echo $drink['id'] ?></td> -->
                         <td><?php echo $drink['name'] ?></td>
                         <td><?php echo $drink['description'] ?></td>
                         <td><?php echo '€'; echo $drink['price']; echo ',- ' ?></td>
                         <td>
-                            <a href="adminMenuEditDrink.php?editId=<?php echo $drink['id'] ?>">
+                            <a href="adminMenuEditDrink.php?editDrink=<?php echo $drink['id'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path

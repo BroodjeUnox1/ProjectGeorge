@@ -25,14 +25,14 @@ class adminDatabase
             $name = $this->conn->real_escape_string($_POST['name']);
             $description = $this->conn->real_escape_string($_POST['description']);
             $price = $this->conn->real_escape_string($_POST['price']);
-            $category = $this->conn->real_escape_string($_POST['category_id']);
+            $category = $this->conn->real_escape_string($_POST['category']);
             $query="INSERT INTO drinks(name, description, price, category_id) VALUES('$name','$description','$price', $category)";
             $sql = $this->conn->query($query);
             if ($sql==true) {
-                header("Location:adminMenu.php");
+                header("Location:message.php?alert=insert_drink_succes");
             }else{
                 var_dump($query, $sql);
-                echo "Registration failed try again!";
+                header("Location:message.php?alert=insert_drink_error");
             }
         }
         //insert data into categories table
@@ -66,6 +66,7 @@ class adminDatabase
                     echo "No found records";
                     }
             }else {
+                var_dump($query, $_GET['catId']);
                 echo "error in ".$query."<br>".$this->conn->error;
             }
         }
@@ -123,9 +124,10 @@ class adminDatabase
             $query = "UPDATE drinks SET name = '$name', description = '$description', price = '$price' WHERE id = '$id'";
             $sql = $this->conn->query($query);
             if ($sql==true) {
-                header("Location:index.php?msg2=update");
+                header("Location:message.php?alert=update_drink_succes");
             }else{
-                echo "Registration updated failed try again!";
+                header("Location:message.php?alert=update_drink_error");
+
             }
             }
 
@@ -142,22 +144,23 @@ class adminDatabase
             if ($sql==true) {
                 header("Location: message.php?alert=update_category_succes");
             }else{
-                echo "Registration updated failed try again!";
+                header("Location: message.php?alert=update_category_error");
+
             }
             }
 
         }
 
         // Delete drinks data from drinks table
-        public function deleteRecord($id)
+        public function deleteRecord($id, $table)
         {
-            $query = "DELETE FROM drinks WHERE id = '$id'";
-            $sql = $this->conn->query($query);
-        if ($sql==true) {
-            header("Location: message.php?alert=delete_drink_succes");
-        }else{
-            header("Location: message.php?alert=delete_drink_error");
-        }
+            $query = "DELETE FROM ".$table." WHERE id = $id";
+            return $this->conn->query($query);
+        // if ($sql==true) {
+        //     header("Location: message.php?alert=delete_drink_succes");
+        // }else{
+        //     header("Location: message.php?alert=delete_drink_error");
+        // }
         }
 
         // Delete drinks data from categories table

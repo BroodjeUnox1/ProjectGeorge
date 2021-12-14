@@ -1,12 +1,12 @@
 <?php
     // Include database file
   include 'class/adminDatabase.php';
-
   $drinksObj = new adminDatabase();
-  $categoryObj = new adminDatabase();
+  $categoriesObj = new adminDatabase();
 
   // Insert Record in drinks table
   if(isset($_POST['submit'])) {
+    // var_dump($_POST); exit;
     $drinksObj->insertDataDrinks($_POST);
   }
 
@@ -70,13 +70,13 @@
                 <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
             </div>
 
-            <select class="form-select" aria-label="Default select example">
+            <select name="category" class="form-select" aria-label="Default select example">
                 <option selected>Open this select menu</option>
                 <?php
-                    $category = $categoryObj->displayDataCategoriesDrinks();
+                    $category = $categoriesObj->displayDataCategoriesDrinks();
                     foreach ($category as $category) {
                 ?>
-                <option name="category" value="<?php echo $category['name']?>"><?php echo $category['name']?></option>
+                <option name="category" value="<?php echo $category['id']?>"><?php echo $category['name']?></option>
                 <?php } ?>
             </select>
 
