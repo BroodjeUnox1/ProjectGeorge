@@ -45,7 +45,7 @@
         //----------------
         case "delete_drink_succes":
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
-                    Deletion of the category has been done unsuccesfully. Contact admin for more information.
+                    Deletion of the category has been done succesfully.
                   </div>';
             header("Refresh: 3.5; ./adminMenuLijstView.php?catId=$id");
         break;
@@ -65,19 +65,19 @@
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     Update of the drink was unsuccesful. Contact the admin for more information.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=$id");
         break;
         case "insert_drink_succes":
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     insert of the drink was succesful.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=$id");
         break;
         case "insert_drink_error":
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     insert of the drink was unsuccesful. Contact the admin for more information.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=$id");
         break;
         //----------------
         // case "delete_category_error":
