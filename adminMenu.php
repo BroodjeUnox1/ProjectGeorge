@@ -4,7 +4,13 @@
 
     if(isset($_GET['deleteCategory']) && !empty($_GET['deleteCategory'])) {
         $deleteCategory = $_GET['deleteCategory'];
-        $categoriesObj->deleteRecordCategoies($deleteCategory);
+        if($categoriesObj->deleteRecordCategoies($deleteCategory, 'categoriesdrinks')){
+            echo 'good';
+        }else{
+            echo 'bad';
+        }
+        exit;
+
     }
     // $menuLijst = new MenuLijst();
 ?>

@@ -74,7 +74,22 @@ class adminDatabase
         // Fetch categories records for show listing
         public function displayDataCategoriesDrinks()
         {
-            $query = "SELECT * FROM categoriesdrinks";
+            $query = "SELECT * FROM categories_foods";
+            $result = $this->conn->query($query);
+        if ($result->num_rows > 0) {
+            $data = array();
+            while ($row = $result->fetch_assoc()) {
+                   $data[] = $row;
+            }
+             return $data;
+            }else{
+             echo "No found records";
+            }
+        }
+
+        public function displayDataCategoriesFoods()
+        {
+            $query = "SELECT * FROM categories_food";
             $result = $this->conn->query($query);
         if ($result->num_rows > 0) {
             $data = array();
@@ -151,6 +166,7 @@ class adminDatabase
 
         }
 
+
         // Delete drinks data from drinks table
         public function deleteRecord($id, $table)
         {
@@ -164,9 +180,9 @@ class adminDatabase
         }
 
         // Delete drinks data from categories table
-        public function deleteRecordCategoies($id)
+        public function deleteRecordCategoies($id, $table)
         {
-            $query = "DELETE FROM categoriesdrinks WHERE id = '$id'";
+            $query = "DELETE FROM ".$table." WHERE id = '$id'";
             $sql = $this->conn->query($query);
         if ($sql==true) {
             // var_dump($sql);exit;

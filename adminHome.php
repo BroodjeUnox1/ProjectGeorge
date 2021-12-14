@@ -18,7 +18,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="./adminHome.php">Dashboard</a>
         <a href="./adminMenu.php">Menu Drinks</a>
-        <a href="#">Menu Foods</a>
+        <a href="./adminMenuFood">Menu Foods</a>
     </div>
     <!-- <span onclick="openNav()">open</span> -->
 
@@ -37,7 +37,7 @@
                 <div class="card dashboardCard">
                     <img src="https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/Happy-Test-Screen-01-825x510.png"
                         class="card-img-top" alt="...">
-                    <div class="card-body" style="align-self: flex-end;">
+                    <div class="card-body" >
                         <h5 class="card-title">Menu Drinks</h5>
                         <p class="card-text">Klik hier om het menu van drinken aan te passen</p>
                         <a href="./adminMenu.php" class="btn">Menu drinks</a>
@@ -48,10 +48,10 @@
                 <div class="card dashboardCard">
                     <img src="https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/Happy-Test-Screen-01-825x510.png"
                         class="card-img-top" alt="...">
-                    <div class="card-body" style="align-self: flex-end;">
+                    <div class="card-body">
                         <h5 class="card-title">Menu Foods</h5>
                         <p class="card-text">Klik hier om het menu van foods aan te passen.</p>
-                        <a href="#" class="btn">Menu Foods</a>
+                        <a href="./adminMenuFood.php" class="btn">Menu Foods</a>
                     </div>
                 </div>
             </div>

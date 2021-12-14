@@ -3,8 +3,6 @@
 //var_dump($_GET); exit;
     // Include database file
   include 'class/adminDatabase.php';
-
-
   $drinksObj = new adminDatabase();
 
   // Delete record from table
