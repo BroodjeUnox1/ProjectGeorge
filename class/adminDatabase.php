@@ -116,9 +116,9 @@ class adminDatabase
         // Update drinks data into drinks table
         public function updateRecordDrinks($postData)
         {
-            $name = $this->conn->real_escape_string($_POST['uname']);
-            $description = $this->conn->real_escape_string($_POST['udescription']);
-            $price = $this->conn->real_escape_string($_POST['uprice']);
+            $name = $this->conn->real_escape_string($_POST['name']);
+            $description = $this->conn->real_escape_string($_POST['description']);
+            $price = $this->conn->real_escape_string($_POST['price']);
             $id = $this->conn->real_escape_string($_POST['id']);
         if (!empty($id) && !empty($postData)) {
             $query = "UPDATE drinks SET name = '$name', description = '$description', price = '$price' WHERE id = '$id'";

@@ -11,6 +11,7 @@
 
   //update record
   if(isset($_POST['update'])){
+    var_dump($_POST);
     $drinkObj->updateRecordDrinks($_POST);
   }
   var_dump($drink, $_GET);
@@ -57,17 +58,17 @@
         <div class="mb-3 mt-3 editForm">
           <div>
               <label for="exampleInputGerecht" class="form-label">Name:</label>
-              <input type="text" class="form-control" value="<?php echo $drink['name'] ?>" id="exampleInputLijst" aria-describedby="lijstHelp">
+              <input type="text" class="form-control" name="name" value="<?php echo $drink['name'] ?>" id="exampleInputLijst" aria-describedby="lijstHelp">
               <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
             </div>
             <div class="mt-3">
               <label for="exampleInputLijst" class="form-label">Description</label>
-              <input type="text" class="form-control" value="<?php echo $drink['description'] ?> "id="exampleInputLijst" aria-describedby="lijstHelp">
+              <input type="text" class="form-control" name="description" value="<?php echo $drink['description'] ?> "id="exampleInputLijst" aria-describedby="lijstHelp">
               <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
             </div>
             <div class="mt-3">
               <label for="exampleInputLijst" class="form-label">Price</label>
-              <input type="number" class="form-control" value="<?php echo $drink['price']?> "id="exampleInputLijst" aria-describedby="lijstHelp">
+              <input type="decimal" class="form-control" name="price" value="<?php echo $drink['price']?> "id="exampleInputLijst" aria-describedby="lijstHelp">
               <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
             </div>
         </div>
