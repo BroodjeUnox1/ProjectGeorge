@@ -83,7 +83,7 @@
                         </td>
                         <td>
 
-                            <a href="adminMenuEditLijst.php?editCategory=<?php echo $category['id'] ?>">
+                            <a href="adminMenuEditLijstFood.php?editCategory=<?php echo $category['id'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path

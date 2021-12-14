@@ -5,13 +5,13 @@
     //edit record
     if(isset($_GET['editCategory']) && !empty($_GET['editCategory'])) {
         $editCategory = $_GET['editCategory'];
-        $category = $categoryObj->displayRecordByIdCategoriesDrinks($editCategory);
+        $category = $categoryObj->displayRecordByIdCategoriesFoods($editCategory);
     }
 
 
     //update record
     if(isset($_POST['update'])){
-        $categoryObj->updateRecordCategoriesDrinks($_POST);
+        $categoryObj->updateRecordCategoriesFoods($_POST);
     }
 ?>
 <!doctype html>
@@ -34,7 +34,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="./adminHome.php">Dashboard</a>
         <a href="./adminMenu.php">Menu Drinks</a>
-        <a href="#">Menu Foods</a>
+        <a href="./adminMenuFood.php">Menu Foods</a>
     </div>
     <!-- <span onclick="openNav()">open</span> -->
 
@@ -49,16 +49,16 @@
             <div class="col-12 headLijst" style="text-align:center">
                 <h1>Edit menu lijst</h1>
             </div>
-            <form action="adminMenuEditLijst.php" method="POST">
+            <form action="adminMenuEditLijstFood.php" method="POST">
                 <div class="mb-3 mt-3 editForm">
                     <label for="exampleInputLijst" class="form-label">Naam Lijst</label>
-                    <input type="text" class="form-control" name="uname" value="<?php echo $category['name'];?>" required>
+                    <input type="text" class="form-control" name="name" value="<?php echo $category['name'];?>" required>
                     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-                    <a href="./adminMenu.php">
+                    <a href="./adminMenuFood.php">
                         <input type="hidden" name="id" value="<?php echo $category["id"];?>">
                         <button type="submit" name="update" value="update" class="btn mt-3 float-end">Update</button>
                     </a>
-                    <a href="adminMenuLijstView.php">
+                    <a href="adminMenuFood.php">
                         <button type="cancel" class="btn mt-3 float-end">Annuleren</button>
                     </a>
                 </div>

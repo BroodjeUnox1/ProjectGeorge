@@ -6,7 +6,7 @@
   //edit record
   if (isset($_GET['editDrink']) && !empty($_GET['editDrink'])){
       $editDrink = $_GET['editDrink'];
-      $drink = $drinkObj->displyaRecordByIdDrinks($editDrink);
+      $drink = $drinkObj->displayRecordByIdDrinks($editDrink);
       var_dump($drink);
   }
 

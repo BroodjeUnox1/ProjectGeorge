@@ -54,9 +54,11 @@ class adminDatabase
             $query="INSERT INTO categories_food(name) VALUES('$name')";
             $sql = $this->conn->query($query);
             if ($sql==true) {
-                header("Location: message.php?alert=insert_category_succes");
+                // header("Location: message.php?alert=insert_category_succes");
+                echo 'yur';
             }else{
-                header("Location: message.php?alert=insert_category_error");
+                // header("Location: message.php?alert=insert_category_error");
+                echo 'nur';
             }
         }
 
@@ -115,7 +117,7 @@ class adminDatabase
         }
 
         // Fetch single data for edit from drinks table
-        public function displyaRecordByIdDrinks($id)
+        public function displayRecordByIdDrinks($id)
         {
             $query = "SELECT * FROM drinks WHERE id = $id";
             $result = $this->conn->query($query);
@@ -128,9 +130,21 @@ class adminDatabase
         }
 
         //Fetch single data for edit from categories table
-        public function displyaRecordByIdCategoriesDrinks($id)
+        public function displayRecordByIdCategoriesDrinks($id)
         {
             $query = "SELECT * FROM categoriesdrinks WHERE id = '$id'";
+            $result = $this->conn->query($query);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row;
+            }else{
+            echo "Record not found";
+            }
+        }
+
+        public function displayRecordByIdCategoriesFoods($id)
+        {
+            $query = "SELECT * FROM categories_food WHERE id = '$id'";
             $result = $this->conn->query($query);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
@@ -172,6 +186,25 @@ class adminDatabase
                 header("Location: message.php?alert=update_category_succes");
             }else{
                 header("Location: message.php?alert=update_category_error");
+
+            }
+            }
+
+        }
+
+        public function updateRecordCategoriesFoods($postData)
+        {
+            $name = $this->conn->real_escape_string($_POST['name']);
+            $id = $this->conn->real_escape_string($_POST['id']);
+        if (!empty($id) && !empty($postData)) {
+            $query = "UPDATE categories_food SET name = '$name' WHERE id = '$id'";
+            $sql = $this->conn->query($query);
+            if ($sql==true) {
+                // header("Location: message.php?alert=update_category_succes");
+                echo 'yur';
+            }else{
+                // header("Location: message.php?alert=update_category_error");
+                echo 'nur';
 
             }
             }
