@@ -1,5 +1,5 @@
 Stap 1 ga naar jou branch (git checkout [branchname])
-stap 2 upload all je files(git add --all), (git commit -m"commit message"), (git push origin master)
+stap 2 upload all je files(git add --all), (git commit -m"commit message"), (git push origin [branch name])
 stap 3 ga naar master branch (git checkout master)
 stap 4 haal altijd eerst de meeste geupdate versie op (git pull orgin master)
 stap 5 dat gedaan merge je branch met de main (git merge [branchname])
