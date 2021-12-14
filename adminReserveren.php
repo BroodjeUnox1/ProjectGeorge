@@ -9,6 +9,8 @@
     <head>
 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
 
         <!-- Page title -->
         <title>George | Homepage</title>
@@ -48,7 +50,7 @@
             </div>
            
             <div id="dashData">
-                <table class="table">
+                <table id="table">
                     <thead>
                         <th>time</th>
                         <th>name</th>
@@ -63,10 +65,11 @@
         </div>
         
 
-
         
         <!-- link js scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
         <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
         <script src="main.js"></script>
         <!-- <script type="text/javascript">

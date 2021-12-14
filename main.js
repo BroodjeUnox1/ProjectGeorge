@@ -6,7 +6,7 @@ $( document ).ready(function() {
 
 	$("#date").change(function() {
         var value = this.value;
-        $.post("./reserveren/reserveren.php", {
+        $.post("./reserveren/timeList.php", {
             date: value
         }
         , function(data){
@@ -22,7 +22,7 @@ $( document ).ready(function() {
 	$("#time").change(function() {
         var value = this.value;
         //do your work here
-        $.post("./reserveren/function.php",
+        $.post("./reserveren/peopleList.php",
         {
             time: value
         }
@@ -46,7 +46,7 @@ $( document ).ready(function() {
 		var	name = $('#name').val();
 		var	email = $('#email').val();
 		var	phone = $('#phone').val();
-		$.post("./testAjax.php",{
+		$.post("./reserveren/reserveren.php",{
 			date:date,
 			time:time,
 			people:people,
@@ -79,19 +79,52 @@ $( document ).ready(function() {
         });
 
     });
+
+    $('#table').DataTable();
 	
 });
 
 function next1() {
-	$(".page_1").css("display", "none")
-	$(".page_1").attr("class", "page_1 col-md-12")
-	$(".page_2").css("display", "block")
-	$(".page_2").attr("class", "page_2 col-md-12")
+    var	date = $('#date').val();
+    var	time = $('#time').val();
+    var	people = $('#people').val();
+
+    if (date == null || date == "") {
+        $("#date").css({"border": "1px solid red"});
+    }
+    if (time == null) {
+        $("#time").css({"border": "1px solid red"});
+    }
+    if (people == null) {
+        $("#people").css({"border": "1px solid red"});
+    }
+    else {
+        $(".page_1").css("display", "none");
+        $(".page_1").attr("class", "page_1 col-md-12");
+        $(".page_2").css("display", "block");
+        $(".page_2").attr("class", "page_2 col-md-12");
+    }
+
 };
 
 function next2() {
-	$(".page_2").css("display", "none")
-	$(".page_2").attr("class", "page_2 col-md-12")
-	$(".page_3").css("display", "block")
-	$(".page_3").attr("class", "page_3 col-md-12")
+    var	name = $('#name').val();
+    var	email = $('#email').val();
+    var	phone = $('#phone').val();
+
+    if (name == null || name == "") {
+        $("#name").css({"border": "1px solid red"});
+    }
+    if (email == null || email == "") {
+        $("#email").css({"border": "1px solid red"});
+    }
+    if (phone == null || phone == "") {
+        $("#phone").css({"border": "1px solid red"});
+    }
+    else {
+        $(".page_2").css("display", "none")
+        $(".page_2").attr("class", "page_2 col-md-12")
+        $(".page_3").css("display", "block")
+        $(".page_3").attr("class", "page_3 col-md-12")
+    }
 };
