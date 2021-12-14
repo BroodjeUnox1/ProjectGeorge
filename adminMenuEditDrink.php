@@ -7,6 +7,7 @@
   if (isset($_GET['editDrink']) && !empty($_GET['editDrink'])){
       $editDrink = $_GET['editDrink'];
       $drink = $drinkObj->displyaRecordByIdDrinks($editDrink);
+      var_dump($drink);
   }
 
   //update record
@@ -35,10 +36,8 @@
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="./adminHome.php">Dashboard</a>
-    <a href="./adminMenu.php">Menu</a>
-    <a href="#">Bestellingen</a>
-    <a href="#">Reserveringen</a>
-    <a href="#">Gast gegevens</a>
+    <a href="./adminMenu.php">Menu Drinks</a>
+        <a href="#">Menu Foods</a>
   </div>
   <!-- <span onclick="openNav()">open</span> -->
 
@@ -85,11 +84,11 @@
           <label class="form-check-label" for="flexSwitchCheckDefault">Gerecht is vegetarisch</label>
         </div> -->
 
-        <a href="adminMenuLijstView.php?catId=<?php echo $drink['id'] ?>">
+        <a>
           <input type="hidden" name="id" value="<?php echo $drink["id"];?>">
           <button type="submit" name="update" value="update" class="btn mt-3 float-end">Submit</button>
         </a>
-        <a href="adminMenuLijstView.php?catId=<?php echo $drink['id'] ?>"">
+        <a href="adminMenuLijstView.php?catId=<?php echo $drink['id'] ?>">
           <button type="cancel" class="btn mt-3 float-end">Annuleren</button>
         </a>
       </form>

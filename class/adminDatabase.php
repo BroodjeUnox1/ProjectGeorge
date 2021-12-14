@@ -90,7 +90,7 @@ class adminDatabase
         // Fetch single data for edit from drinks table
         public function displyaRecordByIdDrinks($id)
         {
-            $query = "SELECT * FROM drinks WHERE id = '$id'";
+            $query = "SELECT * FROM drinks WHERE id = $id";
             $result = $this->conn->query($query);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();

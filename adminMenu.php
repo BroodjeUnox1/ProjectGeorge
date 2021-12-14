@@ -27,10 +27,8 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="./adminHome.php">Dashboard</a>
-        <a href="./adminMenu.php">Menu</a>
-        <a href="#">Bestellingen</a>
-        <a href="#">Reserveringen</a>
-        <a href="#">Gast gegevens</a>
+        <a href="./adminMenu.php">Menu Drinks</a>
+        <a href="#">Menu Foods</a>
     </div>
     <!-- <span onclick="openNav()">open</span> -->
 
@@ -43,7 +41,7 @@
     <div class="container" id="main">
         <div class="row">
             <div class="col-12 headLijst" style="text-align:center">
-                <h1>Categories</h1>
+                <h1>Drinks Categories</h1>
             </div>
             <a href="./adminMenuInsertLijst.php">
                 <button type="button" class="btn mt-3 btn-dark" style="font-size:25px;">Add new category +</button>

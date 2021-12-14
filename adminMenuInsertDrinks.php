@@ -30,10 +30,8 @@
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="./adminHome.php">Dashboard</a>
-    <a href="./adminMenu.php">Menu</a>
-    <a href="#">Bestellingen</a>
-    <a href="#">Reserveringen</a>
-    <a href="#">Gast gegevens</a>
+    <a href="./adminMenu.php">Menu Drinks</a>
+    <a href="#">Menu Foods</a>
   </div>
   <!-- <span onclick="openNav()">open</span> -->
 
@@ -46,7 +44,7 @@
   <div class="container" id="main">
     <div class="row">
       <div class="col-12 headLijst" style="text-align:center">
-        <h1>Insert gerecht</h1>
+        <h1>Insert drink</h1>
       </div>
 
       <form action="adminMenuInsertDrinks.php" method="POST" class="editForm mb-3 mt-3">
@@ -81,7 +79,7 @@
             </select>
 
             <button type="submit" name="submit" class="btn mt-3 float-end" value="submit">Submit</button>
-            <a href="adminMenuLijstView.php">
+            <a href="adminMenuLijstView.php?catId=">
                 <button type="cancel" class="btn mt-3 float-end">Annuleren</button>
             </a>
       </form>

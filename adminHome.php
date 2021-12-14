@@ -17,10 +17,8 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="./adminHome.php">Dashboard</a>
-        <a href="./adminMenu.php">Menu</a>
-        <a href="#">Bestellingen</a>
-        <a href="#">Reserveringen</a>
-        <a href="#">Gast gegevens</a>
+        <a href="./adminMenu.php">Menu Drinks</a>
+        <a href="#">Menu Foods</a>
     </div>
     <!-- <span onclick="openNav()">open</span> -->
 
@@ -35,47 +33,25 @@
             <div class="col-12 card border-dark">
                 <h1>Welcome back {{ username }}!</h1>
             </div>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                 <div class="card dashboardCard">
                     <img src="https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/Happy-Test-Screen-01-825x510.png"
                         class="card-img-top" alt="...">
                     <div class="card-body" style="align-self: flex-end;">
-                        <h5 class="card-title">Menu</h5>
-                        <p class="card-text">Klik hier om het menu aan te passen</p>
-                        <a href="./adminMenu.php" class="btn">Menu</a>
+                        <h5 class="card-title">Menu Drinks</h5>
+                        <p class="card-text">Klik hier om het menu van drinken aan te passen</p>
+                        <a href="./adminMenu.php" class="btn">Menu drinks</a>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                 <div class="card dashboardCard">
                     <img src="https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/Happy-Test-Screen-01-825x510.png"
                         class="card-img-top" alt="...">
                     <div class="card-body" style="align-self: flex-end;">
-                        <h5 class="card-title">Bestellingen</h5>
-                        <p class="card-text">Klik hier om de bestellingen te zien.</p>
-                        <a href="#" class="btn">Bestellingen</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
-                <div class="card dashboardCard" style="margin-bottom: 30px;">
-                    <img src="https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/Happy-Test-Screen-01-825x510.png"
-                        class="card-img-top" alt="...">
-                    <div class="card-body" style="align-self: flex-end;">
-                        <h5 class="card-title">Reserveringen</h5>
-                        <p class="card-text">Klik hier om de reserveringen te zien</p>
-                        <a href="#" class="btn">Reserveringen</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
-                <div class="card dashboardCard" style="margin-bottom: 30px;">
-                    <img src="https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/Happy-Test-Screen-01-825x510.png"
-                        class="card-img-top" alt="...">
-                    <div class="card-body" style="align-self: flex-end;">
-                        <h5 class="card-title">Gast gegevens</h5>
-                        <p class="card-text">klik hier om de gast gegevens te zien.</p>
-                        <a href="#" class="btn">Gast gegevens</a>
+                        <h5 class="card-title">Menu Foods</h5>
+                        <p class="card-text">Klik hier om het menu van foods aan te passen.</p>
+                        <a href="#" class="btn">Menu Foods</a>
                     </div>
                 </div>
             </div>

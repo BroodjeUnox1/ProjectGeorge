@@ -27,10 +27,8 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="./adminHome.php">Dashboard</a>
-        <a href="./adminMenu.php">Menu</a>
-        <a href="#">Bestellingen</a>
-        <a href="#">Reserveringen</a>
-        <a href="#">Gast gegevens</a>
+        <a href="./adminMenu.php">Menu Drinks</a>
+        <a href="#">Menu Foods</a>
     </div>
     <!-- <span onclick="openNav()">open</span> -->
 
