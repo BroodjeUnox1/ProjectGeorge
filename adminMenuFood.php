@@ -34,7 +34,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="./adminHome.php">Dashboard</a>
         <a href="./adminMenu.php">Menu Drinks</a>
-        <a href="#">Menu Foods</a>
+        <a href="./adminMenuFood.php">Menu Foods</a>
     </div>
     <!-- <span onclick="openNav()">open</span> -->
 
@@ -47,9 +47,9 @@
     <div class="container" id="main">
         <div class="row">
             <div class="col-12 headLijst" style="text-align:center">
-                <h1>Drinks Categories</h1>
+                <h1>Foods Categories</h1>
             </div>
-            <a href="./adminMenuInsertLijst.php">
+            <a href="./adminInsertLijstFood.php">
                 <button type="button" class="btn mt-3 btn-dark" style="font-size:25px;">Add new category +</button>
             </a>
 
@@ -57,7 +57,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Category</th>
-                        <th scope="col">View drinks</th>
+                        <th scope="col">View meals</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
                     </tr>
@@ -94,7 +94,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="adminMenu.php?deleteCategory=<?php echo $category['id'] ?>">
+                            <a href="adminMenuFood.php?deleteCategory=<?php echo $category['id'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-trash" viewBox="0 0 16 16">
                                     <path

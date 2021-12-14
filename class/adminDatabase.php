@@ -48,6 +48,18 @@ class adminDatabase
             }
         }
 
+        public function insertDataCategoriesFoods($post)
+        {
+            $name = $this->conn->real_escape_string($_POST['name']);
+            $query="INSERT INTO categories_food(name) VALUES('$name')";
+            $sql = $this->conn->query($query);
+            if ($sql==true) {
+                header("Location: message.php?alert=insert_category_succes");
+            }else{
+                header("Location: message.php?alert=insert_category_error");
+            }
+        }
+
         // Fetch drinks records for show listing
         public function displayDataDrinks()
         {
