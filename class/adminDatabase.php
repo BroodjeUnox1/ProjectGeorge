@@ -151,6 +151,18 @@ class adminDatabase
             }
         }
 
+        public function displayRecordByIdFoods($id)
+        {
+            $query = "SELECT * FROM food WHERE id = $id";
+            $result = $this->conn->query($query);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row;
+            }else{
+            echo "Record not found";
+            }
+        }
+
         //Fetch single data for edit from categories table
         public function displayRecordByIdCategoriesDrinks($id)
         {
@@ -192,6 +204,29 @@ class adminDatabase
                 header("Location:message.php?alert=update_drink_error");
 
             }
+            }
+
+        }
+
+        public function updateRecordFoods($postData)
+        {
+            $name = $this->conn->real_escape_string($_POST['name']);
+            $description = $this->conn->real_escape_string($_POST['description']);
+            $price = $this->conn->real_escape_string($_POST['price']);
+            $id = $this->conn->real_escape_string($_POST['id']);
+            $vegitarian = $this->conn->real_escape_string($_POST['vegitarian']);
+            $nuts = $this->conn->real_escape_string($_POST['nuts']);
+            if (!empty($id) && !empty($postData)) {
+                $query = "UPDATE food SET name = '$name', description = '$description', price = '$price', vegitarian = '$vegitarian', nuts = '$nuts' WHERE id = '$id'";
+                $sql = $this->conn->query($query);
+                if ($sql==true) {
+                    // header("Location:message.php?alert=update_drink_succes");
+                    echo 'yur';
+                }else{
+                    // header("Location:message.php?alert=update_drink_error");
+                    echo 'nur';
+                    var_dump($query);
+                }
             }
 
         }

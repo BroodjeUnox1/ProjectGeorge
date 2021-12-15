@@ -18,7 +18,7 @@
         }
         exit;
     }
-    var_dump($_GET);
+    // var_dump($_GET);
     // require_once 'adminMenuEditLijst.php';
 ?>
 <!doctype html>
@@ -66,6 +66,8 @@
                         <!-- <th scope="col">ID</th> -->
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
+                        <th scope="col">Vegitarian?</th>
+                        <th scope="col">Nuts?</th>
                         <th scope="col">Price</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -81,6 +83,8 @@
                         <!-- <td><?php echo $meal['id'] ?></td> -->
                         <td><?php echo $meal['name'] ?></td>
                         <td><?php echo $meal['description'] ?></td>
+                        <td><?php echo $meal['vegitarian'] ?></td>
+                        <td><?php echo $meal['nuts'] ?></td>
                         <td><?php echo '€'; echo $meal['price']; echo ',- ' ?></td>
                         <td>
                             <a href="adminMenuEditMeal.php?editMeal=<?php echo $meal['id'] ?>">
@@ -94,7 +98,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="adminMenuLijstView.php?deleteMeal=<?php echo $meal['id'] ?>">
+                            <a href="adminMenuLijstViewFood.php?deleteMeal=<?php echo $meal['id'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-x-lg" viewBox="0 0 16 16">
                                     <path
