@@ -85,10 +85,32 @@ class adminDatabase
             }
         }
 
+        public function displayDataFoods()
+        {
+            $query = "SELECT * FROM food WHERE category_id = ".$_GET['catId'];
+            $result = $this->conn->query($query);
+            // echo $query;
+            if($result){
+                if ($result->num_rows > 0) {
+                    $data = array();
+                    while ($row = $result->fetch_assoc()) {
+
+                            $data[] = $row;
+                    }
+                    return $data;
+                }else{
+                    echo "No found records";
+                    }
+            }else {
+                var_dump($query, $_GET['catId']);
+                echo "error in ".$query."<br>".$this->conn->error;
+            }
+        }
+
         // Fetch categories records for show listing
         public function displayDataCategoriesDrinks()
         {
-            $query = "SELECT * FROM categories_foods";
+            $query = "SELECT * FROM categoriesdrinks";
             $result = $this->conn->query($query);
         if ($result->num_rows > 0) {
             $data = array();
