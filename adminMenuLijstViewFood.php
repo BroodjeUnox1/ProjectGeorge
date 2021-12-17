@@ -57,7 +57,7 @@
             <div class="col-12 headLijst" style="text-align:center">
                 <h1>Meals</h1>
             </div>
-            <a href="./adminMenuInsertDrinks.php">
+            <a href="./adminMenuInsertFood.php">
                 <button type="button" class="btn mt-3 btn-dark" style="font-size:25px;">Add new meal +</button>
             </a>
             <table class="table">

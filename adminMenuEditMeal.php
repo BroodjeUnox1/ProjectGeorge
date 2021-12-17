@@ -15,7 +15,7 @@
     var_dump($_POST);
     $mealObj->updateRecordFoods($_POST);
   }
-  var_dump($drink);
+//   var_dump($drink);
 ?>
 <!doctype html>
 <html lang="en">
@@ -77,19 +77,21 @@
 
                     <label for="exampleInputLijst" class="form-label mt-3">Vegetarian?</label>
                     <select name="vegitarian" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                        <option selected>Open this select menu</option>
-                        <option name="vegitarian" value="yes">yes</option>
-                        <option name="vegitarian" value="no">no</option>
+                        <!-- <option selected>Open this select menu</option> -->
+                        <option name="vegitarian" value="yes" <?php if($meal['vegitarian'] == 'yes'){echo 'selected';} ?>>yes</option>
+                        <option name="vegitarian" value="no" <?php if($meal['vegitarian'] == 'no'){echo 'selected';} ?>>no</option>
 
                     </select>
 
                     <label for="exampleInputLijst" class="form-label mt-3">Nuts?</label>
                     <select name="nuts" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                        <option selected>Open this select menu</option>
-                        <option name="nuts" value="yes">yes</option>
-                        <option name="nuts" value="no">no</option>
+                        <!-- <option selected>Open this select menu</option> -->
+                        <option name="nuts" value="yes" <?php if($meal['nuts'] == 'yes'){echo 'selected';} ?>>yes</option>
+                        <option name="nuts" value="no" <?php if($meal['nuts'] == 'no'){echo 'selected';} ?>>no</option>
 
                     </select>
+                    <!-- <?php if($meal['nuts'] == 'yes'){echo 'yes';} ?> -->
+                    <!-- <?php if($meal['nuts'] == 'no'){echo 'no';} ?> -->
 
                     <!-- <div class="form-check form-switch">
                         <input class="form-check-input" name="vegitarian" type="checkbox"
