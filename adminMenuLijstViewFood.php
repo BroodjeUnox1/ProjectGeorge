@@ -7,14 +7,14 @@
 
   // Delete record from table
   if(isset($_GET['deleteMeal']) && !empty($_GET['deleteMeal'])) {
-      var_dump($_GET);
+    //   var_dump($_GET);
       $mealId = (int)$_GET['deleteMeal'];
-        if ($mealObj->deleteRecord($mealId, 'food')) {
-            // header("Location: message.php?alert=delete_drink_succes");
-            echo 'yur';
+        if ($mealObj->deleteRecordFood($mealId)) {
+            header("Location: message.php?alert=delete_food_succes");
+            // echo 'yur';
         }else{
-            // header("Location: message.php?alert=delete_drink_error");
-            echo 'nur';
+            header("Location: message.php?alert=delete_food_error");
+            // echo 'nur';
         }
         exit;
     }

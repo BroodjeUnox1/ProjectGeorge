@@ -75,11 +75,11 @@ class adminDatabase
             $query="INSERT INTO categories_food(name) VALUES('$name')";
             $sql = $this->conn->query($query);
             if ($sql==true) {
-                // header("Location: message.php?alert=insert_category_succes");
-                echo 'yur';
+                header("Location: message.php?alert=insert_category_food_succes");
+                // echo 'yur';
             }else{
-                // header("Location: message.php?alert=insert_category_error");
-                echo 'nur';
+                header("Location: message.php?alert=insert_category_food_error");
+                // echo 'nur';
             }
         }
 
@@ -241,12 +241,12 @@ class adminDatabase
                 $query = "UPDATE food SET name = '$name', description = '$description', price = '$price', vegitarian = '$vegitarian', nuts = '$nuts' WHERE id = '$id'";
                 $sql = $this->conn->query($query);
                 if ($sql==true) {
-                    // header("Location:message.php?alert=update_drink_succes");
-                    echo 'yur';
+                    header("Location:message.php?alert=update_food_succes");
+                    // echo 'yur';
                 }else{
-                    // header("Location:message.php?alert=update_drink_error");
-                    echo 'nur';
-                    var_dump($query);
+                    header("Location:message.php?alert=update_food_error");
+                    // echo 'nur';
+                    // var_dump($query);
                 }
             }
 
@@ -257,9 +257,9 @@ class adminDatabase
         {
             $name = $this->conn->real_escape_string($_POST['uname']);
             $id = $this->conn->real_escape_string($_POST['id']);
-        if (!empty($id) && !empty($postData)) {
-            $query = "UPDATE categoriesdrinks SET name = '$name' WHERE id = '$id'";
-            $sql = $this->conn->query($query);
+            if (!empty($id) && !empty($postData)) {
+                $query = "UPDATE categoriesdrinks SET name = '$name' WHERE id = '$id'";
+                $sql = $this->conn->query($query);
             if ($sql==true) {
                 header("Location: message.php?alert=update_category_succes");
             }else{
@@ -274,15 +274,15 @@ class adminDatabase
         {
             $name = $this->conn->real_escape_string($_POST['name']);
             $id = $this->conn->real_escape_string($_POST['id']);
-        if (!empty($id) && !empty($postData)) {
-            $query = "UPDATE categories_food SET name = '$name' WHERE id = '$id'";
-            $sql = $this->conn->query($query);
+            if (!empty($id) && !empty($postData)) {
+                $query = "UPDATE categories_food SET name = '$name' WHERE id = '$id'";
+                $sql = $this->conn->query($query);
             if ($sql==true) {
-                // header("Location: message.php?alert=update_category_succes");
-                echo 'yur';
+                header("Location: message.php?alert=update_category_food_succes");
+                // echo 'yur';
             }else{
-                // header("Location: message.php?alert=update_category_error");
-                echo 'nur';
+                header("Location: message.php?alert=update_category_food_error");
+                // echo 'nur';
 
             }
             }
@@ -291,27 +291,40 @@ class adminDatabase
 
 
         // Delete drinks data from drinks table
-        public function deleteRecord($id, $table)
+        public function deleteRecord($id)
         {
-            $query = "DELETE FROM ".$table." WHERE id = $id";
+            $query = "DELETE FROM drinks WHERE id = $id";
             return $this->conn->query($query);
-        // if ($sql==true) {
-        //     header("Location: message.php?alert=delete_drink_succes");
-        // }else{
-        //     header("Location: message.php?alert=delete_drink_error");
-        // }
+        }
+
+        public function deleteRecordFood($id)
+        {
+            $query = "DELETE FROM food WHERE id = $id";
+            return $this->conn->query($query);
         }
 
         // Delete drinks data from categories table
-        public function deleteRecordCategoies($id, $table)
+        public function deleteRecordCategories($id)
         {
-            $query = "DELETE FROM ".$table." WHERE id = '$id'";
+            $query = "DELETE FROM categoriesdrinks WHERE id = '$id'";
             $sql = $this->conn->query($query);
         if ($sql==true) {
             // var_dump($sql);exit;
             header("Location: message.php?alert=delete_category_succes");
         }else{
             header("Location: message.php?alert=delete_category_error");
+            }
+        }
+
+        public function deleteRecordCategoriesFood($id)
+        {
+            $query = "DELETE FROM categories_food WHERE id = '$id'";
+            $sql = $this->conn->query($query);
+        if ($sql==true) {
+            // var_dump($sql);exit;
+            header("Location: message.php?alert=delete_category_food_succes");
+        }else{
+            header("Location: message.php?alert=delete_category_food_error");
             }
         }
 

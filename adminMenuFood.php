@@ -4,10 +4,10 @@
 
     if(isset($_GET['deleteCategory']) && !empty($_GET['deleteCategory'])) {
         $deleteCategory = $_GET['deleteCategory'];
-        if($categoriesFoodObj->deleteRecordCategoies($deleteCategory, 'categories_food')){
+        if($categoriesFoodObj->deleteRecordCategoriesFood($deleteCategory)){
             echo 'good';
         }else{
-            echo 'bad';
+            echo 'bads';
         }
         exit;
 

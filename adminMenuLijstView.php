@@ -9,7 +9,7 @@
   if(isset($_GET['deleteDrink']) && !empty($_GET['deleteDrink'])) {
       var_dump($_GET);
       $drinkId = (int)$_GET['deleteDrink'];
-        if ($drinksObj->deleteRecord($drinkId, 'drinks')) {
+        if ($drinksObj->deleteRecord($drinkId)) {
             header("Location: message.php?alert=delete_drink_succes");
         }else{
             header("Location: message.php?alert=delete_drink_error");
