@@ -35,6 +35,27 @@ class adminDatabase
                 header("Location:message.php?alert=insert_drink_error");
             }
         }
+
+        public function insertDataFood($post)
+        {
+            $name = $this->conn->real_escape_string($_POST['name']);
+            $description = $this->conn->real_escape_string($_POST['description']);
+            $price = $this->conn->real_escape_string($_POST['price']);
+            $category = $this->conn->real_escape_string($_POST['category']);
+            $vegitarian = $this->conn->real_escape_string($_POST['vegitarian']);
+            $nuts = $this->conn->real_escape_string($_POST['nuts']);
+            $query="INSERT INTO food(name, description, price, vegitarian, nuts, category_id) VALUES('$name','$description','$price', '$vegitarian', '$nuts', $category)";
+            $sql = $this->conn->query($query);
+            if ($sql==true) {
+                // header("Location:message.php?alert=insert_drink_succes");
+                echo 'yur';
+            }else{
+                var_dump($query, $sql);
+                // header("Location:message.php?alert=insert_drink_error");
+                echo 'nur';
+            }
+        }
+
         //insert data into categories table
         public function insertDataCategoriesDrinks($post)
         {

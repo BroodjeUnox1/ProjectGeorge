@@ -90,20 +90,6 @@
                         <option name="nuts" value="no" <?php if($meal['nuts'] == 'no'){echo 'selected';} ?>>no</option>
 
                     </select>
-                    <!-- <?php if($meal['nuts'] == 'yes'){echo 'yes';} ?> -->
-                    <!-- <?php if($meal['nuts'] == 'no'){echo 'no';} ?> -->
-
-                    <!-- <div class="form-check form-switch">
-                        <input class="form-check-input" name="vegitarian" type="checkbox"
-                            value="<?php echo $meal['vegitarian']; ?>" role="switch" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Meal is vegitarian</label>
-                    </div>
-
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" name="nuts" type="checkbox" value="<?php echo $meal['nuts']; ?>"
-                            role="switch" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Meal has nuts</label>
-                    </div> -->
                 </div>
 
 
@@ -111,7 +97,7 @@
                     <input type="hidden" name="id" value="<?php echo $meal["id"];?>">
                     <button type="submit" name="update" value="update" class="btn mt-3 float-end">Submit</button>
                 </a>
-                <a href="adminMenuLijstView.php?catId=<?php echo $meal['id'] ?>">
+                <a href="adminMenuLijstViewFood.php?catId=<?php echo $meal['id'] ?>">
                     <button type="cancel" class="btn mt-3 float-end">Annuleren</button>
                 </a>
             </form>
