@@ -43,8 +43,8 @@ class FoodMenu {
                 'name' => $food['name'],
                 'description' => $food['description'],
                 'price' => $food['price'],
-                'vegitarian?' => $food['vegitarian?'],
-                'nuts?' => $food['nuts?'],
+                'vegitarian' => $food['vegitarian'],
+                'nuts' => $food['nuts'],
             );
         }
         $this->categoriesFood = $formatArray;
@@ -61,8 +61,8 @@ class FoodMenu {
                     $html .= '<div class="food">';
                     $html .= '<h4>'. $food["name"].'</h4>';
                     $html .= '<span>'. $food["description"].'</span><br>';
-                    $html .= '<span>'. $food["vegitarian?"].'</span><br>';
-                    $html .= '<span>'. $food["nuts?"].'</span>';
+                    $html .= '<span> vegitarian: '. $food["vegitarian"].'</span><br>';
+                    $html .= '<span>nuts: '. $food["nuts"].'</span>';
                     $html .= '<p class="price">€'. $food["price"] .',-</p>';
                     $html .= '</div>';
                     $html .= '<br>';
