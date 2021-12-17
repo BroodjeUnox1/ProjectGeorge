@@ -3,20 +3,18 @@
 //var_dump($_GET); exit;
     // Include database file
   include 'class/adminDatabase.php';
-  $drinksObj = new adminDatabase();
+  $mealObj = new adminDatabase();
 
   // Delete record from table
-  if(isset($_GET['deleteDrink']) && !empty($_GET['deleteDrink'])) {
-      $drinkId = (int)$_GET['deleteDrink'];
-        if ($drinksObj->deleteRecord($drinkId)) {
-            header("Location: message.php?alert=delete_drink_succes");
+  if(isset($_GET['deleteMeal']) && !empty($_GET['deleteMeal'])) {
+      $mealId = (int)$_GET['deleteMeal'];
+        if ($mealObj->deleteRecordFood($mealId)) {
+            header("Location: message.php?alert=delete_food_succes");
         }else{
-            header("Location: message.php?alert=delete_drink_error");
+            header("Location: message.php?alert=delete_food_error");
         }
         exit;
     }
-    var_dump($_GET);
-    var_dump($_POST);exit;
 ?>
 <!doctype html>
 <html lang="en">
@@ -39,7 +37,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="./adminHome.php">Dashboard</a>
         <a href="./adminMenu.php">Menu Drinks</a>
-        <a href="#">Menu Foods</a>
+        <a href="./adminMenuFood.php">Menu Foods</a>
     </div>
     <!-- <span onclick="openNav()">open</span> -->
 
@@ -52,10 +50,10 @@
     <div class="container" id="main">
         <div class="row">
             <div class="col-12 headLijst" style="text-align:center">
-                <h1>Drinks</h1>
+                <h1>Meals</h1>
             </div>
-            <a href="./adminMenuInsertDrinks.php">
-                <button type="button" class="btn mt-3 btn-dark" style="font-size:25px;">Add new drink +</button>
+            <a href="./adminMenuInsertFood.php">
+                <button type="button" class="btn mt-3 btn-dark" style="font-size:25px;">Add new meal +</button>
             </a>
             <table class="table">
                 <thead>
@@ -63,6 +61,8 @@
                         <!-- <th scope="col">ID</th> -->
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
+                        <th scope="col">Vegitarian?</th>
+                        <th scope="col">Nuts?</th>
                         <th scope="col">Price</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -70,17 +70,19 @@
                 </thead>
                 <tbody>
                     <?php
-                    $drinks = $drinksObj->displayDataDrinks();
-                    if(is_array($drinks) || is_object($drinks)){
-                        foreach ($drinks as $id => $drink) {
+                    $meals = $mealObj->displayDataFoods();
+                    if(is_array($meals) || is_object($meals)){
+                        foreach ($meals as $id => $meal) {
                 ?>
                     <tr>
-                        <!-- <td><?php echo $drink['id'] ?></td> -->
-                        <td><?php echo $drink['name'] ?></td>
-                        <td><?php echo $drink['description'] ?></td>
-                        <td><?php echo '€'; echo $drink['price']; echo ',- ' ?></td>
+                        <!-- <td><?php echo $meal['id'] ?></td> -->
+                        <td><?php echo $meal['name'] ?></td>
+                        <td><?php echo $meal['description'] ?></td>
+                        <td><?php echo $meal['vegitarian'] ?></td>
+                        <td><?php echo $meal['nuts'] ?></td>
+                        <td><?php echo '€'; echo $meal['price']; echo ',- ' ?></td>
                         <td>
-                            <a href="adminMenuEditDrink.php?editDrink=<?php echo $drink['id'] ?>">
+                            <a href="adminMenuEditMeal.php?editMeal=<?php echo $meal['id'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path
@@ -91,7 +93,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="adminMenuLijstView.php?deleteDrink=<?php echo $drink['id'] ?>">
+                            <a href="adminMenuLijstViewFood.php?deleteMeal=<?php echo $meal['id'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-x-lg" viewBox="0 0 16 16">
                                     <path

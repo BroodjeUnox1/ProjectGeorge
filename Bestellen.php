@@ -1,8 +1,8 @@
-<?php 
+<?php
     session_start();
     include "./class/bestelClass.php";
     $test= new Bestel();
-    
+
     if(isset($_POST["add"])) {
         // print($_POST['currency']);
         // print($_POST['name']);
@@ -63,7 +63,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"
                         onclick="toggleUpdate()">
                         <span aria-hidden="true">&times;</span>
-                    </button>             
+                    </button>
                 </div>
                 <div class="modal-body" style="max-height: 80vh; overflow-y: scroll;">
                 </div>

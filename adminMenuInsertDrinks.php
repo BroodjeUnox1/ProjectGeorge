@@ -1,4 +1,13 @@
 <?php
+    // Include database file
+  include 'class/adminDatabase.php';
+  $drinksObj = new adminDatabase();
+  $categoriesObj = new adminDatabase();
+
+  // Insert Record in drinks table
+  if(isset($_POST['submit'])) {
+    $drinksObj->insertDataDrinks($_POST);
+  }
 
 ?>
 <!doctype html>
@@ -20,10 +29,8 @@
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="./adminHome.php">Dashboard</a>
-    <a href="./adminMenu.php">Menu</a>
-    <a href="#">Bestellingen</a>
-    <a href="#">Reserveringen</a>
-    <a href="#">Gast gegevens</a>
+    <a href="./adminMenu.php">Menu Drinks</a>
+    <a href="#">Menu Foods</a>
   </div>
   <!-- <span onclick="openNav()">open</span> -->
 
@@ -36,44 +43,41 @@
   <div class="container" id="main">
     <div class="row">
       <div class="col-12 headLijst" style="text-align:center">
-        <h1>Edit gerecht</h1>
+        <h1>Insert drink</h1>
       </div>
 
-      <form class="editForm mb-3 mt-3">
-        <div class=" ">
-          <label for="exampleInputGerecht" class="form-label">Naam gerecht</label>
-          <input type="text" class="form-control" id="exampleInputLijst" aria-describedby="lijstHelp">
-          <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-        </div>
-        <div class="mt-3">
-          <label for="exampleInputLijst" class="form-label">Omschrijving</label>
-          <input type="text" class="form-control" id="exampleInputLijst" aria-describedby="lijstHelp">
-          <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-        </div>
-        <div class="mt-3">
-          <label for="exampleInputLijst" class="form-label">Prijs</label>
-          <input type="text" class="form-control" id="exampleInputLijst" aria-describedby="lijstHelp">
-          <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-        </div>
+      <form action="adminMenuInsertDrinks.php" method="POST" class="editForm mb-3 mt-3">
+      <div class="container">
+        <form action="test2.php" method="POST" class="editForm mb-3 mt-3">
+            <div class=" ">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" class="form-control" id="exampleInputLijst" aria-describedby="lijstHelp">
+            </div>
+            <div class="mt-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" name="description" class="form-control" id="exampleInputLijst"
+                    aria-describedby="lijstHelp">
+            </div>
+            <div class="mt-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" name="price" class="form-control" id="exampleInputLijst"
+                    aria-describedby="lijstHelp">
+            </div>
 
-        <label for="exampleInputLijst" class="form-label mt-3">Vegetarisch?</label>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          <label class="form-check-label" for="flexSwitchCheckDefault">Gerecht is vegetarisch</label>
-        </div>
-        
-        <label for="exampleInputLijst" class="form-label mt-3">Noten?</label>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          <label class="form-check-label" for="flexSwitchCheckDefault">Gerecht is vegetarisch</label>
-        </div>
+            <select name="category" class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <?php
+                    $category = $categoriesObj->displayDataCategoriesDrinks();
+                    foreach ($category as $category) {
+                ?>
+                <option name="category" value="<?php echo $category['id']?>"><?php echo $category['name']?></option>
+                <?php } ?>
+            </select>
 
-        <a href="adminMenuLijstView.php">
-          <button type="submit" class="btn mt-3 float-end">Submit</button>
-        </a>
-        <a href="adminMenuLijstView.php">
-          <button type="cancel" class="btn mt-3 float-end">Annuleren</button>
-        </a>
+            <button type="submit" name="submit" class="btn mt-3 float-end" value="submit">Submit</button>
+            <a href="adminMenuLijstView.php?catId=">
+                <button type="cancel" class="btn mt-3 float-end">Annuleren</button>
+            </a>
       </form>
     </div>
   </div>

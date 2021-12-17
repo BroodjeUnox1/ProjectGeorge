@@ -1,18 +1,12 @@
 <?php
-    include './class/adminDatabase.php';
-    $categoryObj = new adminDatabase();
+    // Include database file
+  include 'class/adminDatabase.php';
+  $categoriesObj = new adminDatabase();
 
-    //edit record
-    if(isset($_GET['editCategory']) && !empty($_GET['editCategory'])) {
-        $editCategory = $_GET['editCategory'];
-        $category = $categoryObj->displayRecordByIdCategoriesDrinks($editCategory);
-    }
-
-
-    //update record
-    if(isset($_POST['update'])){
-        $categoryObj->updateRecordCategoriesDrinks($_POST);
-    }
+  // Insert Record in drinks table
+  if(isset($_POST['submit'])) {
+    $categoriesObj->insertDataCategoriesDrinks($_POST);
+  }
 ?>
 <!doctype html>
 <html lang="en">
@@ -47,20 +41,21 @@
     <div class="container" id="main">
         <div class="row">
             <div class="col-12 headLijst" style="text-align:center">
-                <h1>Edit menu lijst</h1>
+                <h1>Insert category</h1>
             </div>
-            <form action="adminMenuEditLijst.php" method="POST">
-                <div class="mb-3 mt-3 editForm">
-                    <label for="exampleInputLijst" class="form-label">Naam Lijst</label>
-                    <input type="text" class="form-control" name="uname" value="<?php echo $category['name'];?>" required>
-                    <a href="./adminMenu.php">
-                        <input type="hidden" name="id" value="<?php echo $category["id"];?>">
-                        <button type="submit" name="update" value="update" class="btn mt-3 float-end">Update</button>
-                    </a>
-                    <a href="adminMenuLijstView.php">
-                        <button type="cancel" class="btn mt-3 float-end">Annuleren</button>
-                    </a>
+
+            <form action="adminMenuInsertLijst.php" method="POST" class="editForm mb-3 mt-3">
+                <div class=" ">
+                    <label for="name" class="form-label">Category name:</label>
+                    <input type="text" name="name" class="form-control" id="exampleInputLijst"
+                        aria-describedby="lijstHelp">
                 </div>
+
+                <button type="submit" name="submit" class="btn mt-3 float-end" value="submit">Save</button>
+
+                <a href="adminMenuLijstView.php">
+                    <button type="cancel" class="btn mt-3 float-end">Cancel</button>
+                </a>
             </form>
         </div>
     </div>

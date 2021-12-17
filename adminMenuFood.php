@@ -1,22 +1,17 @@
 <?php
+    include './class/adminDatabase.php';
+    $categoriesFoodObj = new adminDatabase();
 
-//var_dump($_GET); exit;
-    // Include database file
-  include 'class/adminDatabase.php';
-  $drinksObj = new adminDatabase();
-
-  // Delete record from table
-  if(isset($_GET['deleteDrink']) && !empty($_GET['deleteDrink'])) {
-      $drinkId = (int)$_GET['deleteDrink'];
-        if ($drinksObj->deleteRecord($drinkId)) {
-            header("Location: message.php?alert=delete_drink_succes");
+    if(isset($_GET['deleteCategory']) && !empty($_GET['deleteCategory'])) {
+        $deleteCategory = $_GET['deleteCategory'];
+        if($categoriesFoodObj->deleteRecordCategoriesFood($deleteCategory)){
+            echo 'good';
         }else{
-            header("Location: message.php?alert=delete_drink_error");
+            echo 'bads';
         }
         exit;
+
     }
-    var_dump($_GET);
-    var_dump($_POST);exit;
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,9 +24,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-
     <link rel="stylesheet" type="text/css" href="css/adminCss.css">
-    <title>Dashboard || Home</title>
+    <title>Dashboard || Categorieen</title>
 </head>
 
 <body>
@@ -39,7 +33,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="./adminHome.php">Dashboard</a>
         <a href="./adminMenu.php">Menu Drinks</a>
-        <a href="#">Menu Foods</a>
+        <a href="./adminMenuFood.php">Menu Foods</a>
     </div>
     <!-- <span onclick="openNav()">open</span> -->
 
@@ -52,35 +46,43 @@
     <div class="container" id="main">
         <div class="row">
             <div class="col-12 headLijst" style="text-align:center">
-                <h1>Drinks</h1>
+                <h1>Foods Categories</h1>
             </div>
-            <a href="./adminMenuInsertDrinks.php">
-                <button type="button" class="btn mt-3 btn-dark" style="font-size:25px;">Add new drink +</button>
+            <a href="./adminInsertLijstFood.php">
+                <button type="button" class="btn mt-3 btn-dark" style="font-size:25px;">Add new category +</button>
             </a>
+
             <table class="table">
                 <thead>
                     <tr>
-                        <!-- <th scope="col">ID</th> -->
-                        <th scope="col">Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Price</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">View meals</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $drinks = $drinksObj->displayDataDrinks();
-                    if(is_array($drinks) || is_object($drinks)){
-                        foreach ($drinks as $id => $drink) {
-                ?>
+                        $categoryfoods = $categoriesFoodObj->displayDataCategoriesFoods();
+                        foreach ($categoryfoods as $id => $category) {
+                    ?>
                     <tr>
-                        <!-- <td><?php echo $drink['id'] ?></td> -->
-                        <td><?php echo $drink['name'] ?></td>
-                        <td><?php echo $drink['description'] ?></td>
-                        <td><?php echo '€'; echo $drink['price']; echo ',- ' ?></td>
+                        <td><strong><?php echo $category['name']; ?></strong></td>
                         <td>
-                            <a href="adminMenuEditDrink.php?editDrink=<?php echo $drink['id'] ?>">
+                            <a href="adminMenuLijstViewFood.php?catId=<?php echo $category['id'] ?>">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-eye" viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                    <path
+                                        d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                </svg>
+                            </a>
+                        </td>
+                        <td>
+
+                            <a href="adminMenuEditLijstFood.php?editCategory=<?php echo $category['id'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path
@@ -91,16 +93,18 @@
                             </a>
                         </td>
                         <td>
-                            <a href="adminMenuLijstView.php?deleteDrink=<?php echo $drink['id'] ?>">
+                            <a href="adminMenuFood.php?deleteCategory=<?php echo $category['id'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-x-lg" viewBox="0 0 16 16">
+                                    class="bi bi-trash" viewBox="0 0 16 16">
                                     <path
-                                        d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
+                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                    <path fill-rule="evenodd"
+                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                                 </svg>
                             </a>
                         </td>
                     </tr>
-                    <?php }}?>
+                    <?php }; ?>
                 </tbody>
             </table>
         </div>
