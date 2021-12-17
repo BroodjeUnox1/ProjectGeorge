@@ -69,7 +69,7 @@
           <input type="hidden" name="id" value="<?php echo $drink["id"];?>">
           <button type="submit" name="update" value="update" class="btn mt-3 float-end">Submit</button>
         </a>
-        <a href="adminMenuLijstView.php?catId=<?php echo $drink['id'] ?>">
+        <a>
           <button type="cancel" class="btn mt-3 float-end">Annuleren</button>
         </a>
       </form>

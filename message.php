@@ -48,37 +48,37 @@
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     Deletion of the category has been done succesfully.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=$id");
         break;
         case "delete_drink_error":
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     Deletion of the category has been done unsuccesfully. Contact admin for more information.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=$id");
         break;
         case "update_drink_succes":
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     Update of the drink was succesfully updated.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=$id");
         break;
         case "update_drink_error":
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     Update of the drink was unsuccesful. Contact the admin for more information.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=$id");
         break;
         case "insert_drink_succes":
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     insert of the drink was succesful.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=$id");
         break;
         case "insert_drink_error":
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     insert of the drink was unsuccesful. Contact the admin for more information.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstView.php?catId=$id");
         break;
 
         //categories food alert
@@ -124,36 +124,36 @@
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     insert of the food was succesful.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstViewFood.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstViewFood.php?catId=$id");
         break;
         case "insert_food_error":
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     insert of the food was unsuccesful. Contact the admin for more information.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstViewFood.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstViewFood.php?catId=$id");
         break;
         case "update_food_succes":
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     Update of the food was succesfully updated.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstViewFood.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstViewFood.php?catId=$id");
         break;
         case "update_food_error":
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     Update of the food was unsuccesful. Contact the admin for more information.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstViewFood.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstViewFood.php?catId=$id");
         break;
         case "delete_food_succes":
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     Deletion of the food has been done succesfully.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstViewFood.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstViewFood.php?catId=$id");
         break;
         case "delete_food_error":
             echo '<div class="alert alert-success mt-4 w-50 mx-auto text-center" role="alert">
                     Deletion of the food has been done unsuccesfully. Contact admin for more information.
                   </div>';
-            header("Refresh: 3.5; ./adminMenuLijstViewFood.php?catId=".$id);
+            header("Refresh: 3.5; ./adminMenuLijstViewFood.php?catId=$id");
         break;
     }
