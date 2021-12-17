@@ -49,7 +49,6 @@
                     <label for="name" class="form-label">Category name:</label>
                     <input type="text" name="name" class="form-control" id="exampleInputLijst"
                         aria-describedby="lijstHelp">
-                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                 </div>
 
                 <button type="submit" name="submit" class="btn mt-3 float-end" value="submit">Save</button>

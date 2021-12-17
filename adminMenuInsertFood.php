@@ -6,7 +6,6 @@
 
   // Insert Record in drinks table
   if(isset($_POST['submit'])) {
-    // var_dump($_POST); exit;
     $foodObj->insertDataFood($_POST);
   }
 
@@ -54,19 +53,16 @@
                             <label for="name" class="form-label">Name</label>
                             <input type="text" name="name" class="form-control" id="exampleInputLijst"
                                 aria-describedby="lijstHelp">
-                            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                         </div>
                         <div class="mt-3">
                             <label for="description" class="form-label">Description</label>
                             <input type="text" name="description" class="form-control" id="exampleInputLijst"
                                 aria-describedby="lijstHelp">
-                            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                         </div>
                         <div class="mt-3">
                             <label for="price" class="form-label">Price</label>
                             <input type="text" name="price" class="form-control" id="exampleInputLijst"
                                 aria-describedby="lijstHelp">
-                            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                         </div>
 
                         <label for="exampleInputLijst" class="form-label mt-3">Vegetarian?</label>

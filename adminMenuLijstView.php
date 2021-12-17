@@ -7,7 +7,6 @@
 
   // Delete record from table
   if(isset($_GET['deleteDrink']) && !empty($_GET['deleteDrink'])) {
-      var_dump($_GET);
       $drinkId = (int)$_GET['deleteDrink'];
         if ($drinksObj->deleteRecord($drinkId)) {
             header("Location: message.php?alert=delete_drink_succes");
@@ -17,7 +16,6 @@
         exit;
     }
     var_dump($_GET);
-    // require_once 'adminMenuEditLijst.php';
 ?>
 <!doctype html>
 <html lang="en">

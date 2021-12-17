@@ -7,15 +7,12 @@
   if (isset($_GET['editMeal']) && !empty($_GET['editMeal'])){
       $editMeal = $_GET['editMeal'];
       $meal = $mealObj->displayRecordByIdFoods($editMeal);
-    //   var_dump($meal);
   }
 
   //update record
   if(isset($_POST['update'])){
-    var_dump($_POST);
     $mealObj->updateRecordFoods($_POST);
   }
-//   var_dump($drink);
 ?>
 <!doctype html>
 <html lang="en">
@@ -59,25 +56,21 @@
                         <label for="exampleInputGerecht" class="form-label">Name:</label>
                         <input type="text" class="form-control" name="name" value="<?php echo $meal['name'] ?>"
                             id="exampleInputLijst" aria-describedby="lijstHelp">
-                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mt-3">
                         <label for="exampleInputLijst" class="form-label">Description</label>
                         <input type="text" class="form-control" name="description"
                             value="<?php echo $meal['description'] ?> " id="exampleInputLijst"
                             aria-describedby="lijstHelp">
-                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mt-3">
                         <label for="exampleInputLijst" class="form-label">Price</label>
                         <input type="decimal" class="form-control" name="price" value="<?php echo $meal['price']?> "
                             id="exampleInputLijst" aria-describedby="lijstHelp">
-                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
 
                     <label for="exampleInputLijst" class="form-label mt-3">Vegetarian?</label>
                     <select name="vegitarian" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                        <!-- <option selected>Open this select menu</option> -->
                         <option name="vegitarian" value="yes" <?php if($meal['vegitarian'] == 'yes'){echo 'selected';} ?>>yes</option>
                         <option name="vegitarian" value="no" <?php if($meal['vegitarian'] == 'no'){echo 'selected';} ?>>no</option>
 
@@ -85,7 +78,6 @@
 
                     <label for="exampleInputLijst" class="form-label mt-3">Nuts?</label>
                     <select name="nuts" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                        <!-- <option selected>Open this select menu</option> -->
                         <option name="nuts" value="yes" <?php if($meal['nuts'] == 'yes'){echo 'selected';} ?>>yes</option>
                         <option name="nuts" value="no" <?php if($meal['nuts'] == 'no'){echo 'selected';} ?>>no</option>
 

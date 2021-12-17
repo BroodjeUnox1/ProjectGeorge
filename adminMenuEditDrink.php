@@ -7,15 +7,12 @@
   if (isset($_GET['editDrink']) && !empty($_GET['editDrink'])){
       $editDrink = $_GET['editDrink'];
       $drink = $drinkObj->displayRecordByIdDrinks($editDrink);
-      var_dump($drink);
   }
 
   //update record
   if(isset($_POST['update'])){
-    var_dump($_POST);
     $drinkObj->updateRecordDrinks($_POST);
   }
-  var_dump($drink, $_GET);
 ?>
 <!doctype html>
 <html lang="en">
@@ -58,32 +55,16 @@
           <div>
               <label for="exampleInputGerecht" class="form-label">Name:</label>
               <input type="text" class="form-control" name="name" value="<?php echo $drink['name'] ?>" id="exampleInputLijst" aria-describedby="lijstHelp">
-              <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
             </div>
             <div class="mt-3">
               <label for="exampleInputLijst" class="form-label">Description</label>
               <input type="text" class="form-control" name="description" value="<?php echo $drink['description'] ?> "id="exampleInputLijst" aria-describedby="lijstHelp">
-              <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
             </div>
             <div class="mt-3">
               <label for="exampleInputLijst" class="form-label">Price</label>
               <input type="decimal" class="form-control" name="price" value="<?php echo $drink['price']?> "id="exampleInputLijst" aria-describedby="lijstHelp">
-              <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
             </div>
         </div>
-
-        <!-- <label for="exampleInputLijst" class="form-label mt-3">Vegetarisch?</label>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          <label class="form-check-label" for="flexSwitchCheckDefault">Gerecht is vegetarisch</label>
-        </div>
-
-        <label for="exampleInputLijst" class="form-label mt-3">Noten?</label>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          <label class="form-check-label" for="flexSwitchCheckDefault">Gerecht is vegetarisch</label>
-        </div> -->
-
         <a>
           <input type="hidden" name="id" value="<?php echo $drink["id"];?>">
           <button type="submit" name="update" value="update" class="btn mt-3 float-end">Submit</button>

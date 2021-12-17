@@ -47,12 +47,10 @@ class adminDatabase
             $query="INSERT INTO food(name, description, price, vegitarian, nuts, category_id) VALUES('$name','$description','$price', '$vegitarian', '$nuts', $category)";
             $sql = $this->conn->query($query);
             if ($sql==true) {
-                // header("Location:message.php?alert=insert_drink_succes");
-                echo 'yur';
+                header("Location:message.php?alert=insert_food_succes");
             }else{
                 var_dump($query, $sql);
-                // header("Location:message.php?alert=insert_drink_error");
-                echo 'nur';
+                header("Location:message.php?alert=insert_food_error");
             }
         }
 
@@ -76,10 +74,8 @@ class adminDatabase
             $sql = $this->conn->query($query);
             if ($sql==true) {
                 header("Location: message.php?alert=insert_category_food_succes");
-                // echo 'yur';
             }else{
                 header("Location: message.php?alert=insert_category_food_error");
-                // echo 'nur';
             }
         }
 
@@ -101,7 +97,6 @@ class adminDatabase
                     echo "No found records";
                     }
             }else {
-                var_dump($query, $_GET['catId']);
                 echo "error in ".$query."<br>".$this->conn->error;
             }
         }
@@ -123,7 +118,6 @@ class adminDatabase
                     echo "No found records";
                     }
             }else {
-                var_dump($query, $_GET['catId']);
                 echo "error in ".$query."<br>".$this->conn->error;
             }
         }
@@ -242,11 +236,8 @@ class adminDatabase
                 $sql = $this->conn->query($query);
                 if ($sql==true) {
                     header("Location:message.php?alert=update_food_succes");
-                    // echo 'yur';
                 }else{
                     header("Location:message.php?alert=update_food_error");
-                    // echo 'nur';
-                    // var_dump($query);
                 }
             }
 
@@ -279,10 +270,8 @@ class adminDatabase
                 $sql = $this->conn->query($query);
             if ($sql==true) {
                 header("Location: message.php?alert=update_category_food_succes");
-                // echo 'yur';
             }else{
                 header("Location: message.php?alert=update_category_food_error");
-                // echo 'nur';
 
             }
             }
@@ -309,7 +298,6 @@ class adminDatabase
             $query = "DELETE FROM categoriesdrinks WHERE id = '$id'";
             $sql = $this->conn->query($query);
         if ($sql==true) {
-            // var_dump($sql);exit;
             header("Location: message.php?alert=delete_category_succes");
         }else{
             header("Location: message.php?alert=delete_category_error");
@@ -321,7 +309,6 @@ class adminDatabase
             $query = "DELETE FROM categories_food WHERE id = '$id'";
             $sql = $this->conn->query($query);
         if ($sql==true) {
-            // var_dump($sql);exit;
             header("Location: message.php?alert=delete_category_food_succes");
         }else{
             header("Location: message.php?alert=delete_category_food_error");

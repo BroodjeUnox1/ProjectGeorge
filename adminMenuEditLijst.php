@@ -53,7 +53,6 @@
                 <div class="mb-3 mt-3 editForm">
                     <label for="exampleInputLijst" class="form-label">Naam Lijst</label>
                     <input type="text" class="form-control" name="uname" value="<?php echo $category['name'];?>" required>
-                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     <a href="./adminMenu.php">
                         <input type="hidden" name="id" value="<?php echo $category["id"];?>">
                         <button type="submit" name="update" value="update" class="btn mt-3 float-end">Update</button>

@@ -12,7 +12,6 @@
         exit;
 
     }
-    // $menuLijst = new MenuLijst();
 ?>
 <!doctype html>
 <html lang="en">
