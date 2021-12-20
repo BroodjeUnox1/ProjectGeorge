@@ -1,6 +1,5 @@
 <?php
 
-//var_dump($_GET); exit;
     // Include database file
   include 'class/adminDatabase.php';
   $drinksObj = new adminDatabase();
@@ -13,10 +12,7 @@
         }else{
             header("Location: message.php?alert=delete_drink_error");
         }
-        exit;
     }
-    var_dump($_GET);
-    var_dump($_POST);exit;
 ?>
 <!doctype html>
 <html lang="en">
