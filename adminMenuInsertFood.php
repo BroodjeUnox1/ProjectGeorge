@@ -30,7 +30,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="./adminHome.php">Dashboard</a>
         <a href="./adminMenu.php">Menu Drinks</a>
-        <a href="#">Menu Foods</a>
+        <a href="./adminMenuFood.php">Menu Foods</a>
     </div>
     <!-- <span onclick="openNav()">open</span> -->
 

@@ -31,11 +31,11 @@
     <div class="container" id="main">
         <div class="row dashboard">
             <div class="col-12 card border-dark">
-                <h1>Welcome back {{ username }}!</h1>
+                <h1>Welcome back!</h1>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                 <div class="card dashboardCard">
-                    <img src="https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/Happy-Test-Screen-01-825x510.png"
+                    <img src="./img/claudiu-pusuc-wgc8cebphja-unsplash.jpg"
                         class="card-img-top" alt="...">
                     <div class="card-body" >
                         <h5 class="card-title">Menu Drinks</h5>
@@ -46,7 +46,7 @@
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                 <div class="card dashboardCard">
-                    <img src="https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/Happy-Test-Screen-01-825x510.png"
+                    <img src="./img/fooood-at-the-food-department.jpg"
                         class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Menu Foods</h5>
